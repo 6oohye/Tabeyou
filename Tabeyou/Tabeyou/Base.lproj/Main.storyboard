@@ -12,7 +12,7 @@
         <!--ホーム-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
         <!--探す-->
         <scene sceneID="0Mv-n0-Pd5">
             <objects>
-                <viewController id="TJJ-7e-OjS" sceneMemberID="viewController">
+                <viewController id="TJJ-7e-OjS" customClass="SearchViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7S-r0-E19">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
         <!--マイリスト-->
         <scene sceneID="fLs-u6-tPG">
             <objects>
-                <viewController id="zE9-h4-ZbO" sceneMemberID="viewController">
+                <viewController id="zE9-h4-ZbO" customClass="BookmarkViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TY5-LN-jYd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
