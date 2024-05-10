@@ -13,6 +13,8 @@
 		E82018402BEDF686009ECDAE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820183F2BEDF686009ECDAE /* SearchViewModel.swift */; };
 		E82018422BEDF690009ECDAE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018412BEDF690009ECDAE /* HomeViewModel.swift */; };
 		E82018442BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018432BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift */; };
+		E82018472BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018462BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift */; };
+		E82018492BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018482BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift */; };
 		E86C4C092BEB523F0004F69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C082BEB523F0004F69C /* AppDelegate.swift */; };
 		E86C4C0B2BEB523F0004F69C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0A2BEB523F0004F69C /* SceneDelegate.swift */; };
 		E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0C2BEB523F0004F69C /* HomeViewController.swift */; };
@@ -29,6 +31,8 @@
 		E820183F2BEDF686009ECDAE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E82018412BEDF690009ECDAE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E82018432BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		E82018462BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		E82018482BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
 		E86C4C052BEB523F0004F69C /* Tabeyou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabeyou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C4C082BEB523F0004F69C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E86C4C0A2BEB523F0004F69C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				E82018432BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift */,
+				E82018462BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift */,
+				E82018482BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E820183E2BEDF648009ECDAE /* BookmarkViewModel.swift in Sources */,
+				E82018472BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift in Sources */,
 				E82018442BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift in Sources */,
+				E82018492BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift in Sources */,
 				E82018402BEDF686009ECDAE /* SearchViewModel.swift in Sources */,
 				E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */,
 				E82018422BEDF690009ECDAE /* HomeViewModel.swift in Sources */,
