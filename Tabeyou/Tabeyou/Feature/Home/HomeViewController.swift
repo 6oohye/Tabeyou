@@ -7,16 +7,14 @@
 
 import UIKit
 
-
 class HomeViewController: UIViewController {
-    enum Section{
+    enum Section {
         case banner
     }
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, UIImage>?
-    
     private var compositinalLayout: UICollectionViewCompositionalLayout = {
         let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -48,11 +46,11 @@ class HomeViewController: UIViewController {
         
         collectionView.collectionViewLayout = compositinalLayout
         
+        // Start timer after collectionView is set up
         startTimer()
-        
     }
+
     
-    //MARK: -バナー自動スライドを実装
     private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
@@ -65,9 +63,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Invalidate timer to prevent memory leaks
         timer?.invalidate()
         timer = nil
     }
 }
-
-
