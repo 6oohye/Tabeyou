@@ -47,6 +47,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="391" height="165"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="9lQ-xl-zbu" id="GmS-Sr-Wta"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
