@@ -124,6 +124,6 @@ class HomeViewController: UIViewController {
 }
 
 
-#Preview{
-    UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
-}
+//#Preview{
+//    UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
+//}
