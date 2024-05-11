@@ -109,7 +109,6 @@
                                             <outlet property="button300m" destination="Z9g-Ec-o7E" id="Qdu-vq-QTV"/>
                                             <outlet property="button500m" destination="qYf-4l-Ywj" id="hBu-c2-BSa"/>
                                             <outlet property="button5km" destination="zdB-iO-kTn" id="Fpo-Xz-02O"/>
-                                            <outlet property="containerView" destination="bEY-2u-gg9" id="YTS-gg-OkW"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeRestaurantCollectionViewCell" id="YWP-f6-ETT" customClass="HomeRestaurantCollectionViewCell" customModule="Tabeyou" customModuleProvider="target">

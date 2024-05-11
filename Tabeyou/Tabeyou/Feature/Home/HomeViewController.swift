@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     enum Section: Int{
         case banner
+        case button
         case restaurantList
     }
     
@@ -31,6 +32,17 @@ class HomeViewController: UIViewController {
                 
                 let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging
+                return section
+                
+            case .button:
+                let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+                let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
+                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
+                section.contentInsets = .init(top: 20, leading: 0, bottom: 20, trailing: 0)
                 return section
                 
             case .restaurantList:
@@ -69,6 +81,12 @@ class HomeViewController: UIViewController {
                 cell.setViewModel(viewModel)
                 return cell
                 
+            case .button:
+                guard let viewModel = viewModel as? HomeButtonCollectionViewCellViewModel,
+                      let cell: HomeButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {return .init()}
+                cell.setViewModel(viewModel)
+                return cell
+                
             case .restaurantList:
                 guard let viewModel = viewModel as? HomeRestaurantCollectionViewCellViewModel,
                       let cell: HomeRestaurantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeRestaurantCollectionViewCell", for: indexPath) as? HomeRestaurantCollectionViewCell else {return .init()}
@@ -88,6 +106,9 @@ class HomeViewController: UIViewController {
                               HomeBannerCollectionViewCellViewModel(bannerImage: UIImage(resource: .banner2)),
                               HomeBannerCollectionViewCellViewModel(bannerImage: UIImage(resource: .banner3))
                              ], toSection: .banner)
+        
+        snapShot.appendSections([.button])
+        snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
         
         snapShot.appendSections([.restaurantList])
         snapShot.appendItems([
