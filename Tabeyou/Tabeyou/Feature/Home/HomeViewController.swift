@@ -19,52 +19,8 @@ class HomeViewController: UIViewController {
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     
-    private var compositinalLayout: UICollectionViewCompositionalLayout = {
-        UICollectionViewCompositionalLayout { section, _ in
-            switch Section(rawValue: section){
-                
-            case .banner:
-                let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-                let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(165 / 393))
-                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .groupPaging
-                return section
-                
-            case .button:
-                let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-                let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
-                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
-                section.contentInsets = .init(top: 20, leading: 0, bottom: 20, trailing: 0)
-                return section
-                
-            case .restaurantList:
-                let itemSize : NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2), heightDimension: .estimated(277))
-                let item : NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = .init(top: 0, leading: 2.5, bottom: 0, trailing: 2.5)
-                
-                let groupSize : NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(277))
-                let group : NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-              
-                let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
-                section.orthogonalScrollingBehavior = .none
-                section.contentInsets = .init(top: 40, leading: 19 - 2.5, bottom: 0, trailing: 19 - 2.5)
-                section.interGroupSpacing = 10
-                return section
-                
-            case .none: return nil
-            }
-        }
-      
-    }()
+    private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
+   
     
     private var timer: Timer?
     private var currentIndex = 0
@@ -72,33 +28,54 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, viewModel in
+        setDataSource()
+        applySnapShot()
+        collectionView.collectionViewLayout = compositinalLayout
+        startTimer()
+    }
+    
+    //MARK: - CompositionalLayout
+    private static func setCompositionalLayout() -> UICollectionViewCompositionalLayout{
+        UICollectionViewCompositionalLayout { section, _ in
+            switch Section(rawValue: section){
+                
+            case .banner:
+                return HomeBannerCollectionViewCell.bannerLayout()
+                
+            case .button:
+                return HomeButtonCollectionViewCell.buttonLayout()
+                
+            case .restaurantList:
+                return  HomeRestaurantCollectionViewCell.restaurantListLayout()
+                
+            case .none: return nil
+            }
+        }
+    }
+    
+    //MARK: - DataSource
+    private func setDataSource(){
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [weak self] collectionView, indexPath, viewModel in
             switch Section(rawValue: indexPath.section){
                 
             case .banner:
-                guard let viewModel = viewModel as? HomeBannerCollectionViewCellViewModel,
-                      let cell: HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBannerCollectionViewCell", for: indexPath) as? HomeBannerCollectionViewCell else {return .init()}
-                cell.setViewModel(viewModel)
-                return cell
+                return self?.bannerCell(collectionView, indexPath, viewModel)
                 
             case .button:
-                guard let viewModel = viewModel as? HomeButtonCollectionViewCellViewModel,
-                      let cell: HomeButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {return .init()}
-                cell.setViewModel(viewModel)
-                return cell
+                return self?.buttonCell(collectionView, indexPath, viewModel)
                 
             case .restaurantList:
-                guard let viewModel = viewModel as? HomeRestaurantCollectionViewCellViewModel,
-                      let cell: HomeRestaurantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeRestaurantCollectionViewCell", for: indexPath) as? HomeRestaurantCollectionViewCell else {return .init()}
-                cell.setViewModel(viewModel)
-                return cell
+                return self?.restaurantListCell(collectionView, indexPath, viewModel)
                 
             case .none:
                 return .init()
             }
             
         })
-        
+    }
+    
+    //MARK: - SnapShot
+    private func applySnapShot(){
         var snapShot: NSDiffableDataSourceSnapshot<Section, AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
         
         snapShot.appendSections([.banner])
@@ -119,14 +96,31 @@ class HomeViewController: UIViewController {
         ], toSection: .restaurantList)
         
         dataSource?.apply(snapShot)
-        
-        collectionView.collectionViewLayout = compositinalLayout
-        
-        startTimer()
-        
     }
     
-    //MARK: -バナー自動スライドを実装
+    //MARK: - DataSoure > Cell
+    private func bannerCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeBannerCollectionViewCellViewModel,
+              let cell: HomeBannerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeBannerCollectionViewCell", for: indexPath) as? HomeBannerCollectionViewCell else {return .init()}
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    
+    private func buttonCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeButtonCollectionViewCellViewModel,
+              let cell: HomeButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {return .init()}
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    
+    private func restaurantListCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell {
+        guard let viewModel = viewModel as? HomeRestaurantCollectionViewCellViewModel,
+              let cell: HomeRestaurantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeRestaurantCollectionViewCell", for: indexPath) as? HomeRestaurantCollectionViewCell else {return .init()}
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    
+    //MARK: - バナー自動スライドを実装
     private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
@@ -137,14 +131,15 @@ class HomeViewController: UIViewController {
         currentIndex = nextIndex
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        timer?.invalidate()
-        timer = nil
-    }
+    //!!!: - 이거하면 메모리 누수를 방지할 수는 있는데 타이머가 계속 안돌아감..
+    //    override func viewWillDisappear(_ animated: Bool) {
+    //        super.viewWillDisappear(animated)
+    //        timer?.invalidate()
+    //        timer = nil
+    //    }
 }
 
-
+//MARK: - Preview Code
 //#Preview{
 //    UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
 //}

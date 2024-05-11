@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ホーム-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j2i-yc-zbG">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ebR-CU-Y8d">
                                     <size key="itemSize" width="391" height="165"/>
@@ -66,6 +66,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="Button300m"/>
+                                                    <connections>
+                                                        <segue destination="eQG-iS-8sp" kind="show" id="h1P-EP-rJC"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYf-4l-Ywj">
                                                     <rect key="frame" x="115" y="0.0" width="70" height="30"/>
@@ -75,6 +78,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="Button500m"/>
+                                                    <connections>
+                                                        <segue destination="eQG-iS-8sp" kind="show" id="cIc-9u-mJj"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-WF-bjF">
                                                     <rect key="frame" x="205" y="0.0" width="70" height="30"/>
@@ -84,6 +90,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="Button1km"/>
+                                                    <connections>
+                                                        <segue destination="eQG-iS-8sp" kind="show" id="oKB-LZ-BqF"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-iO-kTn">
                                                     <rect key="frame" x="295" y="0.0" width="71" height="30"/>
@@ -93,6 +102,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="Button5km"/>
+                                                    <connections>
+                                                        <segue destination="eQG-iS-8sp" kind="show" id="REv-7P-D7m"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -196,14 +208,30 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j2i-yc-zbG" secondAttribute="trailing" id="zKU-gX-BmT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ホーム" image="homeIcon" id="Tl4-tW-bYN"/>
+                    <navigationItem key="navigationItem" id="1MK-QY-02f"/>
                     <connections>
                         <outlet property="collectionView" destination="j2i-yc-zbG" id="ji3-ec-gb0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026.7175572519084" y="-793.66197183098598"/>
+            <point key="canvasLocation" x="1953.4351145038167" y="-793.66197183098598"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GsJ-5G-sut">
+            <objects>
+                <viewController id="eQG-iS-8sp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Kf-f8-z5b">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xbo-Wu-ZKi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hh7-MT-Of8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hed-U5-sF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="-794"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KHQ-yS-Ozn">
@@ -225,7 +253,7 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="u8n-Gc-YBG"/>
+                        <segue destination="EXn-Dq-8Dc" kind="relationship" relationship="viewControllers" id="u8n-Gc-YBG"/>
                         <segue destination="TJJ-7e-OjS" kind="relationship" relationship="viewControllers" id="a1X-W9-61c"/>
                         <segue destination="zE9-h4-ZbO" kind="relationship" relationship="viewControllers" id="AnK-Xc-jMe"/>
                     </connections>
@@ -266,7 +294,29 @@
             </objects>
             <point key="canvasLocation" x="1083" y="627"/>
         </scene>
+        <!--ホーム-->
+        <scene sceneID="0GA-KF-lcH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EXn-Dq-8Dc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="homeIcon" id="Tl4-tW-bYN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wkw-c4-UhZ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qUf-tl-6he"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6x-Ze-5jO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026.7175572519084" y="-793.66197183098598"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cIc-9u-mJj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Button1km" width="70" height="30"/>
         <image name="Button300m" width="70" height="30"/>

@@ -24,5 +24,18 @@ class HomeButtonCollectionViewCell: UICollectionViewCell {
         button5km.setImage(UIImage(named: "Button5km"), for: .normal)
         
     }
-    
+}
+
+extension HomeButtonCollectionViewCell{
+    static func buttonLayout() -> NSCollectionLayoutSection{
+        let itemSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item: NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize: NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
+        let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section: NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 20, trailing: 0)
+        return section
+    }
 }
