@@ -25,11 +25,14 @@ class HomeViewController: UIViewController {
     private var timer: Timer?
     private var currentIndex = 0
     
+    //MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadData()
+        
         setDataSource()
-        applySnapShot()
+
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
     }
@@ -49,6 +52,26 @@ class HomeViewController: UIViewController {
                 return  HomeRestaurantCollectionViewCell.restaurantListLayout()
                 
             case .none: return nil
+            }
+        }
+    }
+    
+    //MARK: - loadData
+    private func loadData(){
+        Task{
+            do{
+              let response = try await NetworkService.shard.getGourmetData()
+                let restaurantViewModels = response.shop.map{
+                    HomeRestaurantCollectionViewCellViewModel(
+                        imageUrl: $0.logo_image,
+                        title: $0.name,
+                        station: $0.station_name,
+                        time: $0.open,
+                        price: $0.station_name)
+                }
+                applySnapShot(restaurantViewModels)
+            }catch{
+                print("network error: \(error)")
             }
         }
     }
@@ -75,7 +98,7 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - SnapShot
-    private func applySnapShot(){
+    private func applySnapShot(_ restaurantViewModels : [HomeRestaurantCollectionViewCellViewModel]){
         var snapShot: NSDiffableDataSourceSnapshot<Section, AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
         
         snapShot.appendSections([.banner])
@@ -88,12 +111,7 @@ class HomeViewController: UIViewController {
         snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
         
         snapShot.appendSections([.restaurantList])
-        snapShot.appendItems([
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店1", station: "新宿駅", time: "営業 9:00-21:00", price: "1000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店2", station: "新宿駅", time: "営業 9:00-21:00", price: "2000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店3", station: "新宿駅", time: "営業 9:00-21:00", price: "3000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店4", station: "新宿駅", time: "営業 9:00-21:00", price: "4000円〜5000円")
-        ], toSection: .restaurantList)
+        snapShot.appendItems(restaurantViewModels, toSection: .restaurantList)
         
         dataSource?.apply(snapShot)
     }
