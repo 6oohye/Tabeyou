@@ -26,7 +26,6 @@
 		E820186E2BF0B050009ECDAE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820184B2BEF74DC009ECDAE /* APIClient.swift */; };
 		E82018702BF0EEA3009ECDAE /* HomeTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820186F2BF0EEA3009ECDAE /* HomeTextCollectionViewCell.swift */; };
 		E82018722BF0FAC2009ECDAE /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018712BF0FAC2009ECDAE /* AppColors.swift */; };
-		E82018742BF11487009ECDAE /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018732BF11487009ECDAE /* Extension_UIView.swift */; };
 		E86C4C092BEB523F0004F69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C082BEB523F0004F69C /* AppDelegate.swift */; };
 		E86C4C0B2BEB523F0004F69C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0A2BEB523F0004F69C /* SceneDelegate.swift */; };
 		E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0C2BEB523F0004F69C /* HomeViewController.swift */; };
@@ -66,7 +65,6 @@
 		E820186C2BF0A205009ECDAE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E820186F2BF0EEA3009ECDAE /* HomeTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTextCollectionViewCell.swift; sourceTree = "<group>"; };
 		E82018712BF0FAC2009ECDAE /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
-		E82018732BF11487009ECDAE /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
 		E86C4C052BEB523F0004F69C /* Tabeyou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabeyou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C4C082BEB523F0004F69C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E86C4C0A2BEB523F0004F69C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 				E86C4C112BEB52440004F69C /* Assets.xcassets */,
 				E86C4C1E2BEB53870004F69C /* Colors.xcassets */,
 				E82018712BF0FAC2009ECDAE /* AppColors.swift */,
-				E82018732BF11487009ECDAE /* Extension_UIView.swift */,
 			);
 			path = DesignSource;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				E82018722BF0FAC2009ECDAE /* AppColors.swift in Sources */,
 				E82018402BEDF686009ECDAE /* SearchViewModel.swift in Sources */,
 				E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */,
-				E82018742BF11487009ECDAE /* Extension_UIView.swift in Sources */,
 				E82018422BEDF690009ECDAE /* HomeViewModel.swift in Sources */,
 				E86C4C092BEB523F0004F69C /* AppDelegate.swift in Sources */,
 				E820183A2BEDF4E3009ECDAE /* SearchViewController.swift in Sources */,
