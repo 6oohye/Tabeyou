@@ -58,66 +58,65 @@
                                             <rect key="frame" x="0.0" y="0.0" width="391" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYf-4l-Ywj">
-                                                    <rect key="frame" x="116" y="0.0" width="70" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="Xd2-mt-5yg"/>
-                                                        <constraint firstAttribute="height" constant="30" id="voX-c8-MIy"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Button500m"/>
-                                                    <connections>
-                                                        <segue destination="eQG-iS-8sp" kind="show" id="cIc-9u-mJj"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-WF-bjF">
-                                                    <rect key="frame" x="206" y="0.0" width="70" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="nKQ-AN-RHM"/>
-                                                        <constraint firstAttribute="height" constant="30" id="tJ6-jR-Ccu"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Button1km"/>
-                                                    <connections>
-                                                        <segue destination="eQG-iS-8sp" kind="show" id="oKB-LZ-BqF"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-iO-kTn">
-                                                    <rect key="frame" x="296" y="0.0" width="70" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="8Er-vP-ezD"/>
-                                                        <constraint firstAttribute="width" constant="70" id="C6X-53-Wdv"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Button5km"/>
-                                                    <connections>
-                                                        <segue destination="eQG-iS-8sp" kind="show" id="REv-7P-D7m"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-Ec-o7E">
-                                                    <rect key="frame" x="25" y="0.0" width="71" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Qgj-p6-ads"/>
-                                                        <constraint firstAttribute="width" constant="70" id="k8y-8s-crG"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="Button300m"/>
-                                                    <connections>
-                                                        <segue destination="eQG-iS-8sp" kind="show" id="h1P-EP-rJC"/>
-                                                    </connections>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKO-L2-mF0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="391" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-Ec-o7E">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="Qgj-p6-ads"/>
+                                                                <constraint firstAttribute="width" constant="70" id="ogn-aK-I8h"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Button300m"/>
+                                                            <connections>
+                                                                <segue destination="eQG-iS-8sp" kind="show" id="h1P-EP-rJC"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYf-4l-Ywj">
+                                                            <rect key="frame" x="70" y="0.0" width="70" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="3xM-vh-jDq"/>
+                                                                <constraint firstAttribute="width" constant="70" id="RFD-5c-OH1"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Button500m"/>
+                                                            <connections>
+                                                                <segue destination="eQG-iS-8sp" kind="show" id="cIc-9u-mJj"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-WF-bjF">
+                                                            <rect key="frame" x="140" y="0.0" width="70" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="SXR-vq-GD5"/>
+                                                                <constraint firstAttribute="height" constant="30" id="pC0-WA-nOR"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Button1km"/>
+                                                            <connections>
+                                                                <segue destination="eQG-iS-8sp" kind="show" id="oKB-LZ-BqF"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-iO-kTn">
+                                                            <rect key="frame" x="210" y="0.0" width="181" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="7Gk-S3-YGc"/>
+                                                                <constraint firstAttribute="height" constant="30" id="EQo-uX-K2e"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Button5km"/>
+                                                            <connections>
+                                                                <segue destination="eQG-iS-8sp" kind="show" id="REv-7P-D7m"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zdB-iO-kTn" firstAttribute="leading" secondItem="BTg-WF-bjF" secondAttribute="trailing" constant="20" id="CmZ-Vv-5t8"/>
-                                                <constraint firstItem="BTg-WF-bjF" firstAttribute="centerY" secondItem="bEY-2u-gg9" secondAttribute="centerY" id="GpG-C6-lTM"/>
-                                                <constraint firstItem="qYf-4l-Ywj" firstAttribute="leading" secondItem="Z9g-Ec-o7E" secondAttribute="trailing" constant="20" id="MuA-IN-kDe"/>
-                                                <constraint firstItem="Z9g-Ec-o7E" firstAttribute="leading" secondItem="bEY-2u-gg9" secondAttribute="leading" constant="25" id="Pze-vm-4iS"/>
-                                                <constraint firstAttribute="trailing" secondItem="zdB-iO-kTn" secondAttribute="trailing" constant="25" id="QC8-oH-ODk"/>
-                                                <constraint firstAttribute="bottom" secondItem="zdB-iO-kTn" secondAttribute="bottom" id="W5R-9P-UpL"/>
-                                                <constraint firstItem="qYf-4l-Ywj" firstAttribute="centerY" secondItem="bEY-2u-gg9" secondAttribute="centerY" id="Ztt-KC-v1a"/>
-                                                <constraint firstItem="Z9g-Ec-o7E" firstAttribute="centerY" secondItem="bEY-2u-gg9" secondAttribute="centerY" id="g8e-GS-FnY"/>
-                                                <constraint firstItem="BTg-WF-bjF" firstAttribute="leading" secondItem="qYf-4l-Ywj" secondAttribute="trailing" constant="20" id="hUI-ga-Xl6"/>
-                                                <constraint firstItem="zdB-iO-kTn" firstAttribute="centerY" secondItem="bEY-2u-gg9" secondAttribute="centerY" id="lhA-eE-BnK"/>
+                                                <constraint firstItem="EKO-L2-mF0" firstAttribute="top" secondItem="bEY-2u-gg9" secondAttribute="top" id="0Ov-KD-qa5"/>
+                                                <constraint firstAttribute="trailing" secondItem="EKO-L2-mF0" secondAttribute="trailing" id="EhM-Tc-5pu"/>
+                                                <constraint firstItem="EKO-L2-mF0" firstAttribute="leading" secondItem="bEY-2u-gg9" secondAttribute="leading" id="QFh-tL-ovi"/>
+                                                <constraint firstAttribute="bottom" secondItem="EKO-L2-mF0" secondAttribute="bottom" id="lEd-oc-VzX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="391" height="30"/>
