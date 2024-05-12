@@ -36,8 +36,8 @@ final class APIClientTest: XCTestCase {
             }
         }
         
-        let apiClient = APIClient(key: "1347000218f5a227")
-        let response: Response = try await apiClient.Fetch(
+        let networkService = NetworkService(key: "863a73a43b3ef2b6")
+        let response: Response = try await networkService.fetch(
             path: "gourmet/v1/",
             httpMethod: .get,
             queryItems: [

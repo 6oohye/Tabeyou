@@ -46,7 +46,7 @@ extension HomeRestaurantCollectionViewCell{
         
         let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
-        section.contentInsets = .init(top: 40, leading: 19 - 2.5, bottom: 0, trailing: 19 - 2.5)
+        section.contentInsets = .init(top: 0, leading: 19 - 2.5, bottom: 0, trailing: 19 - 2.5)
         section.interGroupSpacing = 10
         return section
     }

@@ -20,7 +20,9 @@ class HomeViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     
     private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
-   
+    
+    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    
     
     private var timer: Timer?
     private var currentIndex = 0
@@ -29,10 +31,33 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadData()
+        
         setDataSource()
-        applySnapShot()
+        
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
+    }
+    
+    //MARK: - loadData
+    private func loadData(){
+        Task{
+            do {
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
+                    return HomeRestaurantCollectionViewCellViewModel(
+                        imageUrl: shop.photo.pc.m,
+                        title: shop.name,
+                        station: shop.station_name,
+                        time:shop.intro,
+                        price: shop.budget.name
+                    )
+                }
+                applySnapShot(restaurantViewModels: restaurantViewModels)
+            } catch{
+                print("network Error : \(error)")
+            }
+        }
     }
     
     //MARK: - CompositionalLayout
@@ -76,7 +101,7 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - SnapShot
-    private func applySnapShot(){
+    private func applySnapShot(restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel]){
         var snapShot: NSDiffableDataSourceSnapshot<Section, AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
         
         snapShot.appendSections([.banner])
@@ -89,12 +114,7 @@ class HomeViewController: UIViewController {
         snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
         
         snapShot.appendSections([.restaurantList])
-        snapShot.appendItems([
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店1", station: "新宿駅", time: "営業 9:00-21:00", price: "1000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店2", station: "新宿駅", time: "営業 9:00-21:00", price: "2000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店3", station: "新宿駅", time: "営業 9:00-21:00", price: "3000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店4", station: "新宿駅", time: "営業 9:00-21:00", price: "4000円〜5000円")
-        ], toSection: .restaurantList)
+        snapShot.appendItems(restaurantViewModels, toSection: .restaurantList)
         
         dataSource?.apply(snapShot)
     }
