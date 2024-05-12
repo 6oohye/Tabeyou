@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     enum Section: Int{
         case banner
         case button
@@ -16,6 +17,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var locationManager = CLLocationManager()
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     
@@ -31,6 +34,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.global().async {
+                self.setLocationManager()
+            }
+        
         loadData()
         
         setDataSource()
@@ -39,6 +46,49 @@ class HomeViewController: UIViewController {
         startTimer()
     }
     
+    //MARK: - 位置情報
+    fileprivate func setLocationManager() {
+        // 델리게이트를 설정하고,
+        locationManager.delegate = self
+        // 거리 정확도
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // 위치 사용 허용 알림
+        locationManager.requestWhenInUseAuthorization()
+        // 위치 사용을 허용하면 현재 위치 정보를 가져옴
+        if CLLocationManager.locationServicesEnabled() {
+           locationManager.startUpdatingLocation()
+        }
+        else {
+            print("위치 서비스 허용 off")
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            DispatchQueue.main.async {
+                manager.startUpdatingLocation()
+            }
+        case .notDetermined, .restricted, .denied:
+            print("위치 권한 상태가 충분하지 않습니다.")
+        @unknown default:
+            fatalError("알 수 없는 권한 상태.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("위치 업데이트!")
+            print("위도 : \(location.coordinate.latitude)")
+            print("경도 : \(location.coordinate.longitude)")
+        }
+    }
+        
+    // 위치 가져오기 실패
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("위치 정보 가져오기 실패: \(error.localizedDescription)")
+    }
+     
     //MARK: - loadData
     private func loadData(){
         Task{
