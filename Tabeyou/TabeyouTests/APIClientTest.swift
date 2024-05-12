@@ -25,6 +25,9 @@ final class APIClientTest: XCTestCase {
                     let budget: [String: String] // Budget를 [String: String]로 변경
                     
                     // Budget 구조체 제거
+//                    struct budget :Codable{
+//
+//                    }
                     
                     enum CodingKeys: String, CodingKey {
                         case id, logo_image, name, station_name, open, budget // budget 추가
