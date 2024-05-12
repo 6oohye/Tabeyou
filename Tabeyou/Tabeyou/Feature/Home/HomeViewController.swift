@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     enum Section: Int{
         case banner
         case button
+        case headerText
         case restaurantList
     }
     
@@ -35,8 +36,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         DispatchQueue.global().async {
-                self.setLocationManager()
-            }
+            self.setLocationManager()
+        }
         
         loadData()
         
@@ -56,7 +57,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         // 위치 사용을 허용하면 현재 위치 정보를 가져옴
         if CLLocationManager.locationServicesEnabled() {
-           locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
         }
         else {
             print("위치 서비스 허용 off")
@@ -83,12 +84,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             print("경도 : \(location.coordinate.longitude)")
         }
     }
-        
+    
     // 위치 가져오기 실패
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("위치 정보 가져오기 실패: \(error.localizedDescription)")
     }
-     
+    
     //MARK: - loadData
     private func loadData(){
         Task{
@@ -121,6 +122,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             case .button:
                 return HomeButtonCollectionViewCell.buttonLayout()
                 
+            case .headerText:
+                return HomeTextCollectionViewCell.headerTextLayout()
+                
             case .restaurantList:
                 return  HomeRestaurantCollectionViewCell.restaurantListLayout()
                 
@@ -139,6 +143,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 
             case .button:
                 return self?.buttonCell(collectionView, indexPath, viewModel)
+                
+            case .headerText:
+                return self?.headerTextCell(collectionView, indexPath, viewModel)
                 
             case .restaurantList:
                 return self?.restaurantListCell(collectionView, indexPath, viewModel)
@@ -163,6 +170,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         snapShot.appendSections([.button])
         snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
         
+        snapShot.appendSections([.headerText])
+        snapShot.appendItems([HomeTextCollectionViewCellViewModel(headerText: "最寄りのグルメ店に！")], toSection: .headerText)
+        
         snapShot.appendSections([.restaurantList])
         snapShot.appendItems(restaurantViewModels, toSection: .restaurantList)
         
@@ -184,6 +194,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return cell
     }
     
+    private func headerTextCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeTextCollectionViewCellViewModel,
+              let cell: HomeTextCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeTextCollectionViewCell", for: indexPath) as? HomeTextCollectionViewCell else {return .init()}
+        
+        // 셀의 테두리 설정
+        let borderWidth: CGFloat = 1
+        let borderColor =  AppColors.UIKit.gray1.cgColor
+        
+        cell.contentView.layer.borderWidth = 0
+        cell.contentView.layer.borderColor = nil
+        
+        // 탑에 보더 추가
+        let borderLayer = CALayer()
+        borderLayer.backgroundColor = borderColor
+        borderLayer.frame = CGRect(x: 0, y: 0, width: cell.contentView.frame.width, height: borderWidth)
+        cell.contentView.layer.addSublayer(borderLayer)
+        
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    
     private func restaurantListCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell {
         guard let viewModel = viewModel as? HomeRestaurantCollectionViewCellViewModel,
               let cell: HomeRestaurantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeRestaurantCollectionViewCell", for: indexPath) as? HomeRestaurantCollectionViewCell else {return .init()}
@@ -201,16 +232,4 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         collectionView.scrollToItem(at: IndexPath(item: nextIndex, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex = nextIndex
     }
-    
-    //!!!: - 이거하면 메모리 누수를 방지할 수는 있는데 타이머가 계속 안돌아감..
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        timer?.invalidate()
-    //        timer = nil
-    //    }
 }
-
-//MARK: - Preview Code
-//#Preview{
-//    UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
-//}

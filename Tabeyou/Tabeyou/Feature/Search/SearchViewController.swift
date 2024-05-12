@@ -11,7 +11,6 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray3
 
         // Do any additional setup after loading the view.
     }
