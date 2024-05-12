@@ -22,15 +22,15 @@ final class APIClientTest: XCTestCase {
                     let name: String
                     let station_name: String
                     let open: String
-                    let budget: [String: String] // Budget를 [String: String]로 변경
+                    let budget: Budget
                     
-                    // Budget 구조체 제거
-//                    struct budget :Codable{
-//
-//                    }
+                   
+                    struct Budget :Codable{
+                        let name : String
+                    }
                     
                     enum CodingKeys: String, CodingKey {
-                        case id, logo_image, name, station_name, open, budget // budget 추가
+                        case id, logo_image, name, station_name, open, budget
                     }
                 }
             }
