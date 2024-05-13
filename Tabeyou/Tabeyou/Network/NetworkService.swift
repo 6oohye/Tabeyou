@@ -78,8 +78,10 @@ class NetworkService {
                 httpMethod: .get,
                 queryItems: [
                     URLQueryItem(name: "key", value: key),
-                    URLQueryItem(name: "format", value: "json"),
-                    URLQueryItem(name: "large_area", value: "Z011")
+                    URLQueryItem(name: "lat", value: "35.68222093447129"),
+                    URLQueryItem(name: "lng", value: "139.769023800948"),
+                    URLQueryItem(name: "range", value: "3"),
+                    URLQueryItem(name: "format", value: "json")
                 ]
             )
             return data.results.shop
