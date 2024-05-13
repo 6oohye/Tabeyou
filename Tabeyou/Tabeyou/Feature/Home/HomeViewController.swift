@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         else {
-            print("위치 서비스 허용 off")
+            print("ロケーションサービス off") //위치서비스 허용off
         }
     }
     
@@ -71,23 +71,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 manager.startUpdatingLocation()
             }
         case .notDetermined, .restricted, .denied:
-            print("위치 권한 상태가 충분하지 않습니다.")
+            print("位置権限状態が十分ではありません") //위치 권한 상태가 충분하지 않습니다
         @unknown default:
-            fatalError("알 수 없는 권한 상태.")
+            fatalError("不明権限状態。") // 알 수 없는 권한 상태.
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            print("위치 업데이트!")
-            print("위도 : \(location.coordinate.latitude)")
-            print("경도 : \(location.coordinate.longitude)")
+            print("位置アップデート!")
+            print("緯度 : \(location.coordinate.latitude)")
+            print("経度 : \(location.coordinate.longitude)")
         }
     }
     
     // 위치 가져오기 실패
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("위치 정보 가져오기 실패: \(error.localizedDescription)")
+        print("位置情報の取得に失敗: \(error.localizedDescription)")
     }
     
     //MARK: - loadData

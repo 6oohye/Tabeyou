@@ -243,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="1953.4351145038167" y="-793.66197183098598"/>
         </scene>
-        <!--View Controller-->
+        <!--Result List View Controller-->
         <scene sceneID="GsJ-5G-sut">
             <objects>
-                <viewController id="eQG-iS-8sp" sceneMemberID="viewController">
+                <viewController id="eQG-iS-8sp" customClass="ResultListViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Kf-f8-z5b">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,7 +327,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSN-2n-qvK">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="nfp-sQ-d7W"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="nfp-sQ-d7W"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="居酒屋">
@@ -336,6 +336,9 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqt-1c-eEl">
                                                 <rect key="frame" x="85" y="0.0" width="78" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="xPq-f8-zqc"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="ダイニングバー">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="8.5"/>
@@ -344,7 +347,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05N-Zh-AVy">
                                                 <rect key="frame" x="173" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="Tay-BO-kwz"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Tay-BO-kwz"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="創作料理">
@@ -354,7 +357,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dy-ND-edz">
                                                 <rect key="frame" x="258" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="u7a-Ft-viD"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="u7a-Ft-viD"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="和食">
@@ -372,7 +375,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-xB-Eee">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="BdC-M4-TXZ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="BdC-M4-TXZ"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="居酒屋">
@@ -382,7 +385,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEf-uQ-BYC">
                                                 <rect key="frame" x="85" y="0.0" width="78" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="78" id="uQM-M4-mx6"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="uQM-M4-mx6"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="ダイニングバー">
@@ -392,7 +395,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STR-mf-Q17">
                                                 <rect key="frame" x="173" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="wRD-7o-7F3"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="wRD-7o-7F3"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="創作料理">
@@ -402,7 +405,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8X-CF-D1R">
                                                 <rect key="frame" x="258" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="hp5-FP-ULj"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="hp5-FP-ULj"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="和食">
@@ -420,7 +423,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEz-mA-mqa">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="xUE-4t-iaL"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="xUE-4t-iaL"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="居酒屋">
@@ -430,7 +433,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzi-F2-gIL">
                                                 <rect key="frame" x="85" y="0.0" width="78" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="78" id="FRk-Gf-Zd7"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="FRk-Gf-Zd7"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="ダイニングバー">
@@ -440,7 +443,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17T-rj-hxl">
                                                 <rect key="frame" x="173" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="fqv-Nh-ksd"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="fqv-Nh-ksd"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="創作料理">
@@ -450,7 +453,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fo2-0l-4Kr">
                                                 <rect key="frame" x="258" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="cLS-DI-f9q"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="cLS-DI-f9q"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="和食">
@@ -468,7 +471,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTZ-NU-AXx">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="dWa-rv-hLq"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="dWa-rv-hLq"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="居酒屋">
@@ -478,7 +481,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJc-XI-1Zk">
                                                 <rect key="frame" x="85" y="0.0" width="78" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="78" id="V9n-ou-Gsu"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="78" id="V9n-ou-Gsu"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="ダイニングバー">
@@ -488,7 +491,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-IU-dhR">
                                                 <rect key="frame" x="173" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="mJd-6C-INc"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="mJd-6C-INc"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="創作料理">
@@ -498,7 +501,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlb-be-4RO">
                                                 <rect key="frame" x="258" y="0.0" width="75" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="gCE-8k-bRu"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="gCE-8k-bRu"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="和食">
