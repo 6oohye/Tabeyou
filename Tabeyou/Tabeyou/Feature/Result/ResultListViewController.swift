@@ -13,23 +13,39 @@ class ResultListViewController: UIViewController {
         case restaurant
     }
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationBarCustom()
         
         self.setupTableView()
-
+        
     }
     
     //MARK: - ResultTableViewCell呼び出す関数
     private func setupTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.register(UINib(nibName: ResultTableViewCell.identifire, bundle: nil),
-                                forCellReuseIdentifier: ResultTableViewCell.identifire)
+        self.tableView.register(
+            UINib(nibName: ResultTableViewCell.identifire, bundle: nil),
+            forCellReuseIdentifier: ResultTableViewCell.identifire
+        )
+    }
+    
+    //MARK: - ResultDetailに移動
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ToGoDetail", sender: nil)
+    }
+    
+    // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToGoDetail" {
+            // Segue가 실행될 때 필요한 작업을 수행하세요.
+        }
     }
     
 }

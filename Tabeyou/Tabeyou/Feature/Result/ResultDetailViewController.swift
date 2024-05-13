@@ -1,13 +1,13 @@
 //
-//  BookmarkViewController.swift
+//  ResultDetailViewController.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/10/24.
+//  Created by 6혜진 on 5/13/24.
 //
 
 import UIKit
 
-class BookmarkViewController: UIViewController {
+class ResultDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
