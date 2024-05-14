@@ -17,6 +17,7 @@ class ResultListViewController: UIViewController {
     
     var restaurants: [ResultTableViewCellViewModel] = []
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    var range: String = ""
     
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ResultListViewController: UIViewController {
         navigationBarCustom()
         self.setupTableView()
         loadData()
+           
         
     }
     
@@ -38,29 +40,35 @@ class ResultListViewController: UIViewController {
         )
     }
     
+    
     //MARK: - API로부터 데이터 가져오기
     private func loadData() {
+        print("loadData() 메서드 호출됨")
         Task {
-                    do {
-                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
-                        let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
-                            return ResultTableViewCellViewModel(
-                                imageUrl: shop.photo.pc.m,
-                                title: shop.name,
-                                station: shop.station_name,
-                                price: shop.budget.name,
-                                access: shop.access
-                            )
-                        }
-                        restaurants = restaurantViewModels
-                        
-                        // 데이터를 가져온 후에 테이블 뷰를 리로드하여 업데이트된 데이터를 반영합니다.
-                        tableView.reloadData()
-                    } catch {
-                        print("Error fetching data: \(error)")
-                    }
+            do {
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: String(range))
+                print("API 응답 받음: \(response)")
+                let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
+                    return ResultTableViewCellViewModel(
+                        imageUrl: shop.photo.pc.m,
+                        title: shop.name,
+                        station: shop.station_name,
+                        price: shop.budget.name,
+                        access: shop.access
+                    )
                 }
-       }
+                restaurants = restaurantViewModels
+                
+                // 데이터를 가져온 후에 테이블 뷰를 리로드하여 업데이트된 데이터를 반영합니다.
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print("Error fetching data: \(error)")
+            }
+        }
+    }
+
     
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -117,21 +125,6 @@ extension ResultListViewController : UITableViewDelegate, UITableViewDataSource{
            
            return cell
        }
-       
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // 선택된 셀에 해당하는 레스토랑 정보 가져오기
-//        let selectedRestaurant = restaurants[indexPath.row]
-//        
-//        // 이동할 뷰 컨트롤러를 인스턴스화
-//        let detailViewController = ResultDetailViewController()
-//        
-//        // 선택된 레스토랑 정보를 상세 뷰 컨트롤러에 전달
-//        detailViewController.self = selectedRestaurant
-//
-//        // 뷰 컨트롤러를 표시
-//        navigationController?.pushViewController(detailViewController, animated: true)
-//    }
-    
     
 }
 
