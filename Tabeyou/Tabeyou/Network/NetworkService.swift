@@ -89,4 +89,5 @@ class NetworkService {
             throw error
         }
     }
+    
 }

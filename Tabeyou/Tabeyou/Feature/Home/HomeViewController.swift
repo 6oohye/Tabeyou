@@ -110,7 +110,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-
     
     //MARK: - CompositionalLayout
     private static func setCompositionalLayout() -> UICollectionViewCompositionalLayout{
