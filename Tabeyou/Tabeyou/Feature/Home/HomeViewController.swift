@@ -168,7 +168,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                              ], toSection: .banner)
         
         snapShot.appendSections([.button])
-        snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
+        snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system, range: 3)], toSection: .button)
         
         snapShot.appendSections([.headerText])
         snapShot.appendItems([HomeTextCollectionViewCellViewModel(headerText: "最寄りのグルメ店に！")], toSection: .headerText)
@@ -187,11 +187,39 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return cell
     }
     
-    private func buttonCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
+    private func buttonCell(_ collectionView: UICollectionView, _ indexPath: IndexPath, _ viewModel: AnyHashable) -> UICollectionViewCell {
         guard let viewModel = viewModel as? HomeButtonCollectionViewCellViewModel,
-              let cell: HomeButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {return .init()}
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.setViewModel(viewModel)
+        // 버튼에 대한 액션 설정
+        cell.button300m.addTarget(self, action: #selector(button300mTapped), for: .touchUpInside)
+        cell.button500m.addTarget(self, action: #selector(button500mTapped), for: .touchUpInside)
+        cell.button1km.addTarget(self, action: #selector(button1kmTapped), for: .touchUpInside)
+        cell.button3km.addTarget(self, action: #selector(button3kmTapped), for: .touchUpInside)
         return cell
+    }
+
+    // 각 버튼에 대한 액션 메서드 추가
+    @objc private func button300mTapped() {
+        fetchData(withRange: 1)
+    }
+
+    @objc private func button500mTapped() {
+        fetchData(withRange: 2)
+    }
+
+    @objc private func button1kmTapped() {
+        fetchData(withRange: 3)
+    }
+
+    @objc private func button3kmTapped() {
+        fetchData(withRange: 5)
+    }
+
+    private func fetchData(withRange range: Int) {
+        // 해당 range에 맞는 API 호출
     }
     
     private func headerTextCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
