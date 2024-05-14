@@ -39,8 +39,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             self.setLocationManager()
         }
         
+        loadData()
+        
         setDataSource()
-        setupButtonActions() // 버튼 액션 설정 메서드 호출
         
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
@@ -89,69 +90,26 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         print("位置情報の取得に失敗: \(error.localizedDescription)")
     }
     
-    // 버튼 액션을 처리하는 메서드
-    private func setupButtonActions() {
-        guard let buttonCell = collectionView.cellForItem(at: IndexPath(item: 0, section: Section.button.rawValue)) as? HomeButtonCollectionViewCell else { return }
-        buttonCell.rangeButtonTapped = { [weak self] range in
-            self?.loadData(with: range)
-        }
-    }
-    
-    // 범위에 맞는 데이터를 불러오는 메서드
-    private func loadData(with range: RangeButton) {
-        Task {
+    //MARK: - loadData
+    private func loadData(){
+        Task{
             do {
-                var rangeValue: String = "3" // 기본값
-                
-                switch range {
-                case ._300m:
-                    rangeValue = "1"
-                case ._500m:
-                    rangeValue = "2"
-                case ._1km:
-                    rangeValue = "3"
-                case ._3km:
-                    rangeValue = "5"
-                }
-                
-                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: rangeValue)
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
                 let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
                         title: shop.name,
                         station: shop.station_name,
-                        intro: shop.intro,
+                        intro:shop.intro,
                         price: shop.budget.name
                     )
                 }
                 applySnapShot(restaurantViewModels: restaurantViewModels)
-            } catch {
-                print("Network Error: \(error)")
+            } catch{
+                print("network Error : \(error)")
             }
         }
     }
-    
-    
-    //    //MARK: - loadData
-    //    private func loadData(){
-    //        Task{
-    //            do {
-    //                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
-    //                let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
-    //                    return HomeRestaurantCollectionViewCellViewModel(
-    //                        imageUrl: shop.photo.pc.m,
-    //                        title: shop.name,
-    //                        station: shop.station_name,
-    //                        intro:shop.intro,
-    //                        price: shop.budget.name
-    //                    )
-    //                }
-    //                applySnapShot(restaurantViewModels: restaurantViewModels)
-    //            } catch{
-    //                print("network Error : \(error)")
-    //            }
-    //        }
-    //    }
     
     //MARK: - CompositionalLayout
     private static func setCompositionalLayout() -> UICollectionViewCompositionalLayout{

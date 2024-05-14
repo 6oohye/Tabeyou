@@ -37,7 +37,6 @@
 		E86C4C122BEB52440004F69C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C112BEB52440004F69C /* Assets.xcassets */; };
 		E86C4C152BEB52440004F69C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C142BEB52440004F69C /* Base */; };
 		E86C4C1F2BEB53870004F69C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C1E2BEB53870004F69C /* Colors.xcassets */; };
-		E8DAB17B2BF388110091EE22 /* RangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DAB17A2BF388110091EE22 /* RangeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +82,6 @@
 		E86C4C142BEB52440004F69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86C4C162BEB52440004F69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E86C4C1E2BEB53870004F69C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		E8DAB17A2BF388110091EE22 /* RangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				E820184D2BEFDD95009ECDAE /* Restaurant.swift */,
-				E8DAB17A2BF388110091EE22 /* RangeButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,7 +399,6 @@
 				E820183A2BEDF4E3009ECDAE /* SearchViewController.swift in Sources */,
 				E82018582BF071BB009ECDAE /* APIError.swift in Sources */,
 				E86C4C0B2BEB523F0004F69C /* SceneDelegate.swift in Sources */,
-				E8DAB17B2BF388110091EE22 /* RangeButton.swift in Sources */,
 				E820187E2BF20A50009ECDAE /* ResultTableViewCell.swift in Sources */,
 				E820183C2BEDF4EF009ECDAE /* BookmarkViewController.swift in Sources */,
 			);
