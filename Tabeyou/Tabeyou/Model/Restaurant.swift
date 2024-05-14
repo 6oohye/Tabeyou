@@ -17,9 +17,17 @@ struct Restaurant: Codable {
             let id: String
             let photo: Photo
             let name: String
+            let name_kana : String
+            let address : String
             let station_name: String
+            let lat : Double 
+            let lng : Double
             let intro : String
+            let access : String
+            let open : String
+            let close : String
             let budget: Budget
+            let genre : Genre
             
             struct Photo: Codable{
                 let pc : PC
@@ -32,9 +40,12 @@ struct Restaurant: Codable {
             struct Budget :Codable{
                 let name : String
             }
+            struct Genre : Codable{
+                let name : String
+            }
             
             enum CodingKeys: String, CodingKey {
-                case id, photo, name, station_name, budget
+                case id, photo, name, station_name, budget, name_kana, address, lat, lng, access, open, close, genre
                 case intro = "catch"
             }
         }
