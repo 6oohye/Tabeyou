@@ -38,12 +38,12 @@ class ResultListViewController: UIViewController {
     
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ToGoDetail", sender: nil)
+        performSegue(withIdentifier: "GoToDetail", sender: nil)
     }
     
     // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToGoDetail" {
+        if segue.identifier == "GoToDetail" {
             // Segue가 실행될 때 필요한 작업을 수행하세요.
         }
     }
