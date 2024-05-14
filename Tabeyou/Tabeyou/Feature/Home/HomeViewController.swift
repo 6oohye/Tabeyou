@@ -27,7 +27,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     
-    
     private var timer: Timer?
     private var currentIndex = 0
     
@@ -45,7 +44,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
+        
     }
+    
     
     //MARK: - 位置情報
     fileprivate func setLocationManager() {
@@ -94,7 +95,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     private func loadData(){
         Task{
             do {
-                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: 1)
                 let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
@@ -222,6 +223,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return cell
     }
     
+    //300버튼 클릭
+    @IBAction func Tapped300mButton(_ sender: Any) {
+            // 이미 ResultListViewController가 스택에 있는지 확인
+            if let resultListVC = navigationController?.viewControllers.first(where: { $0 is ResultListViewController }) as? ResultListViewController {
+                // 스택에 있으면 range 값을 업데이트하고 데이터를 로드
+                resultListVC.range = 1
+                resultListVC.loadData(range: 1)
+                // 이전 화면으로 이동
+                navigationController?.popToViewController(resultListVC, animated: true)
+            } else {
+                // 스택에 없으면 새로운 ResultListViewController 인스턴스를 생성하여 데이터 로드
+                if let resultListVC = storyboard?.instantiateViewController(withIdentifier: "ResultListViewController") as? ResultListViewController {
+                    resultListVC.range = 1
+                    navigationController?.pushViewController(resultListVC, animated: true)
+                } else {
+                    print("Failed to instantiate ResultListViewController from storyboard")
+                }
+            }
+    }
+    
+    
     //MARK: - バナー自動スライドを実装
     private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -232,4 +254,5 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         collectionView.scrollToItem(at: IndexPath(item: nextIndex, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex = nextIndex
     }
+
 }
