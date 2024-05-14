@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ResultTableViewCell: UITableViewCell {
+//struct ResultTableViewCellViewModel: Hashable{
+//
+//}
+
+ class ResultTableViewCell: UITableViewCell {
     
     static let identifire: String = "ResultTableViewCell"
     static let height : CGFloat = 100
