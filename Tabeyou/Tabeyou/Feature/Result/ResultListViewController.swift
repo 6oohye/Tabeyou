@@ -17,6 +17,7 @@ class ResultListViewController: UIViewController {
     
     var restaurants: [ResultTableViewCellViewModel] = []
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    var range: Int = 0
     
     
     override func viewDidLoad() {
@@ -42,7 +43,7 @@ class ResultListViewController: UIViewController {
     private func loadData() {
         Task {
                     do {
-                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: range)
                         let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
                             return ResultTableViewCellViewModel(
                                 imageUrl: shop.photo.pc.m,

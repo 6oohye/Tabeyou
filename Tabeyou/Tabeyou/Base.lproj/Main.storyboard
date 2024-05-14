@@ -71,7 +71,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="Button300m"/>
                                                             <connections>
-                                                                <segue destination="eQG-iS-8sp" kind="show" id="h1P-EP-rJC"/>
+                                                                <segue destination="eQG-iS-8sp" kind="show" identifier="GoTo300mList" id="h1P-EP-rJC"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYf-4l-Ywj" userLabel="Button500m">
@@ -82,7 +82,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="Button500m"/>
                                                             <connections>
-                                                                <segue destination="eQG-iS-8sp" kind="show" id="cIc-9u-mJj"/>
+                                                                <segue destination="eQG-iS-8sp" kind="show" identifier="GoTo500mList" id="cIc-9u-mJj"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-WF-bjF">
@@ -1012,7 +1012,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h1P-EP-rJC"/>
+        <segue reference="cIc-9u-mJj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Button1km" width="70" height="30"/>

@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     private func loadData(){
         Task{
             do {
-                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: 1)
                 let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
@@ -231,5 +231,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let nextIndex = (currentIndex + 1) % collectionView.numberOfItems(inSection: 0)
         collectionView.scrollToItem(at: IndexPath(item: nextIndex, section: 0), at: .centeredHorizontally, animated: true)
         currentIndex = nextIndex
+    }
+    
+    //MARK: - Button役割
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoTo300mList" {
+            if let destinationVC = segue.destination as? ResultListViewController {
+                destinationVC.range = 1
+            }
+        }else if segue.identifier == "GoTo500mList" {
+            if let destinationVC = segue.destination as? ResultListViewController {
+                destinationVC.range = 2
+            }
+        }
     }
 }

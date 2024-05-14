@@ -23,7 +23,6 @@ class HomeButtonCollectionViewCell: UICollectionViewCell {
         button500m.setImage(UIImage(named: "Button500m"), for: .normal)
         button1km.setImage(UIImage(named: "Button1km"), for: .normal)
         button3km.setImage(UIImage(named: "Button3km"), for: .normal)
-        
     }
 }
 
