@@ -11,6 +11,7 @@ struct Restaurant: Codable {
     let results: Results
     
     struct Results: Codable {
+        let results_available :Int
         let shop: [Shop]
         
         struct Shop: Codable {

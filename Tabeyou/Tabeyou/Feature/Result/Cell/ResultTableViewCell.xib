@@ -19,17 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-tM-R4C">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="104.33333333333333"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="100.33333333333333"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KkY-HY-lge">
-                                <rect key="frame" x="20" y="10" width="120" height="80"/>
+                                <rect key="frame" x="20" y="10" width="120" height="80.333333333333329"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="80.329999999999998" id="8hU-IN-Qud"/>
                                     <constraint firstAttribute="width" constant="120" id="KYe-fY-uRA"/>
-                                    <constraint firstAttribute="height" constant="80" id="lZI-RF-FWs"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-PU-Pmh">
-                                <rect key="frame" x="150" y="10" width="223" height="84.333333333333329"/>
+                                <rect key="frame" x="150" y="10" width="223" height="80.333333333333329"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vw-BE-Fta">
                                         <rect key="frame" x="0.0" y="0.0" width="223" height="22"/>
@@ -63,8 +63,8 @@
                                         <color key="textColor" name="mainColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GH-Jg-CDu">
-                                        <rect key="frame" x="0.0" y="72.333333333333329" width="223" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GH-Jg-CDu">
+                                        <rect key="frame" x="0.0" y="72.333333333333329" width="223" height="8"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" name="iconGray"/>
                                         <nil key="highlightedColor"/>
@@ -77,6 +77,7 @@
                             <constraint firstItem="KkY-HY-lge" firstAttribute="leading" secondItem="iSg-tM-R4C" secondAttribute="leading" constant="20" id="4Ab-P8-CHF"/>
                             <constraint firstAttribute="bottom" secondItem="tCe-PU-Pmh" secondAttribute="bottom" constant="10" id="7JQ-RT-gaZ"/>
                             <constraint firstItem="tCe-PU-Pmh" firstAttribute="centerY" secondItem="iSg-tM-R4C" secondAttribute="centerY" id="9wb-UI-bmz"/>
+                            <constraint firstAttribute="bottom" secondItem="KkY-HY-lge" secondAttribute="bottom" constant="10" id="IHb-b4-IJA"/>
                             <constraint firstItem="tCe-PU-Pmh" firstAttribute="leading" secondItem="KkY-HY-lge" secondAttribute="trailing" constant="10" id="Tbm-X5-0hn"/>
                             <constraint firstItem="KkY-HY-lge" firstAttribute="top" secondItem="iSg-tM-R4C" secondAttribute="top" constant="10" id="UI5-dS-las"/>
                             <constraint firstItem="tCe-PU-Pmh" firstAttribute="top" secondItem="iSg-tM-R4C" secondAttribute="top" constant="10" id="e8m-3S-RSB"/>
@@ -90,6 +91,7 @@
                     <constraint firstAttribute="bottom" secondItem="iSg-tM-R4C" secondAttribute="bottom" id="Q5c-WM-LXh"/>
                     <constraint firstItem="iSg-tM-R4C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cC0-7P-zr8"/>
                     <constraint firstAttribute="trailing" secondItem="iSg-tM-R4C" secondAttribute="trailing" id="rxV-t9-JEE"/>
+                    <constraint firstAttribute="bottom" secondItem="iSg-tM-R4C" secondAttribute="bottom" id="sZB-Ov-Qqt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

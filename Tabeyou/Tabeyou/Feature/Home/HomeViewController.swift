@@ -91,25 +91,26 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //MARK: - loadData
-    private func loadData(){
-        Task{
+    private func loadData() {
+        Task {
             do {
-                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: 1)
-                let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: 1)
+                let restaurantViewModels = response.shop.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
                         title: shop.name,
                         station: shop.station_name,
-                        intro:shop.intro,
+                        intro: shop.intro,
                         price: shop.budget.name
                     )
                 }
                 applySnapShot(restaurantViewModels: restaurantViewModels)
-            } catch{
+            } catch {
                 print("network Error : \(error)")
             }
         }
     }
+
     
     //MARK: - CompositionalLayout
     private static func setCompositionalLayout() -> UICollectionViewCompositionalLayout{
@@ -236,13 +237,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Button役割
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoTo300mList" {
-            if let destinationVC = segue.destination as? ResultListViewController {
-                destinationVC.range = 1
-            }
-        }else if segue.identifier == "GoTo500mList" {
-            if let destinationVC = segue.destination as? ResultListViewController {
-                destinationVC.range = 2
-            }
-        }
+               if let destinationVC = segue.destination as? ResultListViewController {
+                   destinationVC.range = 1
+               }
+           } else if segue.identifier == "GoTo500mList" {
+               if let destinationVC = segue.destination as? ResultListViewController {
+                   destinationVC.range = 2
+               }
+           } else if segue.identifier == "GoTo1kmList" {
+               if let destinationVC = segue.destination as? ResultListViewController {
+                   destinationVC.range = 3
+               }
+           } else if segue.identifier == "GoTo3kmList" {
+               if let destinationVC = segue.destination as? ResultListViewController {
+                   destinationVC.range = 5
+               }
+           }
     }
 }

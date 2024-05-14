@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "callIcon.png",
+      "filename" : "MapBtn.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "callIcon@2x.png",
+      "filename" : "MapBtn@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "callIcon@3x.png",
+      "filename" : "MapBtn@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

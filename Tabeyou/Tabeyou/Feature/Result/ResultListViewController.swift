@@ -42,26 +42,34 @@ class ResultListViewController: UIViewController {
     //MARK: - API로부터 데이터 가져오기
     private func loadData() {
         Task {
-                    do {
-                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: range)
-                        let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
-                            return ResultTableViewCellViewModel(
-                                imageUrl: shop.photo.pc.m,
-                                title: shop.name,
-                                station: shop.station_name,
-                                price: shop.budget.name,
-                                access: shop.access
-                            )
-                        }
-                        restaurants = restaurantViewModels
-                        
-                        // 데이터를 가져온 후에 테이블 뷰를 리로드하여 업데이트된 데이터를 반영합니다.
-                        tableView.reloadData()
-                    } catch {
-                        print("Error fetching data: \(error)")
-                    }
+            do {
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range)
+                
+                // results_available 값 확인
+                let resultsAvailable = response.results_available
+                print("Results Available:", resultsAvailable)
+                
+                let restaurantViewModels = response.shop.map { shop -> ResultTableViewCellViewModel in
+                    return ResultTableViewCellViewModel(
+                        imageUrl: shop.photo.pc.m,
+                        title: shop.name,
+                        station: shop.station_name,
+                        price: shop.budget.name,
+                        access: shop.access
+                    )
                 }
-       }
+                restaurants = restaurantViewModels
+                
+                // 데이터를 가져온 후에 테이블 뷰를 리로드하여 업데이트된 데이터를 반영합니다.
+                tableView.reloadData()
+
+            } catch {
+                print("Error fetching data: \(error)")
+            }
+        }
+    }
+
+
     
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
