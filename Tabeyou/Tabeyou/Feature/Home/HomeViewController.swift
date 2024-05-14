@@ -90,41 +90,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         print("位置情報の取得に失敗: \(error.localizedDescription)")
     }
     
-    //MARK: - Button Actions
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        var range: String = ""
-        
-        // 클릭된 버튼의 태그에 따라 range 값을 설정합니다.
-        switch sender.tag {
-        case 1:
-            range = "1"
-        case 2:
-            range = "2"
-        case 3:
-            range = "3"
-        case 4:
-            range = "5"
-        default:
-            break
-        }
-        
-        // 결과 리스트 뷰 컨트롤러를 인스턴스화합니다.
-        guard let resultListVC = storyboard?.instantiateViewController(withIdentifier: "ResultListViewController") as? ResultListViewController else {
-            return
-        }
-        
-        // 선택된 범위에 따라 데이터 요청을 수행합니다.
-        resultListVC.range = range
-        
-        // 결과 리스트 뷰 컨트롤러로 이동합니다.
-        navigationController?.pushViewController(resultListVC, animated: true)
-    }
-    
     //MARK: - loadData
     private func loadData(){
         Task{
             do {
-                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: "1")
+                let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
                 let restaurantViewModels = response.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
