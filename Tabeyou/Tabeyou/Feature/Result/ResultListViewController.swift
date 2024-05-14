@@ -18,17 +18,13 @@ class ResultListViewController: UIViewController {
     var restaurants: [ResultTableViewCellViewModel] = []
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     
-    var range: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarCustom()
         self.setupTableView()
-        
-        if let range = range {
-                    loadData(range: range)
-                }
+        loadData()
         
     }
     
@@ -43,10 +39,10 @@ class ResultListViewController: UIViewController {
     }
     
     //MARK: - API로부터 데이터 가져오기
-    public func loadData(range: Int) {
+    private func loadData() {
         Task {
                     do {
-                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: range)
+                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
                         let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
                             return ResultTableViewCellViewModel(
                                 imageUrl: shop.photo.pc.m,
