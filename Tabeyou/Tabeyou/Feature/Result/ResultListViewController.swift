@@ -42,7 +42,7 @@ class ResultListViewController: UIViewController {
     private func loadData() {
         Task {
                     do {
-                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData(range: "")
                         let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
                             return ResultTableViewCellViewModel(
                                 imageUrl: shop.photo.pc.m,

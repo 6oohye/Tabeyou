@@ -17,6 +17,27 @@ class HomeButtonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var button1km: UIButton!
     @IBOutlet weak var button3km: UIButton!
     
+    var rangeButtonTapped: ((RangeButton) -> Void)?
+        
+        @IBAction func buttonTapped(_ sender: UIButton) {
+            var range: RangeButton?
+            switch sender {
+            case button300m:
+                range = ._300m
+            case button500m:
+                range = ._500m
+            case button1km:
+                range = ._1km
+            case button3km:
+                range = ._3km
+            default:
+                break
+            }
+            if let range = range {
+                rangeButtonTapped?(range)
+            }
+        }
+    
     
     func setViewModel(_ viewModel : HomeButtonCollectionViewCellViewModel){
         button300m.setImage(UIImage(named: "Button300m"), for: .normal)
