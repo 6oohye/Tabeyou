@@ -267,7 +267,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8t6-Ol-9FT">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="100.33333333333333"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n6D-v3-T7m">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n6D-v3-T7m">
                                                             <rect key="frame" x="20" y="10" width="120" height="80.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="80" id="lo2-71-kx6"/>

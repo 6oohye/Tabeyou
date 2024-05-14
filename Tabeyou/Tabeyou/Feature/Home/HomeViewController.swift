@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                         imageUrl: shop.photo.pc.m,
                         title: shop.name,
                         station: shop.station_name,
-                        time:shop.intro,
+                        intro:shop.intro,
                         price: shop.budget.name
                     )
                 }

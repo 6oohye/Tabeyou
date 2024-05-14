@@ -13,16 +13,18 @@ class ResultListViewController: UIViewController {
         case restaurant
     }
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    var restaurants: [ResultTableViewCellViewModel] = []
+    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarCustom()
-        
         self.setupTableView()
+        loadData()
         
     }
     
@@ -35,6 +37,30 @@ class ResultListViewController: UIViewController {
             forCellReuseIdentifier: ResultTableViewCell.identifire
         )
     }
+    
+    //MARK: - API로부터 데이터 가져오기
+    private func loadData() {
+        Task {
+                    do {
+                        let response: [Restaurant.Results.Shop] = try await networkService.getRestaurantData()
+                        let restaurantViewModels = response.map { shop -> ResultTableViewCellViewModel in
+                            return ResultTableViewCellViewModel(
+                                imageUrl: shop.photo.pc.m,
+                                title: shop.name,
+                                station: shop.station_name,
+                                price: shop.budget.name,
+                                access: shop.access
+                            )
+                        }
+                        restaurants = restaurantViewModels
+                        
+                        // 데이터를 가져온 후에 테이블 뷰를 리로드하여 업데이트된 데이터를 반영합니다.
+                        tableView.reloadData()
+                    } catch {
+                        print("Error fetching data: \(error)")
+                    }
+                }
+       }
     
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -73,30 +99,38 @@ extension ResultListViewController{
 
 extension ResultListViewController : UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        ResultSection.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = ResultSection(rawValue: section) else{
-            return 0
-        }
-        
-        switch section{
-        case .restaurant :
-            return 10
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = ResultSection(rawValue: indexPath.section) else {
-            return UITableViewCell()
-        }
-        
-        switch section{
-        case .restaurant :
-            return tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath)
-        }
-    }
+           return 1 // 섹션은 하나만 있습니다.
+       }
+       
+       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return restaurants.count // 데이터의 개수만큼 셀을 반환합니다.
+       }
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath) as? ResultTableViewCell else {
+               return UITableViewCell()
+           }
+           
+           // 셀에 데이터를 설정합니다.
+           let restaurant = restaurants[indexPath.row]
+           cell.setViewModel(restaurant)
+           
+           return cell
+       }
+       
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // 선택된 셀에 해당하는 레스토랑 정보 가져오기
+//        let selectedRestaurant = restaurants[indexPath.row]
+//        
+//        // 이동할 뷰 컨트롤러를 인스턴스화
+//        let detailViewController = ResultDetailViewController()
+//        
+//        // 선택된 레스토랑 정보를 상세 뷰 컨트롤러에 전달
+//        detailViewController.self = selectedRestaurant
+//
+//        // 뷰 컨트롤러를 표시
+//        navigationController?.pushViewController(detailViewController, animated: true)
+//    }
     
     
 }

@@ -6,6 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
+
+struct ResultTableViewCellViewModel: Hashable{
+    let imageUrl : String
+    let title : String
+    let station : String
+    let price : String
+    let access : String
+}
 
 class ResultTableViewCell: UITableViewCell {
     
@@ -18,6 +27,14 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    func setViewModel(_ viewModel : ResultTableViewCellViewModel){
+        restaurantImageView.kf.setImage(with: URL(string: viewModel.imageUrl))
+        restaurantNameLabel.text = viewModel.title
+        stationLabel.text = viewModel.station
+        priceLabel.text = viewModel.price
+        locationLabel.text = viewModel.access
+    }
     
     
     override func awakeFromNib() {

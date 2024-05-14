@@ -12,7 +12,7 @@ struct HomeRestaurantCollectionViewCellViewModel: Hashable{
     let imageUrl : String
     let title : String
     let station : String
-    let time : String
+    let intro : String
     let price : String
 }
 
@@ -29,7 +29,7 @@ final class HomeRestaurantCollectionViewCell: UICollectionViewCell {
         RestaurantItemImageView.kf.setImage(with: URL(string: viewModel.imageUrl))
         RestaurantTitleLabel.text = viewModel.title
         StationLabel.text = viewModel.station
-        RestaurantTimeLabel.text = viewModel.time
+        RestaurantTimeLabel.text = viewModel.intro
         PriceLabel.text = viewModel.price
     }
 }
