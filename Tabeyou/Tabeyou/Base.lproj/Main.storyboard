@@ -433,16 +433,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-G0-Ewt">
                                         <rect key="frame" x="20" y="376" width="350" height="15"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc9-4D-5vU">
-                                                <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="copyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B0n-t1-WHb">
+                                                <rect key="frame" x="0.0" y="0.0" width="12" height="15"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="15" id="zy5-M9-oBz"/>
+                                                    <constraint firstAttribute="width" constant="12" id="HiT-iv-ZeU"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="copyIcon"/>
-                                            </button>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アドレスコピー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ud-MT-vZq">
-                                                <rect key="frame" x="25" y="0.0" width="325" height="15"/>
+                                                <rect key="frame" x="22" y="0.0" width="328" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                 <color key="textColor" name="gray2"/>
                                                 <nil key="highlightedColor"/>
@@ -516,19 +514,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XUM-6c-yXy"/>
-                    <connections>
-                        <outlet property="detailAddress" destination="c2m-5b-1hB" id="YOo-yF-6IU"/>
-                        <outlet property="detailClose" destination="68q-ru-ell" id="ifq-DK-1eG"/>
-                        <outlet property="detailCopyButton" destination="dc9-4D-5vU" id="JVK-xZ-u29"/>
-                        <outlet property="detailGenre" destination="DS3-MA-grB" id="oW6-fp-bBj"/>
-                        <outlet property="detailImageView" destination="tRq-fu-n5q" id="9Ch-tU-DiI"/>
-                        <outlet property="detailKanaName" destination="TZe-T4-5Jh" id="ID6-Ws-zuK"/>
-                        <outlet property="detailMapButton" destination="Y3z-of-2bO" id="YpU-NM-OKB"/>
-                        <outlet property="detailMapView" destination="lza-ZK-1Wf" id="10d-iG-HSk"/>
-                        <outlet property="detailName" destination="gaO-5i-dyT" id="Kdz-Eu-XuT"/>
-                        <outlet property="detailOpen" destination="KCn-2u-d98" id="Rua-it-wQk"/>
-                        <outlet property="detailaccess" destination="I7n-6q-AQC" id="pNy-Lx-wUd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3W-zY-arD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -963,7 +948,7 @@
         <image name="MapBtn" width="301" height="40"/>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="bookmarkIcon" width="24" height="30"/>
-        <image name="copyIcon" width="10" height="11.666666984558105"/>
+        <image name="copyIcon" width="10" height="12"/>
         <image name="detailAccessIcon" width="15" height="15"/>
         <image name="detailCalendarIcon" width="14.333333015441895" height="14"/>
         <image name="detailClockIcon" width="14.333333015441895" height="14"/>
