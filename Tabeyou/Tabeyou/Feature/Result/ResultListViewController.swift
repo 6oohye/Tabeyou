@@ -113,5 +113,3 @@ extension ResultListViewController: UIScrollViewDelegate {
         }
     }
 }
-
-

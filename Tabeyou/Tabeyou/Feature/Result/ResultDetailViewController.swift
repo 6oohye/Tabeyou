@@ -6,25 +6,8 @@
 //
 
 import UIKit
-import MapKit
 
 class ResultDetailViewController: UIViewController {
-    
-    //Restaurant Info
-    @IBOutlet weak var detailImage: UIImageView!
-
-    @IBOutlet weak var detailKanaName: UILabel!
-    @IBOutlet weak var detailAccess: UILabel!
-    @IBOutlet weak var detailGenre: UILabel!
-    @IBOutlet weak var detailOpen: UILabel!
-    @IBOutlet weak var detailClose: UILabel!
-    //MAP
-    @IBOutlet weak var detailMapView: MKMapView!
-    @IBOutlet weak var detailCopyButton: UIButton!
-    @IBOutlet weak var detailaddress: UILabel!
-    @IBOutlet weak var detailMapButton: UIButton!
-    
-    private let viewModel = ResultListViewModel()
     var isMainColor = false
     
     override func viewDidLoad() {
