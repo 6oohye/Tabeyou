@@ -49,7 +49,7 @@ class ResultListViewModel {
                 
                 isLoading = false
                 currentPage += 1 // 페이지 증가
-                start = ((currentPage - 1) * 10 + 1)
+                start = ((currentPage) * 10 + 1)
                 print("Page:", currentPage)
                 print("Start:", start)
                 
