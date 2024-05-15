@@ -26,9 +26,7 @@ class ResultListViewController: UIViewController {
         
         navigationBarCustom()
         self.setupTableView()
-        tableView.register(UINib(nibName: "LoadingIndicatorCell", bundle: nil), forCellReuseIdentifier: LoadingIndicatorCell.identifier)
         loadData()
-          
         
     }
     
@@ -46,7 +44,7 @@ class ResultListViewController: UIViewController {
     private func loadData() {
         guard !isLoading else { return }
         isLoading = true
-        
+
         Task {
             do {
                 let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: currentPage)
@@ -72,7 +70,7 @@ class ResultListViewController: UIViewController {
                 tableView.reloadData()
                 isLoading = false
                 currentPage += 1 // 페이지 증가
-                
+
             } catch {
                 print("Error fetching data: \(error)")
                 isLoading = false
@@ -106,26 +104,21 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+       
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurants.count + (isLoading ? 1 : 0)
+        return restaurants.count
     }
-    
+       
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < restaurants.count{
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath) as? ResultTableViewCell else {
-                return UITableViewCell()
-            }
-            // 셀에 데이터를 설정합니다.
-            let restaurant = restaurants[indexPath.row]
-            cell.setViewModel(restaurant)
-            
-            return cell
-        }else {
-            // 추가된 인디케이터 셀을 반환
-            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingIndicatorCell.identifier, for: indexPath) as! LoadingIndicatorCell
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath) as? ResultTableViewCell else {
+            return UITableViewCell()
         }
+        
+        // 셀에 데이터를 설정합니다.
+        let restaurant = restaurants[indexPath.row]
+        cell.setViewModel(restaurant)
+        
+        return cell
     }
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -141,16 +134,36 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
+ 
 extension ResultListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
         
-        if offsetY > contentHeight - height * 2 && !isLoading {
+        if offsetY > contentHeight - height * 1.5 {
             loadData()
         }
     }
 }
+
+    
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        // 선택된 셀에 해당하는 레스토랑 정보 가져오기
+    //        let selectedRestaurant = restaurants[indexPath.row]
+    //
+    //        // 이동할 뷰 컨트롤러를 인스턴스화
+    //        let detailViewController = ResultDetailViewController()
+    //
+    //        // 선택된 레스토랑 정보를 상세 뷰 컨트롤러에 전달
+    //        detailViewController.self = selectedRestaurant
+    //
+    //        // 뷰 컨트롤러를 표시
+    //        navigationController?.pushViewController(detailViewController, animated: true)
+    //    }
+    
+    
+
+
+
 
