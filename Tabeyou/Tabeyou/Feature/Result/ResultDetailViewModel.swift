@@ -22,11 +22,12 @@ class  ResultDetailViewModel{
         let address : String
     }
     var resultDetailViewModel: [ResultDetailViewModel] = []
+    var restaurantID: String = ""
     
     func loadData(completion: @escaping () -> Void) {
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: 1, start: 1, page: 1)
+                let response: Restaurant.Results = try await networkService.getRestaurantDetailData(restaurantID: restaurantID)
                 self.resultDetailViewModel = response.shop.map { shop -> ResultDetailViewModel in
                     return ResultDetailViewModel(
                         id:shop.id,

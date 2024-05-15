@@ -6,14 +6,43 @@
 //
 
 import UIKit
+import MapKit
+import Kingfisher
 
-class ResultDetailViewController: UIViewController {
+class ResultDetailViewController:
+    UIViewController {
+    
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailKanaName: UILabel!
+    @IBOutlet weak var detailName: UILabel!
+    @IBOutlet weak var detailaccess: UILabel!
+    @IBOutlet weak var detailGenre: UILabel!
+    @IBOutlet weak var detailOpen: UILabel!
+    @IBOutlet weak var detailClose: UILabel!
+    @IBOutlet weak var detailMapView: MKMapView!
+    @IBOutlet weak var detailCopyButton: UIButton!
+    @IBOutlet weak var detailAddress: UILabel!
+    @IBOutlet weak var detailMapButton: UIButton!
+    
     var isMainColor = false
+    var resultDetailViewModel = ResultDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarCustom()
         
+        
+    }
+    
+    func setViewModel(_ viewModel: ResultDetailViewModel.ResultDetailViewModel){
+        detailImageView.kf.setImage(with: URL(string:viewModel.imageUrl ))
+        detailKanaName.text = viewModel.kana_name
+        detailName.text = viewModel.title
+        detailaccess.text = viewModel.accsee
+        detailGenre.text = viewModel.genre
+        detailOpen.text = viewModel.open
+        detailClose.text = viewModel.close
+        detailAddress.text = viewModel.address
     }
 }
 
