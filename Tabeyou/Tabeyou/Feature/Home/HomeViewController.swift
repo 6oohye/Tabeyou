@@ -6,32 +6,93 @@
 //
 
 import UIKit
+import CoreLocation
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     enum Section: Int{
         case banner
         case button
+        case headerText
         case restaurantList
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var locationManager = CLLocationManager()
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
-    
     private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
-   
+    
     
     private var timer: Timer?
     private var currentIndex = 0
     
+    private let viewModel = HomeViewModel()
+    
+    //MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.global().async {
+            self.setLocationManager()
+        }
+        
+        loadData()
         setDataSource()
-        applySnapShot()
+        
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
+    }
+    
+    //MARK: - 位置情報
+    fileprivate func setLocationManager() {
+        // 델리게이트를 설정하고,
+        locationManager.delegate = self
+        // 거리 정확도
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // 위치 사용 허용 알림
+        locationManager.requestWhenInUseAuthorization()
+        // 위치 사용을 허용하면 현재 위치 정보를 가져옴
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        else {
+            print("ロケーションサービス off") //위치서비스 허용off
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            DispatchQueue.main.async {
+                manager.startUpdatingLocation()
+            }
+        case .notDetermined, .restricted, .denied:
+            print("位置権限状態が十分ではありません") //위치 권한 상태가 충분하지 않습니다
+        @unknown default:
+            fatalError("不明権限状態。") // 알 수 없는 권한 상태.
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("位置アップデート!")
+            print("緯度 : \(location.coordinate.latitude)")
+            print("経度 : \(location.coordinate.longitude)")
+        }
+    }
+    
+    // 위치 가져오기 실패
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("位置情報の取得に失敗: \(error.localizedDescription)")
+    }
+    
+    //MARK: - loadData
+    private func loadData() {
+        viewModel.loadData { [weak self] in
+            guard let self = self else { return }
+            self.applySnapShot(restaurantViewModels: self.viewModel.restaurantViewModels)
+        }
     }
     
     //MARK: - CompositionalLayout
@@ -44,6 +105,9 @@ class HomeViewController: UIViewController {
                 
             case .button:
                 return HomeButtonCollectionViewCell.buttonLayout()
+                
+            case .headerText:
+                return HomeTextCollectionViewCell.headerTextLayout()
                 
             case .restaurantList:
                 return  HomeRestaurantCollectionViewCell.restaurantListLayout()
@@ -64,6 +128,9 @@ class HomeViewController: UIViewController {
             case .button:
                 return self?.buttonCell(collectionView, indexPath, viewModel)
                 
+            case .headerText:
+                return self?.headerTextCell(collectionView, indexPath, viewModel)
+                
             case .restaurantList:
                 return self?.restaurantListCell(collectionView, indexPath, viewModel)
                 
@@ -75,7 +142,7 @@ class HomeViewController: UIViewController {
     }
     
     //MARK: - SnapShot
-    private func applySnapShot(){
+    private func applySnapShot(restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel]){
         var snapShot: NSDiffableDataSourceSnapshot<Section, AnyHashable> = NSDiffableDataSourceSnapshot<Section,AnyHashable>()
         
         snapShot.appendSections([.banner])
@@ -87,13 +154,11 @@ class HomeViewController: UIViewController {
         snapShot.appendSections([.button])
         snapShot.appendItems([HomeButtonCollectionViewCellViewModel(buttonImage: .system)], toSection: .button)
         
+        snapShot.appendSections([.headerText])
+        snapShot.appendItems([HomeTextCollectionViewCellViewModel(headerText: "最寄りのグルメ店に！")], toSection: .headerText)
+        
         snapShot.appendSections([.restaurantList])
-        snapShot.appendItems([
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店1", station: "新宿駅", time: "営業 9:00-21:00", price: "1000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店2", station: "新宿駅", time: "営業 9:00-21:00", price: "2000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店3", station: "新宿駅", time: "営業 9:00-21:00", price: "3000円〜5000円"),
-            HomeRestaurantCollectionViewCellViewModel(imageUrl: "", title: "焼肉ライク新宿店4", station: "新宿駅", time: "営業 9:00-21:00", price: "4000円〜5000円")
-        ], toSection: .restaurantList)
+        snapShot.appendItems(restaurantViewModels, toSection: .restaurantList)
         
         dataSource?.apply(snapShot)
     }
@@ -109,6 +174,27 @@ class HomeViewController: UIViewController {
     private func buttonCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
         guard let viewModel = viewModel as? HomeButtonCollectionViewCellViewModel,
               let cell: HomeButtonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeButtonCollectionViewCell", for: indexPath) as? HomeButtonCollectionViewCell else {return .init()}
+        cell.setViewModel(viewModel)
+        return cell
+    }
+    
+    private func headerTextCell(_ collectionView : UICollectionView,_ indexPath: IndexPath,_ viewModel: AnyHashable) -> UICollectionViewCell{
+        guard let viewModel = viewModel as? HomeTextCollectionViewCellViewModel,
+              let cell: HomeTextCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeTextCollectionViewCell", for: indexPath) as? HomeTextCollectionViewCell else {return .init()}
+        
+        // 셀의 테두리 설정
+        let borderWidth: CGFloat = 1
+        let borderColor =  AppColors.UIKit.gray1.cgColor
+        
+        cell.contentView.layer.borderWidth = 0
+        cell.contentView.layer.borderColor = nil
+        
+        // 탑에 보더 추가
+        let borderLayer = CALayer()
+        borderLayer.backgroundColor = borderColor
+        borderLayer.frame = CGRect(x: 0, y: 0, width: cell.contentView.frame.width, height: borderWidth)
+        cell.contentView.layer.addSublayer(borderLayer)
+        
         cell.setViewModel(viewModel)
         return cell
     }
@@ -131,15 +217,21 @@ class HomeViewController: UIViewController {
         currentIndex = nextIndex
     }
     
-    //!!!: - 이거하면 메모리 누수를 방지할 수는 있는데 타이머가 계속 안돌아감..
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        timer?.invalidate()
-    //        timer = nil
-    //    }
+    //MARK: - Button役割
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let resultListVC = segue.destination as? ResultListViewController {
+            switch segue.identifier {
+            case "GoTo300mList":
+                resultListVC.viewModel.range = 1
+            case "GoTo500mList":
+                resultListVC.viewModel.range = 2
+            case "GoTo1kmList":
+                resultListVC.viewModel.range = 3
+            case "GoTo3kmList":
+                resultListVC.viewModel.range = 5
+            default:
+                break
+            }
+        }
+    }
 }
-
-//MARK: - Preview Code
-//#Preview{
-//    UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! HomeViewController
-//}
