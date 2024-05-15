@@ -5,7 +5,7 @@
 //  Created by 6혜진 on 5/15/24.
 //
 
-import UIKit
+import Foundation
 
 class ResultListViewModel {
     
@@ -30,7 +30,7 @@ class ResultListViewModel {
                 let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
                 
                 // results_available 값 확인
-                resultsAvailable = response.results_available 
+                resultsAvailable = response.results_available
                 print("Results Available:", resultsAvailable)
                 
                 let restaurantViewModels = response.shop.map { shop -> ResultTableViewCellViewModel in

@@ -5,7 +5,6 @@
 //  Created by 6혜진 on 5/12/24.
 //
 
-import Foundation
 import UIKit
 
 enum AppColors{}
