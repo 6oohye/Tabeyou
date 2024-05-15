@@ -18,6 +18,7 @@ class ResultListViewController: UIViewController {
     var restaurants: [ResultTableViewCellViewModel] = []
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     var range: Int = 0
+    var start : Int = 1 //시작하는 id
     var currentPage: Int = 1 // 현재 페이지를 추적하는 변수
     var isLoading: Bool = false // 데이터를 로드 중인지 추적하는 변수
     
@@ -47,7 +48,7 @@ class ResultListViewController: UIViewController {
 
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: currentPage)
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
                 
                 // results_available 값 확인
                 let resultsAvailable = response.results_available
@@ -70,6 +71,10 @@ class ResultListViewController: UIViewController {
                 tableView.reloadData()
                 isLoading = false
                 currentPage += 1 // 페이지 증가
+                start = (currentPage * 20 + 1)
+                print("Page:", currentPage)
+                print("Start:", start)
+                
 
             } catch {
                 print("Error fetching data: \(error)")
@@ -137,33 +142,14 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
  
 extension ResultListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
-        if offsetY > contentHeight - height * 1.5 {
-            loadData()
+            let offsetY = scrollView.contentOffset.y
+            let contentHeight = scrollView.contentSize.height
+            let height = scrollView.frame.size.height
+            
+            if offsetY > contentHeight - height * 1.5 && !isLoading {
+                if restaurants.count < 500 {
+                    loadData()
+                }
+            }
         }
-    }
 }
-
-    
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        // 선택된 셀에 해당하는 레스토랑 정보 가져오기
-    //        let selectedRestaurant = restaurants[indexPath.row]
-    //
-    //        // 이동할 뷰 컨트롤러를 인스턴스화
-    //        let detailViewController = ResultDetailViewController()
-    //
-    //        // 선택된 레스토랑 정보를 상세 뷰 컨트롤러에 전달
-    //        detailViewController.self = selectedRestaurant
-    //
-    //        // 뷰 컨트롤러를 표시
-    //        navigationController?.pushViewController(detailViewController, animated: true)
-    //    }
-    
-    
-
-
-
-

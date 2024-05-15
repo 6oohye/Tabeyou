@@ -71,7 +71,7 @@ class NetworkService {
     }
     
     //MARK: -　グルメサーチAPIを活用してレストランの詳細情報を取得する機能
-    func getRestaurantData(range: Int, start: Int) async throws -> Restaurant.Results {
+    func getRestaurantData(range: Int,start: Int, page: Int) async throws -> Restaurant.Results {
         do {
             let data: Restaurant = try await fetch(
                 path: "gourmet/v1/",
@@ -81,6 +81,7 @@ class NetworkService {
                     URLQueryItem(name: "lat", value: "35.663516524722596"),
                     URLQueryItem(name: "lng", value: "139.7359178448177"),
                     URLQueryItem(name: "range", value: "\(range)"),
+                    URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "start", value: "\(start)"),
                     URLQueryItem(name: "format", value: "json")
                 ]

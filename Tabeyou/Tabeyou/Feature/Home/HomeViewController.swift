@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     private func loadData() {
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: 1, start: 1)
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: 1, start: 1, page: 1)
                 let restaurantViewModels = response.shop.map { shop -> HomeRestaurantCollectionViewCellViewModel in
                     return HomeRestaurantCollectionViewCellViewModel(
                         imageUrl: shop.photo.pc.m,
