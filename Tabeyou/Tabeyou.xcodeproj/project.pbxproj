@@ -37,6 +37,7 @@
 		E86C4C122BEB52440004F69C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C112BEB52440004F69C /* Assets.xcassets */; };
 		E86C4C152BEB52440004F69C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C142BEB52440004F69C /* Base */; };
 		E86C4C1F2BEB53870004F69C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C1E2BEB53870004F69C /* Colors.xcassets */; };
+		E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E86C4C142BEB52440004F69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86C4C162BEB52440004F69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E86C4C1E2BEB53870004F69C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				E82018792BF209D3009ECDAE /* Cell */,
 				E82018772BF1F954009ECDAE /* ResultListViewController.swift */,
+				E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */,
 				E82018802BF23695009ECDAE /* ResultDetailViewController.swift */,
 			);
 			path = Result;
@@ -391,6 +394,7 @@
 				E82018492BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift in Sources */,
 				E82018812BF23695009ECDAE /* ResultDetailViewController.swift in Sources */,
 				E82018722BF0FAC2009ECDAE /* AppColors.swift in Sources */,
+				E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */,
 				E82018402BEDF686009ECDAE /* SearchViewModel.swift in Sources */,
 				E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */,
 				E82018422BEDF690009ECDAE /* HomeViewModel.swift in Sources */,

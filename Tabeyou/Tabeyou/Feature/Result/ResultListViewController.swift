@@ -15,13 +15,7 @@ class ResultListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var restaurants: [ResultTableViewCellViewModel] = []
-    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
-    var range: Int = 0
-    var start : Int = 1 //시작하는 id
-    var currentPage: Int = 0 // 현재 페이지를 추적하는 변수
-    var isLoading: Bool = false // 데이터를 로드 중인지 추적하는 변수
-    var resultsAvailable: Int = 0 // 전체 결과 수를 저장하는 변수
+    var viewModel = ResultListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,43 +38,8 @@ class ResultListViewController: UIViewController {
     
     //MARK: - API로부터 데이터 가져오기
     private func loadData() {
-        guard !isLoading else { return }
-        isLoading = true
-
-        Task {
-            do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
-                
-                // results_available 값 확인
-                resultsAvailable = response.results_available // 업데이트된 부분
-                print("Results Available:", resultsAvailable)
-                
-                let restaurantViewModels = response.shop.map { shop -> ResultTableViewCellViewModel in
-                    return ResultTableViewCellViewModel(
-                        imageUrl: shop.photo.pc.m,
-                        title: shop.name,
-                        station: shop.station_name,
-                        price: shop.budget.name,
-                        access: shop.access
-                    )
-                }
-                
-                // 기존 데이터에 새로운 데이터 추가
-                restaurants.append(contentsOf: restaurantViewModels)
-                
-                // 테이블 뷰 갱신
-                tableView.reloadData()
-                isLoading = false
-                currentPage += 1 // 페이지 증가
-                start = ((currentPage - 1) * 10 + 1)
-                print("Page:", currentPage)
-                print("Start:", start)
-                
-
-            } catch {
-                print("Error fetching data: \(error)")
-                isLoading = false
-            }
+        viewModel.fetchData { [weak self] in
+            self?.tableView.reloadData()
         }
     }
 }
@@ -110,22 +69,22 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-       
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurants.count
+        return viewModel.restaurants.count
     }
-       
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath) as? ResultTableViewCell else {
             return UITableViewCell()
         }
         
-        // 셀에 데이터를 설정합니다.
-        let restaurant = restaurants[indexPath.row]
+        let restaurant = viewModel.restaurants[indexPath.row]
         cell.setViewModel(restaurant)
         
         return cell
     }
+    
     //MARK: - ResultDetailに移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "GoToDetail", sender: nil)
@@ -140,17 +99,17 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
- 
+//MARK: - List Paging 処理
 extension ResultListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let offsetY = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height
-            let height = scrollView.frame.size.height
-            
-            if offsetY > contentHeight - height * 1.5 && !isLoading {
-                if restaurants.count < resultsAvailable {
-                    loadData()
-                }
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height * 1.5 && !viewModel.isLoading {
+            if viewModel.restaurants.count < viewModel.resultsAvailable {
+                loadData()
             }
         }
+    }
 }

@@ -20,16 +20,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var locationManager = CLLocationManager()
-    
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
-    
     private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
-    
-    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     
     
     private var timer: Timer?
     private var currentIndex = 0
+    
+    private let viewModel = HomeViewModel()
     
     //MARK: - override methods
     override func viewDidLoad() {
@@ -40,7 +38,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         loadData()
-        
         setDataSource()
         
         collectionView.collectionViewLayout = compositinalLayout
@@ -92,22 +89,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - loadData
     private func loadData() {
-        Task {
-            do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: 1, start: 1, page: 1)
-                let restaurantViewModels = response.shop.map { shop -> HomeRestaurantCollectionViewCellViewModel in
-                    return HomeRestaurantCollectionViewCellViewModel(
-                        imageUrl: shop.photo.pc.m,
-                        title: shop.name,
-                        station: shop.station_name,
-                        intro: shop.intro,
-                        price: shop.budget.name
-                    )
-                }
-                applySnapShot(restaurantViewModels: restaurantViewModels)
-            } catch {
-                print("network Error : \(error)")
-            }
+        viewModel.loadData { [weak self] in
+            guard let self = self else { return }
+            self.applySnapShot(restaurantViewModels: self.viewModel.restaurantViewModels)
         }
     }
     
@@ -235,22 +219,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - Button役割
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoTo300mList" {
-               if let destinationVC = segue.destination as? ResultListViewController {
-                   destinationVC.range = 1
-               }
-           } else if segue.identifier == "GoTo500mList" {
-               if let destinationVC = segue.destination as? ResultListViewController {
-                   destinationVC.range = 2
-               }
-           } else if segue.identifier == "GoTo1kmList" {
-               if let destinationVC = segue.destination as? ResultListViewController {
-                   destinationVC.range = 3
-               }
-           } else if segue.identifier == "GoTo3kmList" {
-               if let destinationVC = segue.destination as? ResultListViewController {
-                   destinationVC.range = 5
-               }
-           }
+        if let resultListVC = segue.destination as? ResultListViewController {
+            switch segue.identifier {
+            case "GoTo300mList":
+                resultListVC.viewModel.range = 1
+            case "GoTo500mList":
+                resultListVC.viewModel.range = 2
+            case "GoTo1kmList":
+                resultListVC.viewModel.range = 3
+            case "GoTo3kmList":
+                resultListVC.viewModel.range = 5
+            default:
+                break
+            }
+        }
     }
 }
