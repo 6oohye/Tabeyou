@@ -266,23 +266,6 @@
                                             <segue destination="bTC-as-swa" kind="show" identifier="GoToDetail" id="q5x-eM-rAu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadingViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D8j-i2-qPT" customClass="loadingViewCell" customModule="Tabeyou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="94.666667938232422" width="393" height="44.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="l" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D8j-i2-qPT" id="VUV-R4-opW">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="P9n-KC-9fC">
-                                                    <rect key="frame" x="186" y="13" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </activityIndicatorView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="activityIndicatorView" destination="P9n-KC-9fC" id="P32-Pw-fgJ"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
