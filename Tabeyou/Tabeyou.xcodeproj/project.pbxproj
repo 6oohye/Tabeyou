@@ -37,6 +37,7 @@
 		E86C4C122BEB52440004F69C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C112BEB52440004F69C /* Assets.xcassets */; };
 		E86C4C152BEB52440004F69C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C142BEB52440004F69C /* Base */; };
 		E86C4C1F2BEB53870004F69C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C1E2BEB53870004F69C /* Colors.xcassets */; };
+		E88BCB282BF4997E00816911 /* LoadingIndicatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88BCB272BF4997E00816911 /* LoadingIndicatorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E86C4C142BEB52440004F69C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86C4C162BEB52440004F69C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E86C4C1E2BEB53870004F69C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E88BCB272BF4997E00816911 /* LoadingIndicatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			children = (
 				E820187C2BF20A50009ECDAE /* ResultTableViewCell.swift */,
 				E820187D2BF20A50009ECDAE /* ResultTableViewCell.xib */,
+				E88BCB272BF4997E00816911 /* LoadingIndicatorCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				E82018532BF06FF8009ECDAE /* URLRequest.swift in Sources */,
 				E82018472BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift in Sources */,
 				E82018442BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift in Sources */,
+				E88BCB282BF4997E00816911 /* LoadingIndicatorCell.swift in Sources */,
 				E820186D2BF0A205009ECDAE /* NetworkService.swift in Sources */,
 				E820184E2BEFDD95009ECDAE /* Restaurant.swift in Sources */,
 				E82018492BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift in Sources */,
