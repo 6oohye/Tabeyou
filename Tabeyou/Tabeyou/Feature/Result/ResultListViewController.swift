@@ -19,8 +19,9 @@ class ResultListViewController: UIViewController {
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     var range: Int = 0
     var start : Int = 1 //시작하는 id
-    var currentPage: Int = 1 // 현재 페이지를 추적하는 변수
+    var currentPage: Int = 0 // 현재 페이지를 추적하는 변수
     var isLoading: Bool = false // 데이터를 로드 중인지 추적하는 변수
+    var resultsAvailable: Int = 0 // 전체 결과 수를 저장하는 변수
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class ResultListViewController: UIViewController {
                 let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
                 
                 // results_available 값 확인
-                let resultsAvailable = response.results_available
+                resultsAvailable = response.results_available // 업데이트된 부분
                 print("Results Available:", resultsAvailable)
                 
                 let restaurantViewModels = response.shop.map { shop -> ResultTableViewCellViewModel in
@@ -147,7 +148,7 @@ extension ResultListViewController: UIScrollViewDelegate {
             let height = scrollView.frame.size.height
             
             if offsetY > contentHeight - height * 1.5 && !isLoading {
-                if restaurants.count < 500 {
+                if restaurants.count < resultsAvailable {
                     loadData()
                 }
             }
