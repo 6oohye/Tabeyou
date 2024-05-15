@@ -440,6 +440,15 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="370"/>
+                                        <connections>
+                                            <outlet property="detailAccess" destination="ice-6I-Ehs" id="W1t-p6-Tl5"/>
+                                            <outlet property="detailClose" destination="Yyq-Gc-KQt" id="xmm-M8-f2k"/>
+                                            <outlet property="detailGenre" destination="A23-ZZ-mTU" id="KmI-f4-Cjf"/>
+                                            <outlet property="detailImage" destination="4ha-mt-1Cz" id="iyY-kk-p1D"/>
+                                            <outlet property="detailKanaName" destination="ZOS-32-NOF" id="8bT-fe-Kl2"/>
+                                            <outlet property="detailName" destination="Z6l-OS-brX" id="avj-w7-BtX"/>
+                                            <outlet property="detailOpen" destination="4K2-OX-ndJ" id="UpA-2D-oSb"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ate-gq-d6X" customClass="ResultDetailIMapCollectionViewCell" customModule="Tabeyou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="380" width="393" height="266"/>
@@ -499,6 +508,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="266"/>
+                                        <connections>
+                                            <outlet property="detailAddress" destination="loN-D1-yzi" id="MUR-hh-5Wh"/>
+                                            <outlet property="headerText" destination="Ld4-mF-BRb" id="jaq-BT-eeF"/>
+                                            <outlet property="mapView" destination="Wyk-bl-Enz" id="2ZL-fc-4Xs"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MYs-5r-BrP" customClass="ResultDetailIMapButtonCollectionViewCell" customModule="Tabeyou" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="656" width="393" height="86"/>
@@ -519,6 +533,9 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="86"/>
+                                        <connections>
+                                            <outlet property="mapButton" destination="JOE-DU-7C3" id="wuS-6o-uji"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -533,6 +550,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WFt-Pi-w9H"/>
+                    <connections>
+                        <outlet property="collectionView" destination="lZh-PW-F2C" id="6Sx-OW-fnN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTO-s4-hKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

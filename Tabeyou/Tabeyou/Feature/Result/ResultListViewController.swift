@@ -86,16 +86,24 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - ResultDetailに移動
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "GoToDetail", sender: nil)
-    }
-    
-    // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToDetail" {
-            // Segue가 실행될 때 필요한 작업을 수행하세요.
-        }
-    }
+    // tableView에서 셀을 클릭했을 때 호출되는 메서드
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           // 선택된 셀의 데이터를 가져옴
+           let selectedRestaurant = viewModel.restaurants[indexPath.row]
+           // 디테일 뷰로 이동하기 위한 세그웨이 실행
+           performSegue(withIdentifier: "GoToDetail", sender: selectedRestaurant)
+       }
+
+       // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           // Segue의 식별자가 GoToDetail이고, 디테일 뷰 컨트롤러인 경우
+           if segue.identifier == "GoToDetail",
+              let destinationVC = segue.destination as? ResultDetailViewController,
+              let selectedRestaurant = sender as? ResultDetailViewModel {
+               // 선택된 셀의 데이터를 디테일 뷰 컨트롤러에 전달
+               destinationVC.selectedRestaurant = selectedRestaurant
+           }
+       }
     
 }
 
