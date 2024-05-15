@@ -26,7 +26,7 @@ class  ResultDetailViewModel{
     func loadData(completion: @escaping () -> Void) {
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantDetailData(restaurantID: "J003365093")
+                let response: Restaurant.Results = try await networkService.getRestaurantDetailData(restaurantID: "")
                 self.resultDetailViewModel = response.shop.map { shop -> ResultDetailViewModel in
                     return ResultDetailViewModel(
                         id:shop.id,

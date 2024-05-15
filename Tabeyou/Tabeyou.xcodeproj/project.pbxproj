@@ -39,9 +39,6 @@
 		E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */; };
 		E86D1B362BF4ECE30037E206 /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B352BF4ECE30037E206 /* ResultDetailViewModel.swift */; };
 		E86D1B392BF4EE680037E206 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E86D1B382BF4EE680037E206 /* Kingfisher */; };
-		E86D1B3D2BF525150037E206 /* ResultDetailInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B3C2BF525150037E206 /* ResultDetailInfoCollectionViewCell.swift */; };
-		E86D1B3F2BF525430037E206 /* ResultDetailIMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B3E2BF525430037E206 /* ResultDetailIMapCollectionViewCell.swift */; };
-		E86D1B412BF5255E0037E206 /* ResultDetailIMapButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B402BF5255E0037E206 /* ResultDetailIMapButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +86,6 @@
 		E86C4C1E2BEB53870004F69C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListViewModel.swift; sourceTree = "<group>"; };
 		E86D1B352BF4ECE30037E206 /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
-		E86D1B3C2BF525150037E206 /* ResultDetailInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailInfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		E86D1B3E2BF525430037E206 /* ResultDetailIMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailIMapCollectionViewCell.swift; sourceTree = "<group>"; };
-		E86D1B402BF5255E0037E206 /* ResultDetailIMapButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailIMapButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,9 +210,6 @@
 			children = (
 				E820187C2BF20A50009ECDAE /* ResultTableViewCell.swift */,
 				E820187D2BF20A50009ECDAE /* ResultTableViewCell.xib */,
-				E86D1B3C2BF525150037E206 /* ResultDetailInfoCollectionViewCell.swift */,
-				E86D1B3E2BF525430037E206 /* ResultDetailIMapCollectionViewCell.swift */,
-				E86D1B402BF5255E0037E206 /* ResultDetailIMapButtonCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -403,16 +394,13 @@
 				E82018472BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift in Sources */,
 				E82018442BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift in Sources */,
 				E820186D2BF0A205009ECDAE /* NetworkService.swift in Sources */,
-				E86D1B3D2BF525150037E206 /* ResultDetailInfoCollectionViewCell.swift in Sources */,
 				E820184E2BEFDD95009ECDAE /* Restaurant.swift in Sources */,
 				E82018492BEE7A3B009ECDAE /* HomeRestaurantCollectionViewCell.swift in Sources */,
-				E86D1B412BF5255E0037E206 /* ResultDetailIMapButtonCollectionViewCell.swift in Sources */,
 				E82018812BF23695009ECDAE /* ResultDetailViewController.swift in Sources */,
 				E82018722BF0FAC2009ECDAE /* AppColors.swift in Sources */,
 				E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */,
 				E82018402BEDF686009ECDAE /* SearchViewModel.swift in Sources */,
 				E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */,
-				E86D1B3F2BF525430037E206 /* ResultDetailIMapCollectionViewCell.swift in Sources */,
 				E82018422BEDF690009ECDAE /* HomeViewModel.swift in Sources */,
 				E86C4C092BEB523F0004F69C /* AppDelegate.swift in Sources */,
 				E82018782BF1F954009ECDAE /* ResultListViewController.swift in Sources */,
