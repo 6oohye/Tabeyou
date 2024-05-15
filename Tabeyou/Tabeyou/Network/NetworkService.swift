@@ -91,6 +91,23 @@ class NetworkService {
             throw error
         }
     }
+    
+    func getRestaurantDetailData(restaurantID: String) async throws -> Restaurant.Results {
+        do {
+            let data: Restaurant = try await fetch(
+                path: "gourmet/v1/",
+                httpMethod: .get,
+                queryItems: [
+                    URLQueryItem(name: "key", value: key),
+                    URLQueryItem(name: "id", value: restaurantID),
+                    URLQueryItem(name: "format", value: "json")
+                ]
+            )
+            return data.results
+        } catch {
+            throw error
+        }
+    }
 
     
 }

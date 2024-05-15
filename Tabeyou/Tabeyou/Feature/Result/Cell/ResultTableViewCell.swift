@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 
 struct ResultTableViewCellViewModel: Hashable{
+    let id : String
     let imageUrl : String
     let title : String
     let station : String

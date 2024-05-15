@@ -35,6 +35,7 @@ class ResultListViewModel {
                 
                 let restaurantViewModels = response.shop.map { shop -> ResultTableViewCellViewModel in
                     return ResultTableViewCellViewModel(
+                        id: shop.id,
                         imageUrl: shop.photo.pc.m,
                         title: shop.name,
                         station: shop.station_name,
