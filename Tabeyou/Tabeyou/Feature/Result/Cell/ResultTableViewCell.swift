@@ -19,7 +19,7 @@ struct ResultTableViewCellViewModel: Hashable{
 class ResultTableViewCell: UITableViewCell {
     
     static let identifire: String = "ResultTableViewCell"
-//    static let height : CGFloat = 100
+    static let height : CGFloat = 100
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var restaurantImageView: UIImageView!
