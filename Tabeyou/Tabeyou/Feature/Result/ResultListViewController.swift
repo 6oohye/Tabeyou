@@ -71,7 +71,7 @@ class ResultListViewController: UIViewController {
                 tableView.reloadData()
                 isLoading = false
                 currentPage += 1 // 페이지 증가
-                start = (currentPage * 20 + 1)
+                start = ((currentPage - 1) * 10 + 1)
                 print("Page:", currentPage)
                 print("Start:", start)
                 
