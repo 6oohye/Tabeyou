@@ -510,6 +510,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H8Y-wz-LW9"/>
+                    <connections>
+                        <outlet property="detailAccess" destination="RrZ-F0-6qp" id="Kiw-Dr-Viv"/>
+                        <outlet property="detailAddress" destination="jCd-6N-Jxl" id="8TO-tf-215"/>
+                        <outlet property="detailClose" destination="LYf-qy-N11" id="pb5-rP-foW"/>
+                        <outlet property="detailGenre" destination="YGQ-uV-PtY" id="GSN-jJ-aXA"/>
+                        <outlet property="detailKanaName" destination="GxT-e4-Nc7" id="Put-np-Qby"/>
+                        <outlet property="detailName" destination="kTL-up-l82" id="NvR-WI-WHw"/>
+                        <outlet property="detailOpen" destination="VKk-Ay-vc7" id="SXB-Hi-INL"/>
+                        <outlet property="detailViewImage" destination="HS0-7E-7CJ" id="3PP-fU-1sB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oen-PY-1Qt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
