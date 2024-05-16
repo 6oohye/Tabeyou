@@ -474,12 +474,17 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rou-t8-xtg">
                                         <rect key="frame" x="43.666666666666657" y="276" width="306" height="40"/>
+                                        <color key="backgroundColor" name="wh"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="DBb-Xh-hTA"/>
                                             <constraint firstAttribute="height" constant="40" id="P2F-cJ-4Lg"/>
                                         </constraints>
+                                        <color key="tintColor" name="mainColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="mapButton"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="売場の道探し">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                            <color key="baseForegroundColor" name="gray2"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -528,6 +533,8 @@
                         <outlet property="detailClose" destination="LYf-qy-N11" id="pb5-rP-foW"/>
                         <outlet property="detailGenre" destination="YGQ-uV-PtY" id="GSN-jJ-aXA"/>
                         <outlet property="detailKanaName" destination="GxT-e4-Nc7" id="Put-np-Qby"/>
+                        <outlet property="detailMap" destination="ldC-QL-rHl" id="szN-ye-RKx"/>
+                        <outlet property="detailMapButton" destination="Rou-t8-xtg" id="4R9-FX-1K7"/>
                         <outlet property="detailName" destination="kTL-up-l82" id="NvR-WI-WHw"/>
                         <outlet property="detailOpen" destination="VKk-Ay-vc7" id="SXB-Hi-INL"/>
                         <outlet property="detailViewImage" destination="HS0-7E-7CJ" id="3PP-fU-1sB"/>
@@ -972,7 +979,6 @@
         <image name="detailOpen" width="14" height="14"/>
         <image name="doc.on.doc.fill" catalog="system" width="112" height="128"/>
         <image name="homeIcon" width="28" height="28"/>
-        <image name="mapButton" width="301" height="40"/>
         <image name="searchIcon" width="31" height="31"/>
         <namedColor name="Icongray">
             <color red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
