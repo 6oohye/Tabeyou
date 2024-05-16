@@ -42,8 +42,11 @@ class ResultDetailViewController: UIViewController {
     // 데이터 로딩 메서드
     func loadData() {
         guard let id = restaurantId else {
+            print("No restaurantId found")
             return
         }
+        
+        print("Restaurant ID:", id)
         
         viewModel.loadData(restaurantId: id) { [weak self] in
             DispatchQueue.main.async {
@@ -167,4 +170,4 @@ extension ResultDetailViewController {
         }
     }
 }
-    
+

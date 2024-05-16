@@ -218,7 +218,7 @@
                                             <outlet property="RestaurantTimeLabel" destination="AbN-BP-4vD" id="Ym7-aD-D01"/>
                                             <outlet property="RestaurantTitleLabel" destination="wyn-6s-kpN" id="XsV-fP-ckL"/>
                                             <outlet property="StationLabel" destination="gSF-B1-vRp" id="4aH-k8-XOv"/>
-                                            <segue destination="Nhf-bs-Dua" kind="show" id="Nsk-Fe-ZMQ"/>
+                                            <segue destination="Nhf-bs-Dua" kind="show" identifier="GoMainDetail" destinationCreationSelector="GoMainDetail" id="Nsk-Fe-ZMQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -968,7 +968,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Nsk-Fe-ZMQ"/>
-        <segue reference="REv-7P-D7m"/>
+        <segue reference="oKB-LZ-BqF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SearchLogoTitle" width="147" height="40"/>

@@ -44,7 +44,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         startTimer()
     }
     
-    
     //MARK: - 位置情報
     fileprivate func setLocationManager() {
         // 델리게이트를 설정하고,
@@ -93,6 +92,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         viewModel.loadData { [weak self] in
             guard let self = self else { return }
             self.applySnapShot(restaurantViewModels: self.viewModel.restaurantViewModels)
+            self.viewModel.printRestaurantIds()
         }
     }
     
@@ -218,20 +218,47 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         currentIndex = nextIndex
     }
     
-    //MARK: - Button役割
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let section = Section(rawValue: indexPath.section), section == .restaurantList {
+            let restaurantId = viewModel.restaurantViewModels[indexPath.item].id
+            print("Selected restaurantId:", restaurantId) // id 값을 출력하여 확인
+            performSegue(withIdentifier: "GoMainDetail", sender: restaurantId)
+        }
+    }
+}
+
+
+extension HomeViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultListVC = segue.destination as? ResultListViewController {
-            switch segue.identifier {
-            case "GoTo300mList":
-                resultListVC.viewModel.range = 1
-            case "GoTo500mList":
-                resultListVC.viewModel.range = 2
-            case "GoTo1kmList":
-                resultListVC.viewModel.range = 3
-            case "GoTo3kmList":
-                resultListVC.viewModel.range = 5
-            default:
-                break
+        print("Segue Identifier: \(segue.identifier ?? "none")")
+        print("Sender: \(sender ?? "none")")
+        if let destinationVC = segue.destination as? ResultDetailViewController {
+            if segue.identifier == "GoMainDetail" {
+                if let restaurantId = sender as? String {
+                    print("Passing restaurantId: \(restaurantId)")
+                    destinationVC.restaurantId = restaurantId
+                } else {
+                    print("Sender is not a String")
+                }
+            }
+        } else {
+            // Button 역할
+            if let resultListVC = segue.destination as? ResultListViewController {
+                switch segue.identifier {
+                case "GoTo300mList":
+                    resultListVC.viewModel.range = 1
+                case "GoTo500mList":
+                    resultListVC.viewModel.range = 2
+                case "GoTo1kmList":
+                    resultListVC.viewModel.range = 3
+                case "GoTo3kmList":
+                    resultListVC.viewModel.range = 5
+                default:
+                    break
+                }
             }
         }
     }
