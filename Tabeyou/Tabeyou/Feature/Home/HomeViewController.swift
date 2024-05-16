@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         startTimer()
     }
     
+    
     //MARK: - 位置情報
     fileprivate func setLocationManager() {
         // 델리게이트를 설정하고,

@@ -218,6 +218,7 @@
                                             <outlet property="RestaurantTimeLabel" destination="AbN-BP-4vD" id="Ym7-aD-D01"/>
                                             <outlet property="RestaurantTitleLabel" destination="wyn-6s-kpN" id="XsV-fP-ckL"/>
                                             <outlet property="StationLabel" destination="gSF-B1-vRp" id="4aH-k8-XOv"/>
+                                            <segue destination="Nhf-bs-Dua" kind="show" id="Nsk-Fe-ZMQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -431,6 +432,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sly-Lv-Vvt">
                                 <rect key="frame" x="0.0" y="444" width="393" height="3"/>
                                 <color key="backgroundColor" name="gray3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="WfX-sC-vsO"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgt-aF-Toe">
                                 <rect key="frame" x="0.0" y="447" width="393" height="322"/>
@@ -963,6 +967,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Nsk-Fe-ZMQ"/>
         <segue reference="REv-7P-D7m"/>
     </inferredMetricsTieBreakers>
     <resources>
