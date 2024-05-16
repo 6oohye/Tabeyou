@@ -10,12 +10,20 @@ import UIKit
 class ResultDetailViewController: UIViewController {
     
     var isMainColor = false
+    var restaurantId: String?
     
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarCustom()
+        
+        // 선택된 셀의 ID를 출력해보기
+        if let id = restaurantId {
+            print("Selected restaurant ID:", id)
+            // 여기서 선택된 셀의 ID를 사용하여 데이터를 가져와 화면에 표시할 수 있음
+        }
+        
         
     }
     

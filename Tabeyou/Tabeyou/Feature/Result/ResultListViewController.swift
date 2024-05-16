@@ -86,19 +86,27 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - ResultDetailに移動
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "GoToDetail", sender: nil)
-        }
-        
-        // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "GoToDetail" {
-                // Segue가 실행될 때 필요한 작업을 수행하세요.
-            }
-        }
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 선택된 셀의 id를 가져옵니다.
+        let selectedRestaurantID = viewModel.restaurants[indexPath.row].id
+        // Segue를 실행합니다. 선택된 셀의 id를 sender로 전달합니다.
+        performSegue(withIdentifier: "GoToDetail", sender: selectedRestaurantID)
     }
     
+    // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToDetail" {
+            // 전달된 sender가 선택된 셀의 id인지 확인합니다.
+            if let restaurantID = sender as? String {
+                // Segue의 목적지인 ResultDetailViewController를 가져옵니다.
+                let goToDetail = segue.destination as! ResultDetailViewController
+                // 선택된 셀의 id를 ResultDetailViewController에 전달합니다.
+                goToDetail.restaurantId = restaurantID
+            }
+        }
+    }
+}
+
 
 //MARK: - List Paging 処理
 extension ResultListViewController: UIScrollViewDelegate {
