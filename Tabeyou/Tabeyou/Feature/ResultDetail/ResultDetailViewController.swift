@@ -44,6 +44,7 @@ class ResultDetailViewController: UIViewController {
         guard let id = restaurantId else {
             return
         }
+        print("Restaurant ID:", id) 
         
         viewModel.loadData(restaurantId: id) { [weak self] in
             DispatchQueue.main.async {

@@ -16,6 +16,7 @@ class ResultListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = ResultListViewModel()
+    var restaurantId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,12 @@ class ResultListViewController: UIViewController {
     
     //MARK: - API로부터 데이터 가져오기
     private func loadData() {
-        viewModel.fetchData { [weak self] in
+        guard let id = restaurantId else {
+            return
+        }
+        print("Restaurant ID:", id)
+        
+        viewModel.fetchData (restaurantId: id){ [weak self] in
             self?.tableView.reloadData()
         }
     }

@@ -218,6 +218,7 @@
                                             <outlet property="RestaurantTimeLabel" destination="AbN-BP-4vD" id="Ym7-aD-D01"/>
                                             <outlet property="RestaurantTitleLabel" destination="wyn-6s-kpN" id="XsV-fP-ckL"/>
                                             <outlet property="StationLabel" destination="gSF-B1-vRp" id="4aH-k8-XOv"/>
+                                            <segue destination="Nhf-bs-Dua" kind="show" identifier="mainToDetail" id="1uG-lb-eAM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -963,6 +964,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="1uG-lb-eAM"/>
         <segue reference="REv-7P-D7m"/>
     </inferredMetricsTieBreakers>
     <resources>
