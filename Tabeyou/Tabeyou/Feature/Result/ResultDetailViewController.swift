@@ -6,26 +6,69 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ResultDetailViewController: UIViewController {
     
+    @IBOutlet weak var detailViewImage: UIImageView!
+    @IBOutlet weak var detailKanaName: UILabel!
+    @IBOutlet weak var detailName: UILabel!
+    @IBOutlet weak var detailAccess: UILabel!
+    @IBOutlet weak var detailGenre: UILabel!
+    @IBOutlet weak var detailOpen: UILabel!
+    @IBOutlet weak var detailClose: UILabel!
+    @IBOutlet weak var detailAddress: UILabel!
+    
+    
+    
+    
     var isMainColor = false
     var restaurantId: String?
-    
+    var viewModel = ResultDetailViewModel()
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarCustom()
-        
-        // 선택된 셀의 ID를 출력해보기
-        if let id = restaurantId {
-            print("Selected restaurant ID:", id)
-            // 여기서 선택된 셀의 ID를 사용하여 데이터를 가져와 화면에 표시할 수 있음
+        // 데이터 로딩 메서드 호출
+        loadData()
+    }
+    // 데이터 로딩 메서드
+    func loadData() {
+        guard let id = restaurantId else {
+            return
         }
         
-        
+        viewModel.loadData(restaurantId: id) { [weak self] in
+            DispatchQueue.main.async {
+                // 데이터를 받아와 UI에 표시
+                self?.updateUI()
+            }
+        }
     }
+    
+    // UI 업데이트 메서드
+    func updateUI() {
+        guard let restaurant = viewModel.resultDetailViewModel.first else {
+            return
+        }
+        // 레이블에 데이터 표시
+        detailViewImage.kf.setImage(with: URL(string: restaurant.imageUrl))
+        detailKanaName.text = restaurant.kana_name
+        detailName.text = restaurant.title
+        detailAccess.text = restaurant.accsee
+        detailGenre.text = restaurant.genre
+        detailOpen.text = restaurant.open
+        detailClose.text = restaurant.close
+        detailAddress.text = restaurant.address
+    }
+    //    func getRestaurantID(){
+    //        // 선택된 셀의 ID를 출력해보기
+    //        if let id = restaurantId {
+    //            print("Selected restaurant ID:", id)
+    //            // 여기서 선택된 셀의 ID를 사용하여 데이터를 가져와 화면에 표시할 수 있음
+    //        }
+    //    }
     
     
 }
