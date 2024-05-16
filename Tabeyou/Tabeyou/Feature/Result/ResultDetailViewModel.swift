@@ -30,7 +30,7 @@ class  ResultDetailViewModel{
                 self.resultDetailViewModel = response.shop.map { shop -> ResultDetailViewModel in
                     return ResultDetailViewModel(
                         id:shop.id,
-                        imageUrl: shop.photo.pc.m,
+                        imageUrl: shop.photo.pc.l,
                         kana_name: shop.name_kana,
                         title: shop.name,
                         accsee: shop.access,
