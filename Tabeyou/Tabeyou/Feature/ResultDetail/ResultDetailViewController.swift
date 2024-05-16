@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import MapKit
 
 class ResultDetailViewController: UIViewController {
     
@@ -18,8 +19,8 @@ class ResultDetailViewController: UIViewController {
     @IBOutlet weak var detailOpen: UILabel!
     @IBOutlet weak var detailClose: UILabel!
     @IBOutlet weak var detailAddress: UILabel!
-    
-    
+    @IBOutlet weak var detailMap: MKMapView!
+    @IBOutlet weak var detailMapButton: UIButton!
     
     
     var isMainColor = false
@@ -32,7 +33,12 @@ class ResultDetailViewController: UIViewController {
         navigationBarCustom()
         // 데이터 로딩 메서드 호출
         loadData()
+        // 버튼 액션 설정
+        detailMapButton.addTarget(self, action: #selector(openMaps), for: .touchUpInside)
+        //보더
+        mapButtonBorder()
     }
+    
     // 데이터 로딩 메서드
     func loadData() {
         guard let id = restaurantId else {
@@ -46,6 +52,7 @@ class ResultDetailViewController: UIViewController {
             }
         }
     }
+    
     
     // UI 업데이트 메서드
     func updateUI() {
@@ -61,19 +68,25 @@ class ResultDetailViewController: UIViewController {
         detailOpen.text = restaurant.open
         detailClose.text = restaurant.close
         detailAddress.text = restaurant.address
+        
+        // 주소를 좌표로 변환하여 지도에 표시
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(restaurant.address) { [weak self] (placemarks, error) in
+            guard let placemark = placemarks?.first, let location = placemark.location else {
+                print("주소를 찾을 수 없습니다.")
+                return
+            }
+            // 좌표를 기반으로 지도에 핀을 표시합니다.
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = restaurant.title
+            self?.detailMap.addAnnotation(annotation)
+            
+            // 지도의 중심을 해당 좌표로 이동합니다.
+            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            self?.detailMap.setRegion(region, animated: true)
+        }
     }
-    //    func getRestaurantID(){
-    //        // 선택된 셀의 ID를 출력해보기
-    //        if let id = restaurantId {
-    //            print("Selected restaurant ID:", id)
-    //            // 여기서 선택된 셀의 ID를 사용하여 데이터를 가져와 화면에 표시할 수 있음
-    //        }
-    //    }
-    
-    
-}
-
-extension ResultDetailViewController{
     //MARK: - NavigationBar Custom
     func navigationBarCustom(){
         //左アイコン設定
@@ -101,7 +114,34 @@ extension ResultDetailViewController{
             action: #selector(bookmarkButtonTapped))
         self.navigationItem.rightBarButtonItem?.tintColor = .icongray
     }
+}
+
+
+extension ResultDetailViewController{
+    //MARK: - 버튼 액션: 지도 열기
+    @objc func openMaps() {
+        guard let address = detailAddress.text else {
+            return
+        }
+        
+        // 지도 앱을 열고 주소에 맞게 지도를 표시
+        if let url = URL(string: "http://maps.apple.com/?address=\(address)") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            print("URL을 열 수 없습니다.")
+        }
+    }
     
+    
+    func mapButtonBorder(){
+        detailMapButton.layer.borderColor = AppColors.UIKit.gray2.cgColor
+        detailMapButton.layer.borderWidth = 2.0
+        detailMapButton.layer.cornerRadius = 8.0 // 원하는 값으로 설정
+    }
+}
+
+
+extension ResultDetailViewController {
     //MARK: - 前のページに移動
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
@@ -127,4 +167,4 @@ extension ResultDetailViewController{
         }
     }
 }
-
+    
