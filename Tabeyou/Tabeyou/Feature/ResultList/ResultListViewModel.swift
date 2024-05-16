@@ -21,13 +21,13 @@ class ResultListViewModel {
     var isLoading: Bool = false // 데이터를 로드 중인지 추적하는 변수
     var resultsAvailable: Int = 0 // 전체 결과 수를 저장하는 변수
     
-    func fetchData(restaurantId: String,completion: @escaping () -> Void) {
+    func fetchData(completion: @escaping () -> Void) {
         guard !isLoading else { return }
         isLoading = true
         
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage,restaurantID: restaurantId)
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
                 
                 // results_available 값 확인
                 resultsAvailable = response.results_available

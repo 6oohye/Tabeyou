@@ -28,8 +28,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     private var currentIndex = 0
     
     private let viewModel = HomeViewModel()
-    var restaurantId: String?
-
     
     //MARK: - override methods
     override func viewDidLoad() {
@@ -91,13 +89,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - loadData
     private func loadData() {
-        
-        guard let id = restaurantId else {
-            return
-        }
-        print("Restaurant ID:", id)
-        
-        viewModel.loadData(restaurantId: id) { [weak self] in
+        viewModel.loadData { [weak self] in
             guard let self = self else { return }
             self.applySnapShot(restaurantViewModels: self.viewModel.restaurantViewModels)
         }
@@ -227,33 +219,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - Button役割
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mainToDetail", let destinationVC = segue.destination as? ResultDetailViewController, let restaurantId = sender as? String {
-            destinationVC.restaurantId = restaurantId
-        }else{
-            if let resultListVC = segue.destination as? ResultListViewController {
-                switch segue.identifier {
-                case "GoTo300mList":
-                    resultListVC.viewModel.range = 1
-                case "GoTo500mList":
-                    resultListVC.viewModel.range = 2
-                case "GoTo1kmList":
-                    resultListVC.viewModel.range = 3
-                case "GoTo3kmList":
-                    resultListVC.viewModel.range = 5
-                default:
-                    break
-                }
+        if let resultListVC = segue.destination as? ResultListViewController {
+            switch segue.identifier {
+            case "GoTo300mList":
+                resultListVC.viewModel.range = 1
+            case "GoTo500mList":
+                resultListVC.viewModel.range = 2
+            case "GoTo1kmList":
+                resultListVC.viewModel.range = 3
+            case "GoTo3kmList":
+                resultListVC.viewModel.range = 5
+            default:
+                break
             }
         }
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let viewModel = dataSource?.itemIdentifier(for: indexPath) as? HomeRestaurantCollectionViewCellViewModel else {
-            return
-        }
-        
-        performSegue(withIdentifier: "mainToDetail", sender: viewModel.id)
     }
 }
