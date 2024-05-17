@@ -22,6 +22,7 @@ class ResultDetailViewController: UIViewController {
     @IBOutlet weak var detailOpen: UILabel!
     @IBOutlet weak var detailClose: UILabel!
     @IBOutlet weak var detailAddress: UILabel!
+    @IBOutlet weak var addressCopy: UIImageView!
     @IBOutlet weak var detailMap: MKMapView!
     @IBOutlet weak var detailMapButton: UIButton!
     
@@ -37,6 +38,7 @@ class ResultDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationBarCustom()
         setupScrollView()
+        setupAddressCopyAction()
         // 데이터 로딩 메서드 호출
         loadData()
         // 버튼 액션 설정
@@ -46,7 +48,6 @@ class ResultDetailViewController: UIViewController {
     }
     
     func setupScrollView() {
-            // 콘텐츠 뷰의 제약 조건 설정
             contentView.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
@@ -57,6 +58,24 @@ class ResultDetailViewController: UIViewController {
                 contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             ])
         }
+    
+    func setupAddressCopyAction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(copyAddress))
+        addressCopy.isUserInteractionEnabled = true
+        addressCopy.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func copyAddress() {
+        guard let address = detailAddress.text else { return }
+        UIPasteboard.general.string = address
+        showCopyAlert()
+    }
+    
+    func showCopyAlert() {
+        let alert = UIAlertController(title: "복사됨", message: "주소가 클립보드에 복사되었습니다.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
     
     // 데이터 로딩 메서드
     func loadData() {
