@@ -37,6 +37,8 @@ class ResultSortbyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // 초기화 코드
+                // 처음에 기본순이 선택되도록 설정
+                updateButtonBackground(defaultSortButton)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,6 +56,7 @@ class ResultSortbyTableViewCell: UITableViewCell {
            // 클릭된 버튼의 배경색을 변경
            selectedButton.backgroundColor = UIColor(named: "gray3")
            selectedButton.layer.cornerRadius = 5.0
+           
        }
 }
 
