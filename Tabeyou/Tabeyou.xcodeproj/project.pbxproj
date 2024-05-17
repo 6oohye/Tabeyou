@@ -39,6 +39,7 @@
 		E86C4C1F2BEB53870004F69C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C1E2BEB53870004F69C /* Colors.xcassets */; };
 		E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */; };
 		E86D1B362BF4ECE30037E206 /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B352BF4ECE30037E206 /* ResultDetailViewModel.swift */; };
+		E8D5F3D52BF6625200E45C5E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E8D5F3D42BF6625200E45C5E /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E85616742BF6208D009CE9C5 /* Kingfisher in Frameworks */,
+				E8D5F3D52BF6625200E45C5E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +311,7 @@
 			);
 			name = Tabeyou;
 			packageProductDependencies = (
-				E85616732BF6208D009CE9C5 /* Kingfisher */,
+				E8D5F3D42BF6625200E45C5E /* Kingfisher */,
 			);
 			productName = Tabeyou;
 			productReference = E86C4C052BEB523F0004F69C /* Tabeyou.app */;
@@ -345,7 +346,7 @@
 			);
 			mainGroup = E86C4BFC2BEB523F0004F69C;
 			packageReferences = (
-				E85616722BF6208D009CE9C5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E86C4C062BEB523F0004F69C /* Products */;
 			projectDirPath = "";
@@ -696,20 +697,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E85616722BF6208D009CE9C5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
+				kind = exactVersion;
+				version = 7.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E85616732BF6208D009CE9C5 /* Kingfisher */ = {
+		E8D5F3D42BF6625200E45C5E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E85616722BF6208D009CE9C5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
