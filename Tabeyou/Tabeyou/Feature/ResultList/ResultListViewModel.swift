@@ -13,6 +13,7 @@ class ResultListViewModel {
         case restaurant
     }
     
+    private var originalRestaurants: [ResultTableViewCellViewModel] = []
     var restaurants: [ResultTableViewCellViewModel] = []
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     var range: Int = 0
@@ -21,7 +22,14 @@ class ResultListViewModel {
     var isLoading: Bool = false // 데이터를 로드 중인지 추적하는 변수
     var resultsAvailable: Int = 0 // 전체 결과 수를 저장하는 변수
     
-    func fetchData(completion: @escaping () -> Void) {
+    // 정렬 방식을 나타내는 열거형
+    enum SortOption {
+        case lowToHighPrice
+        case highToLowPrice
+        case `default`
+    }
+    
+    func fetchData(sortBy option: SortOption, completion: @escaping () -> Void) {
         guard !isLoading else { return }
         isLoading = true
         
@@ -44,6 +52,15 @@ class ResultListViewModel {
                     )
                 }
                 
+                // 원래 배열에 새로운 데이터 추가
+                originalRestaurants.append(contentsOf: restaurantViewModels)
+                
+                // 기본 정렬에도 원래 배열을 정렬
+                sortRestaurants(by: .default)
+                
+                // 정렬 방식에 따라 데이터를 정렬
+                sortRestaurants(by: option)
+                
                 // 기존 데이터에 새로운 데이터 추가
                 restaurants.append(contentsOf: restaurantViewModels)
                 
@@ -62,6 +79,19 @@ class ResultListViewModel {
                 print("Error fetching data: \(error)")
                 isLoading = false
             }
+        }
+    }
+    
+    // SortOption에 따라 데이터를 정렬하는 메서드
+    private func sortRestaurants(by option: SortOption) {
+        switch option {
+        case .lowToHighPrice:
+            restaurants.sort { $0.price < $1.price }
+        case .highToLowPrice:
+            restaurants.sort { $0.price > $1.price }
+        case .default: // 기본 정렬 방식 처리
+            restaurants = originalRestaurants
+            break
         }
     }
 }
