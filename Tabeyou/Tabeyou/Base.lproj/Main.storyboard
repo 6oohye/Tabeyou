@@ -218,7 +218,6 @@
                                             <outlet property="RestaurantTimeLabel" destination="AbN-BP-4vD" id="Ym7-aD-D01"/>
                                             <outlet property="RestaurantTitleLabel" destination="wyn-6s-kpN" id="XsV-fP-ckL"/>
                                             <outlet property="StationLabel" destination="gSF-B1-vRp" id="4aH-k8-XOv"/>
-                                            <segue destination="rk7-qE-B1P" kind="show" identifier="GoMainDetail" id="46F-MB-iVw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -737,10 +736,10 @@
             </objects>
             <point key="canvasLocation" x="1026.7175572519084" y="-793.66197183098598"/>
         </scene>
-        <!--Result Detail View Controller-->
+        <!--ResultDetailViewController-->
         <scene sceneID="uV8-jW-QYa">
             <objects>
-                <viewController id="rk7-qE-B1P" customClass="ResultDetailViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultDetailViewController" title="ResultDetailViewController" id="rk7-qE-B1P" customClass="ResultDetailViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F2c-Db-lhN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1008,7 +1007,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="46F-MB-iVw"/>
         <segue reference="oKB-LZ-BqF"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
     var locationManager = CLLocationManager()
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
@@ -32,11 +33,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         DispatchQueue.global().async {
             self.setLocationManager()
         }
         
+        collectionView.delegate = self
         loadData()
         setDataSource()
         
@@ -204,8 +206,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         guard let viewModel = viewModel as? HomeRestaurantCollectionViewCellViewModel,
               let cell: HomeRestaurantCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeRestaurantCollectionViewCell", for: indexPath) as? HomeRestaurantCollectionViewCell else {return .init()}
         cell.setViewModel(viewModel)
+        cell.isUserInteractionEnabled = true
         return cell
     }
+    
+    
     
     //MARK: - バナー自動スライドを実装
     private func startTimer() {
@@ -224,22 +229,44 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
 
 extension HomeViewController {
-    // Button 디테일뷰로 이동 
+    // Button 디테일뷰로 이동
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let resultListVC = segue.destination as? ResultListViewController {
-                switch segue.identifier {
-                case "GoTo300mList":
-                    resultListVC.viewModel.range = 1
-                case "GoTo500mList":
-                    resultListVC.viewModel.range = 2
-                case "GoTo1kmList":
-                    resultListVC.viewModel.range = 3
-                case "GoTo3kmList":
-                    resultListVC.viewModel.range = 5
-                default:
-                    break
-                }
+        if let resultListVC = segue.destination as? ResultListViewController {
+            switch segue.identifier {
+            case "GoTo300mList":
+                resultListVC.viewModel.range = 1
+            case "GoTo500mList":
+                resultListVC.viewModel.range = 2
+            case "GoTo1kmList":
+                resultListVC.viewModel.range = 3
+            case "GoTo3kmList":
+                resultListVC.viewModel.range = 5
+            default:
+                break
             }
         }
     }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        
+        switch section {
+        case .restaurantList:
+            // 선택한 셀의 레스토랑 정보를 가져옵니다.
+            let selectedRestaurant = viewModel.restaurantViewModels[indexPath.item]
+            
+            // ResultDetailViewController로 이동하고 선택한 레스토랑의 ID를 전달합니다.
+            if let resultDetailVC = storyboard?.instantiateViewController(withIdentifier: "ResultDetailViewController") as? ResultDetailViewController {
+                resultDetailVC.restaurantId = selectedRestaurant.id
+                navigationController?.pushViewController(resultDetailVC, animated: true)
+            }
+            
+        default:
+            break
+        }
+    }
+}
+
 
