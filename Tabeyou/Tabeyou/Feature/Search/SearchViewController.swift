@@ -8,22 +8,22 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+        // 콘텐트뷰의 크기를 설정합니다.
+        scrollView.contentSize = contentView.frame.size
+        
+        // 세로 스크롤이 항상 가능하도록 설정합니다.
+              scrollView.alwaysBounceVertical = true
+        
+        // 콘텐트뷰가 화면 하단에 고정되도록 contentInset을 설정합니다.
+                scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: contentView.frame.height, right: 0)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

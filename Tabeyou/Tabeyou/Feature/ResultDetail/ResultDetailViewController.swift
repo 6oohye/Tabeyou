@@ -11,7 +11,10 @@ import MapKit
 
 class ResultDetailViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var detailViewImage: UIImageView!
+    @IBOutlet weak var infoStack: UIStackView!
     @IBOutlet weak var detailKanaName: UILabel!
     @IBOutlet weak var detailName: UILabel!
     @IBOutlet weak var detailAccess: UILabel!
@@ -22,6 +25,8 @@ class ResultDetailViewController: UIViewController {
     @IBOutlet weak var detailMap: MKMapView!
     @IBOutlet weak var detailMapButton: UIButton!
     
+ 
+    
     
     var isMainColor = false
     var restaurantId: String?
@@ -31,6 +36,7 @@ class ResultDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarCustom()
+        setupScrollView()
         // 데이터 로딩 메서드 호출
         loadData()
         // 버튼 액션 설정
@@ -39,11 +45,27 @@ class ResultDetailViewController: UIViewController {
         mapButtonBorder()
     }
     
+    func setupScrollView() {
+            // 콘텐츠 뷰의 제약 조건 설정
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            ])
+        }
+    
     // 데이터 로딩 메서드
     func loadData() {
         guard let id = restaurantId else {
+            print("No restaurantId found")
             return
         }
+        
+        print("Restaurant ID:", id)
         
         viewModel.loadData(restaurantId: id) { [weak self] in
             DispatchQueue.main.async {
@@ -167,4 +189,4 @@ extension ResultDetailViewController {
         }
     }
 }
-    
+
