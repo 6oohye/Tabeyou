@@ -220,32 +220,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let section = Section(rawValue: indexPath.section), section == .restaurantList {
-            let restaurantId = viewModel.restaurantViewModels[indexPath.item].id
-            print("Selected restaurantId:", restaurantId) // id 값을 출력하여 확인
-            performSegue(withIdentifier: "GoMainDetail", sender: restaurantId)
-        }
-    }
-}
+
 
 
 extension HomeViewController {
+    // Button 디테일뷰로 이동 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Segue Identifier: \(segue.identifier ?? "none")")
-        print("Sender: \(sender ?? "none")")
-        if let destinationVC = segue.destination as? ResultDetailViewController {
-            if segue.identifier == "GoMainDetail" {
-                if let restaurantId = sender as? String {
-                    print("Passing restaurantId: \(restaurantId)")
-                    destinationVC.restaurantId = restaurantId
-                } else {
-                    print("Sender is not a String")
-                }
-            }
-        } else {
-            // Button 역할
             if let resultListVC = segue.destination as? ResultListViewController {
                 switch segue.identifier {
                 case "GoTo300mList":
@@ -262,4 +242,4 @@ extension HomeViewController {
             }
         }
     }
-}
+
