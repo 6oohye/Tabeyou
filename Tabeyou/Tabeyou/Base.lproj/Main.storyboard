@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hed-U5-sF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3405" y="-482"/>
+            <point key="canvasLocation" x="3143" y="-311"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KHQ-yS-Ozn">
@@ -736,10 +736,10 @@
             </objects>
             <point key="canvasLocation" x="1026.7175572519084" y="-793.66197183098598"/>
         </scene>
-        <!--Result Detail View Controller-->
+        <!--ResultDetailViewController-->
         <scene sceneID="uV8-jW-QYa">
             <objects>
-                <viewController id="rk7-qE-B1P" customClass="ResultDetailViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultDetailViewController" title="ResultDetailViewController" id="rk7-qE-B1P" customClass="ResultDetailViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F2c-Db-lhN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -962,14 +962,13 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="aiY-RN-Yt2" firstAttribute="top" secondItem="MJF-D2-Ayk" secondAttribute="top" id="5IM-Nm-r5C"/>
                                     <constraint firstAttribute="trailing" secondItem="aiY-RN-Yt2" secondAttribute="trailing" id="F70-tv-nD1"/>
-                                    <constraint firstItem="MJF-D2-Ayk" firstAttribute="bottom" secondItem="aiY-RN-Yt2" secondAttribute="bottom" constant="58.666666666666629" id="JAo-te-Eu6"/>
+                                    <constraint firstItem="MJF-D2-Ayk" firstAttribute="trailing" secondItem="aiY-RN-Yt2" secondAttribute="trailing" id="HyX-Mx-HeR"/>
                                     <constraint firstItem="aiY-RN-Yt2" firstAttribute="height" secondItem="n4y-qo-paK" secondAttribute="height" id="L0T-VN-TeW"/>
-                                    <constraint firstItem="MJF-D2-Ayk" firstAttribute="trailing" secondItem="aiY-RN-Yt2" secondAttribute="trailing" id="MPI-gV-hPU"/>
-                                    <constraint firstAttribute="bottom" secondItem="aiY-RN-Yt2" secondAttribute="bottom" constant="58.666666666666629" id="RGa-08-loB"/>
-                                    <constraint firstItem="aiY-RN-Yt2" firstAttribute="leading" secondItem="MJF-D2-Ayk" secondAttribute="leading" id="ipR-PE-aNk"/>
+                                    <constraint firstAttribute="bottom" secondItem="aiY-RN-Yt2" secondAttribute="bottom" id="RGa-08-loB"/>
+                                    <constraint firstItem="aiY-RN-Yt2" firstAttribute="top" secondItem="MJF-D2-Ayk" secondAttribute="top" id="d3n-7Y-6y0"/>
                                     <constraint firstItem="aiY-RN-Yt2" firstAttribute="width" secondItem="n4y-qo-paK" secondAttribute="width" id="kfh-WZ-lqe"/>
+                                    <constraint firstItem="aiY-RN-Yt2" firstAttribute="leading" secondItem="MJF-D2-Ayk" secondAttribute="leading" id="r5V-X1-F9C"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MJF-D2-Ayk"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="n4y-qo-paK"/>
@@ -1004,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hF3-Pk-f5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4255.7251908396947" y="-482.3943661971831"/>
+            <point key="canvasLocation" x="4221" y="-925"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
