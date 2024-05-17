@@ -745,10 +745,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-z8-ycN">
-                                <rect key="frame" x="0.0" y="103" width="393" height="690.33333333333337"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="687.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiY-RN-Yt2">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="690.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="687.66666666666663"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LuU-mS-Gdq">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
@@ -911,17 +911,17 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGD-Be-Ioi">
-                                                <rect key="frame" x="31.666666666666657" y="593.33333333333337" width="330" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGD-Be-Ioi">
+                                                <rect key="frame" x="31.666666666666657" y="593.33333333333337" width="330" height="14.333333333333371"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="330" id="r2E-3W-4F2"/>
+                                                    <constraint firstAttribute="width" constant="330" id="r2E-3W-4F2"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-BE-MzW">
-                                                <rect key="frame" x="46.666666666666657" y="620.33333333333337" width="300" height="40"/>
+                                                <rect key="frame" x="46.666666666666657" y="617.66666666666663" width="300" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="j46-JU-3SQ"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="l09-pe-Ve9"/>
