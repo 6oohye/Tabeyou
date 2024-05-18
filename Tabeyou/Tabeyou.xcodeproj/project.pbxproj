@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8D5F3D52BF6625200E45C5E /* Kingfisher in Frameworks */,
+				E8D5F3DC2BF7AA2B00E45C5E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +316,7 @@
 			);
 			name = Tabeyou;
 			packageProductDependencies = (
-				E8D5F3D42BF6625200E45C5E /* Kingfisher */,
+				E8D5F3DB2BF7AA2B00E45C5E /* Kingfisher */,
 			);
 			productName = Tabeyou;
 			productReference = E86C4C052BEB523F0004F69C /* Tabeyou.app */;
@@ -351,7 +351,7 @@
 			);
 			mainGroup = E86C4BFC2BEB523F0004F69C;
 			packageReferences = (
-				E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E8D5F3DA2BF7AA2B00E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E86C4C062BEB523F0004F69C /* Products */;
 			projectDirPath = "";
@@ -704,20 +704,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		E8D5F3DA2BF7AA2B00E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
+				kind = exactVersion;
+				version = 7.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E8D5F3D42BF6625200E45C5E /* Kingfisher */ = {
+		E8D5F3DB2BF7AA2B00E45C5E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E8D5F3D32BF6625200E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = E8D5F3DA2BF7AA2B00E45C5E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
