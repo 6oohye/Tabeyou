@@ -19,12 +19,17 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
     var viewModel = ResultListViewModel()
     var currentSortOption: ResultListViewModel.SortOption = .default // 기본 정렬 방식
     
+    var selectedValues: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarCustom()
         setupTableView()
         loadData(sortBy: currentSortOption) // 초기 정렬 방식으로 데이터를 가져옴
+        
+        // selectedValues를 사용하여 화면을 업데이트
+        print("Selected values: \(selectedValues)")
     }
     
     // MARK: - TableView Setup
@@ -39,7 +44,7 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
             sortbyCell.delegate = self
         }
     }
-
+    
     
     // MARK: - API Data Loading
     private func loadData(sortBy option: ResultListViewModel.SortOption) {
@@ -130,11 +135,11 @@ extension ResultListViewController {
     func sortByPriceHighToLow() {
         loadData(sortBy: .highToLowPrice) // 가격 높은 순으로 정렬하여 데이터 다시 로드
     }
-
+    
     func sortByPriceLowToHigh() {
         loadData(sortBy: .lowToHighPrice) // 가격 낮은 순으로 정렬하여 데이터 다시 로드
     }
-
+    
     func sortByDefault() {
         loadData(sortBy: .default) // 기본 정렬 방식으로 데이터 다시 로드
     }

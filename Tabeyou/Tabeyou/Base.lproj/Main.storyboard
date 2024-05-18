@@ -246,26 +246,26 @@
             <objects>
                 <viewController id="eQG-iS-8sp" customClass="ResultListViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Kf-f8-z5b">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P6B-7y-Zwq">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P6B-7y-Zwq">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Yl-5d-iZi" customClass="ResultSortbyTableViewCell" customModule="Tabeyou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="45"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ResultSortbyTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Yl-5d-iZi" customClass="ResultSortbyTableViewCell" customModule="Tabeyou" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Yl-5d-iZi" id="bdV-JT-Yjp">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="ResultTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultTableViewCell" id="wCQ-4C-xig" customClass="ResultTableViewCell" customModule="Tabeyou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="95" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="94.666667938232422" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wCQ-4C-xig" id="Vpe-xG-73c" customClass="ResultTableViewCell" customModule="Tabeyou" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <viewLayoutGuide key="safeArea" id="3Ni-qj-IvK"/>
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hed-U5-sF6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="-311"/>
+            <point key="canvasLocation" x="2850" y="-400"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KHQ-yS-Ozn">
@@ -376,29 +376,43 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnD-ap-cAo">
                                                 <rect key="frame" x="32" y="235.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="居酒屋">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="cQS-Xc-VdM"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ダイニング">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="dOV-qD-Awi"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-8J-7KR">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-8J-7KR" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="創作料理">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="h8m-Uy-S4o"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="tintColor" name="mainColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="dpr-A9-I1A"/>
                                                 </constraints>
@@ -406,26 +420,41 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LUE-g6-9fp">
                                                 <rect key="frame" x="32" y="280.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R1-RX-F00">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R1-RX-F00" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="和食">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="p98-2d-Jcb"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-TI-rek">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-TI-rek" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="洋食">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="RlF-c0-Tkg"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-aT-u3r">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-aT-u3r" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="イタリアン">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="kSC-U4-FoE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="tintColor" name="mainColor"/>
@@ -436,26 +465,41 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3XW-dZ-vyx">
                                                 <rect key="frame" x="32" y="325.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-iI-utM">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-iI-utM" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="中華">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="1CJ-k7-Kye"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-fe-DXr">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-fe-DXr" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="焼肉">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="n7F-GB-Ex2"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG5-2G-5F3">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG5-2G-5F3" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="韓国料理">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="MMj-8v-AGL"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="tintColor" name="mainColor"/>
@@ -466,26 +510,41 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-3h-GdT">
                                                 <rect key="frame" x="32" y="370.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-yB-PA6">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-yB-PA6" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="カフェ">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="wCV-VQ-squ"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-bK-GyG">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-bK-GyG" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="各国料理">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="f51-Bc-iqj"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-TY-1Ms">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-TY-1Ms" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ラーメン">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="Ziz-Ce-wjQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="tintColor" name="mainColor"/>
@@ -496,26 +555,41 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gls-UN-dx4">
                                                 <rect key="frame" x="32" y="415.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-xy-3mU">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-xy-3mU" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="バー・カクテル">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="C90-nj-B9Y"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-5F-eBh">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-5F-eBh" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="お好み焼き">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="UXc-pC-TuA"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-iq-NEX">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-iq-NEX" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="その他">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="ofo-IQ-qd9"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="tintColor" name="mainColor"/>
@@ -557,25 +631,31 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dFx-2F-Uwi">
                                                 <rect key="frame" x="50" y="598" width="293" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-vl-6Jc">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-vl-6Jc" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="有り">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-fM-ekn">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-fM-ekn" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="111" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="無し">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-rO-FeN">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-rO-FeN" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
                                                         <rect key="frame" x="222" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="未確認">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
+                                                            <color key="baseForegroundColor" name="mainColor"/>
+                                                            <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
                                                     </button>
                                                 </subviews>
@@ -594,6 +674,10 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="検索する">
                                                     <color key="baseBackgroundColor" name="mainColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="searchResultButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="Eo7-zw-jIm"/>
+                                                    <segue destination="eQG-iS-8sp" kind="show" identifier="goToDetailResults" destinationCreationSelector="goToDetailResults" id="jjd-CI-cnp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -673,9 +757,25 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="searchIcon" id="jzf-g1-omh"/>
                     <connections>
+                        <outlet property="bar" destination="7qn-xy-3mU" id="Wzz-Eq-Lnu"/>
+                        <outlet property="cafe" destination="7fk-yB-PA6" id="bCp-dV-Ib7"/>
+                        <outlet property="chinese" destination="Ivj-iI-utM" id="MP8-Vh-2cK"/>
                         <outlet property="contentView" destination="ggh-ck-XLi" id="2sN-lv-K3T"/>
+                        <outlet property="creativeCuisine" destination="bhR-8J-7KR" id="Vbr-L1-OYl"/>
+                        <outlet property="dining" destination="v8Q-53-ags" id="Ptx-o2-l9W"/>
+                        <outlet property="grilledMeat" destination="vYA-fe-DXr" id="Oud-nO-tN7"/>
+                        <outlet property="italian" destination="3iO-aT-u3r" id="GAR-SF-RqK"/>
+                        <outlet property="izakaya" destination="R46-sl-yEB" id="1a5-ZC-cVU"/>
+                        <outlet property="japaneseFood" destination="5R1-RX-F00" id="RgD-3Z-Hyh"/>
+                        <outlet property="koreanFood" destination="uG5-2G-5F3" id="qOn-T9-EmT"/>
+                        <outlet property="okonomiyaki" destination="g6f-5F-eBh" id="Oxy-mx-roU"/>
+                        <outlet property="other" destination="KHR-iq-NEX" id="Wxj-B7-k4N"/>
+                        <outlet property="ramen" destination="PMs-TY-1Ms" id="EV2-Hs-iHr"/>
                         <outlet property="scrollView" destination="fQZ-pd-F1j" id="HXg-RB-dc8"/>
                         <outlet property="searchBar" destination="BJP-DW-FIh" id="gba-bZ-MvR"/>
+                        <outlet property="searchResultButton" destination="t53-mO-62X" id="Y81-ps-whr"/>
+                        <outlet property="westernFood" destination="R5f-TI-rek" id="tjw-LI-QBj"/>
+                        <outlet property="worldCuisine" destination="mX7-bK-GyG" id="Bby-C5-uHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8s-dU-WWm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -750,11 +850,11 @@
             <objects>
                 <viewController storyboardIdentifier="ResultDetailViewController" title="ResultDetailViewController" id="rk7-qE-B1P" customClass="ResultDetailViewController" customModule="Tabeyou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F2c-Db-lhN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fV-z8-ycN">
-                                <rect key="frame" x="0.0" y="103" width="393" height="687.66666666666663"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="687.66666666666663"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiY-RN-Yt2">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="687.66666666666663"/>
@@ -784,7 +884,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Lk3-NC-eY5">
-                                                                <rect key="frame" x="0.0" y="46" width="55.666666666666664" height="69"/>
+                                                                <rect key="frame" x="0.0" y="46.000000000000028" width="55.666666666666664" height="69"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6UQ-o1-PfM">
                                                                         <rect key="frame" x="0.0" y="0.0" width="55.666666666666664" height="15"/>
@@ -1012,11 +1112,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hF3-Pk-f5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4221" y="-925"/>
+            <point key="canvasLocation" x="3741" y="-794"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="3iO-aT-u3r">
+            <size key="intrinsicContentSize" width="80.333333333333329" height="29.666666666666668"/>
+        </designable>
+        <designable name="5R1-RX-F00">
+            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
+        </designable>
+        <designable name="7fk-yB-PA6">
+            <size key="intrinsicContentSize" width="58" height="29.666666666666668"/>
+        </designable>
+        <designable name="7qn-xy-3mU">
+            <size key="intrinsicContentSize" width="95.666666666666671" height="29.666666666666668"/>
+        </designable>
+        <designable name="Ivj-iI-utM">
+            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
+        </designable>
+        <designable name="KHR-iq-NEX">
+            <size key="intrinsicContentSize" width="58" height="29.666666666666668"/>
+        </designable>
+        <designable name="PMs-TY-1Ms">
+            <size key="intrinsicContentSize" width="69" height="29.666666666666668"/>
+        </designable>
+        <designable name="R46-sl-yEB">
+            <size key="intrinsicContentSize" width="58" height="29.666666666666668"/>
+        </designable>
+        <designable name="R5f-TI-rek">
+            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
+        </designable>
+        <designable name="bhR-8J-7KR">
+            <size key="intrinsicContentSize" width="69" height="29.666666666666668"/>
+        </designable>
+        <designable name="g6f-5F-eBh">
+            <size key="intrinsicContentSize" width="81.333333333333329" height="29.666666666666668"/>
+        </designable>
+        <designable name="hnz-fM-ekn">
+            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
+        </designable>
+        <designable name="mX7-bK-GyG">
+            <size key="intrinsicContentSize" width="70" height="29.666666666666668"/>
+        </designable>
+        <designable name="uG5-2G-5F3">
+            <size key="intrinsicContentSize" width="70" height="29.666666666666668"/>
+        </designable>
+        <designable name="ujg-rO-FeN">
+            <size key="intrinsicContentSize" width="58" height="29.666666666666668"/>
+        </designable>
+        <designable name="v8Q-53-ags">
+            <size key="intrinsicContentSize" width="80.333333333333329" height="29.666666666666668"/>
+        </designable>
+        <designable name="vYA-fe-DXr">
+            <size key="intrinsicContentSize" width="48.333333333333336" height="29.666666666666668"/>
+        </designable>
+        <designable name="xg5-vl-6Jc">
+            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="oKB-LZ-BqF"/>
+        <segue reference="jjd-CI-cnp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SearchLogoTitle" width="147" height="40"/>
