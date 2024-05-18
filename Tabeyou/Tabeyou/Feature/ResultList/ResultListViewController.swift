@@ -2,113 +2,117 @@
 //  ResultListViewController.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/13/24.
+//  Created by ユクヘジン on 5/13/24.
 //
 
 import UIKit
 
-class ResultListViewController: UIViewController {
+class ResultListViewController: UIViewController, ResultSortbyTableViewCellDelegate {
     
     enum ResultSection: Int, CaseIterable{
+        case sortBy
         case restaurant
     }
     
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = ResultListViewModel()
+    var currentSortOption: ResultListViewModel.SortOption = .default
+    
+    var selectedValues: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarCustom()
-        self.setupTableView()
-        loadData()
-        
+        setupTableView()
+        loadData(sortBy: currentSortOption)
     }
     
-    //MARK: - ResultTableViewCell呼び出す関数
+    // MARK: - TableView 設定
     private func setupTableView() {
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.register(
-            UINib(nibName: ResultTableViewCell.identifire, bundle: nil),
-            forCellReuseIdentifier: ResultTableViewCell.identifire
-        )
-    }
-    
-    //MARK: - API로부터 데이터 가져오기
-    private func loadData() {
-        viewModel.fetchData { [weak self] in
-            self?.tableView.reloadData()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: "ResultSortbyTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultSortbyTableViewCell")
+        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
+        
+        //ResultSortbyTableViewCellのデリゲート設定
+        if let sortbyCell = tableView.dequeueReusableCell(withIdentifier: "ResultSortbyTableViewCell") as? ResultSortbyTableViewCell {
+            sortbyCell.delegate = self
         }
     }
-}
-
-extension ResultListViewController{
     
-    //MARK: - NavigationBar Custom
-    func navigationBarCustom(){
-        self.navigationItem.title = "検索結果"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: .backArrow,
-            style: .plain,
-            target: self,
-            action: #selector(backButtonTapped))
-        self.navigationItem.leftBarButtonItem?.tintColor = .bk
-        
+    
+    // MARK: - 指定された整列オプションに従ってAPIからデータを取得し、Table Viewを再ロード
+    private func loadData(sortBy option: ResultListViewModel.SortOption) {
+        viewModel.fetchData(sortBy: option) { [weak self] in
+            self?.tableView.reloadData()
+        }
+        currentSortOption = option
     }
     
-    //MARK: - HomeViewControllerに移動
+    // MARK: - NavigationBar Customization
+    func navigationBarCustom() {
+        navigationItem.title = "検索結果"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backArrow"), style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
+    // MARK: - Back Button Action
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return ResultSection.allCases.count
     }
-    
+    //MARK: - 各行に該当するセルを設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.restaurants.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifire, for: indexPath) as? ResultTableViewCell else {
-            return UITableViewCell()
+        switch ResultSection(rawValue: section)! {
+        case .sortBy:
+            return 1
+        case .restaurant:
+            return viewModel.restaurants.count
         }
-        
-        let restaurant = viewModel.restaurants[indexPath.row]
-        cell.setViewModel(restaurant)
-        
-        return cell
     }
-    
-    //MARK: - ResultDetailに移動
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 선택된 셀의 id를 가져옵니다.
-        let selectedRestaurantID = viewModel.restaurants[indexPath.row].id
-        // Segue를 실행합니다. 선택된 셀의 id를 sender로 전달합니다.
-        performSegue(withIdentifier: "GoToDetail", sender: selectedRestaurantID)
-    }
-    
-    // Segue를 통해 이동할 때 데이터 전달을 위한 메서드
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoToDetail" {
-            // 전달된 sender가 선택된 셀의 id인지 확인합니다.
-            if let restaurantID = sender as? String {
-                // Segue의 목적지인 ResultDetailViewController를 가져옵니다.
-                let goToDetail = segue.destination as! ResultDetailViewController
-                // 선택된 셀의 id를 ResultDetailViewController에 전달합니다.
-                goToDetail.restaurantId = restaurantID
+    //MARK: - 各行に該当するセルを設定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch ResultSection(rawValue: indexPath.section)! {
+        case .sortBy:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResultSortbyTableViewCell", for: indexPath) as? ResultSortbyTableViewCell else {
+                fatalError("Failed to dequeue ResultSortbyTableViewCell.")
             }
+            cell.delegate = self
+            return cell
+        case .restaurant:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell", for: indexPath) as? ResultTableViewCell else {
+                return UITableViewCell()
+            }
+            let restaurant = viewModel.restaurants[indexPath.row]
+            cell.setViewModel(restaurant)
+            return cell
+        }
+    }
+    
+    // MARK: - Result Detail Navigation
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == ResultSection.restaurant.rawValue {
+            let selectedRestaurantID = viewModel.restaurants[indexPath.row].id
+            performSegue(withIdentifier: "GoToDetail", sender: selectedRestaurantID)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToDetail", let restaurantID = sender as? String {
+            let goToDetail = segue.destination as! ResultDetailViewController
+            goToDetail.restaurantId = restaurantID
         }
     }
 }
 
-
-//MARK: - List Paging 処理
+// MARK: - List Paging
 extension ResultListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
@@ -117,8 +121,23 @@ extension ResultListViewController: UIScrollViewDelegate {
         
         if offsetY > contentHeight - height * 1.5 && !viewModel.isLoading {
             if viewModel.restaurants.count < viewModel.resultsAvailable {
-                loadData()
+                loadData(sortBy: currentSortOption)
             }
         }
+    }
+}
+
+// MARK: - ResultSortbyTableViewCellDelegate
+extension ResultListViewController {
+    func sortByPriceHighToLow() {
+        loadData(sortBy: .highToLowPrice) // 価格の高い順に並べ替えてデータを再ロード
+    }
+    
+    func sortByPriceLowToHigh() {
+        loadData(sortBy: .lowToHighPrice) // 低価格の順に並べ替えてデータを再ロード
+    }
+    
+    func sortByDefault() {
+        loadData(sortBy: .default) // 基本整列方式でデータを再ロード
     }
 }

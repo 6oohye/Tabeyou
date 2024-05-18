@@ -2,7 +2,7 @@
 //  ResultTableViewCell.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/13/24.
+//  Created by ユクヘジン on 5/13/24.
 //
 
 import UIKit
@@ -46,30 +46,23 @@ class ResultTableViewCell: UITableViewCell {
         self.containerView.layer.borderColor = AppColors.UIKit.gray0.cgColor
         self.containerView.layer.borderWidth = 1
         
-        // restaurantImageView 제약 조건 설정
+        // restaurantImageViewの制約条件設定
         restaurantImageView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(restaurantImageView)
         
         NSLayoutConstraint.activate([
-            // 이미지뷰 크기 고정
+            // ImageViewサイズ固定
             restaurantImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            // 이미지뷰를 containerView의 중앙에 정렬
+            // containerViewの中央に整列
             restaurantImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             
-            // containerView의 상단과의 제약 조건 (우선 순위를 낮춤)
+            // containerViewの上段との制約条件(優先順位を下げる)
             restaurantImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).withPriority(.defaultLow),
             restaurantImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).withPriority(.defaultLow)
             
         ])
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }
 
 private extension NSLayoutConstraint {
