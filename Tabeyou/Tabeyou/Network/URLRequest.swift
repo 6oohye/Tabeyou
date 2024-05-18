@@ -16,7 +16,7 @@ extension URLRequest{
     ) throws {
         //URL Components
         guard var components = URLComponents(string: urlString)else{
-            throw APIError.urlIsInvalid //error
+            throw NetworkError.urlIsInvalid
         }
         
         //Query Item
@@ -27,7 +27,7 @@ extension URLRequest{
         
         //URL Request
         guard let url = components.url else{
-            throw APIError.urlIsInvalid
+            throw NetworkError.urlIsInvalid
         }
         self.init(url: url)
         
