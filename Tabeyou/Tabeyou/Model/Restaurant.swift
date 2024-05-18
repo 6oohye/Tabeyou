@@ -11,9 +11,10 @@ struct Restaurant: Codable {
     let results: Results
     
     struct Results: Codable {
-        let results_available :Int
+        let results_available :Int //全体の結果の数を取得し、距離ごとに店がどれくらいあるかを確認します。
         let shop: [Shop]
         
+        //shopで必要な結果を持ってきました。
         struct Shop: Codable {
             let id: String
             let photo: Photo
@@ -21,7 +22,7 @@ struct Restaurant: Codable {
             let name_kana : String
             let address : String
             let station_name: String
-            let lat : Double 
+            let lat : Double
             let lng : Double
             let intro : String
             let access : String
@@ -38,7 +39,7 @@ struct Restaurant: Codable {
                     let l : String
                 }
             }
-           
+            
             struct Budget :Codable{
                 let name : String
             }
