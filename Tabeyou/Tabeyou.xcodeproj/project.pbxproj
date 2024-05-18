@@ -29,6 +29,7 @@
 		E820187E2BF20A50009ECDAE /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E820187C2BF20A50009ECDAE /* ResultTableViewCell.swift */; };
 		E820187F2BF20A50009ECDAE /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E820187D2BF20A50009ECDAE /* ResultTableViewCell.xib */; };
 		E82018812BF23695009ECDAE /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82018802BF23695009ECDAE /* ResultDetailViewController.swift */; };
+		E85E6A822BF8B30B0043E9CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E8D5F3DB2BF7AA2B00E45C5E /* Kingfisher */; };
 		E86C4C092BEB523F0004F69C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C082BEB523F0004F69C /* AppDelegate.swift */; };
 		E86C4C0B2BEB523F0004F69C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0A2BEB523F0004F69C /* SceneDelegate.swift */; };
 		E86C4C0D2BEB523F0004F69C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C4C0C2BEB523F0004F69C /* HomeViewController.swift */; };
@@ -38,7 +39,6 @@
 		E86C4C1F2BEB53870004F69C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86C4C1E2BEB53870004F69C /* Colors.xcassets */; };
 		E86D1B322BF4DE7D0037E206 /* ResultListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B312BF4DE7D0037E206 /* ResultListViewModel.swift */; };
 		E86D1B362BF4ECE30037E206 /* ResultDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86D1B352BF4ECE30037E206 /* ResultDetailViewModel.swift */; };
-		E8D5F3D52BF6625200E45C5E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E8D5F3D42BF6625200E45C5E /* Kingfisher */; };
 		E8D5F3DF2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5F3DD2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift */; };
 		E8D5F3E02BF7B78800E45C5E /* ResultSortbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5F3DE2BF7B78800E45C5E /* ResultSortbyTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8D5F3DC2BF7AA2B00E45C5E /* Kingfisher in Frameworks */,
+				E85E6A822BF8B30B0043E9CE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,8 +708,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = exactVersion;
-				version = 7.11.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
