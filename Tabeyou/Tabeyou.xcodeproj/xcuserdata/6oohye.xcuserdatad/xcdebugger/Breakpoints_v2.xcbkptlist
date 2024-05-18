@@ -30,8 +30,8 @@
             filePath = "Tabeyou/Feature/ResultList/Cell/ResultSortbyTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "ResultSortbyTableViewCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Tabeyou/Feature/ResultList/Cell/ResultSortbyTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "ResultSortbyTableViewCell"
             landmarkType = "3">
          </BreakpointContent>

@@ -211,10 +211,10 @@
 		E82018792BF209D3009ECDAE /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E820187C2BF20A50009ECDAE /* ResultTableViewCell.swift */,
-				E820187D2BF20A50009ECDAE /* ResultTableViewCell.xib */,
 				E8D5F3DD2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift */,
 				E8D5F3DE2BF7B78800E45C5E /* ResultSortbyTableViewCell.xib */,
+				E820187C2BF20A50009ECDAE /* ResultTableViewCell.swift */,
+				E820187D2BF20A50009ECDAE /* ResultTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

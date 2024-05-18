@@ -17,7 +17,7 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = ResultListViewModel()
-    var currentSortOption: ResultListViewModel.SortOption = .default // 기본 정렬 방식
+    var currentSortOption: ResultListViewModel.SortOption = .default
     
     var selectedValues: [String] = []
     
@@ -26,33 +26,29 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
         
         navigationBarCustom()
         setupTableView()
-        
-        print("Selected values(성공): \(selectedValues)")
-        
-        
         loadData(sortBy: currentSortOption)
     }
     
-    // MARK: - TableView Setup
+    // MARK: - TableView 設定
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "ResultSortbyTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultSortbyTableViewCell")
         tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ResultTableViewCell")
         
-        // ResultSortbyTableViewCell의 델리게이트 설정
+        //ResultSortbyTableViewCellのデリゲート設定
         if let sortbyCell = tableView.dequeueReusableCell(withIdentifier: "ResultSortbyTableViewCell") as? ResultSortbyTableViewCell {
             sortbyCell.delegate = self
         }
     }
     
     
-    // MARK: - API Data Loading
+    // MARK: - 指定された整列オプションに従ってAPIからデータを取得し、Table Viewを再ロード
     private func loadData(sortBy option: ResultListViewModel.SortOption) {
         viewModel.fetchData(sortBy: option) { [weak self] in
             self?.tableView.reloadData()
         }
-        currentSortOption = option // 현재 정렬 방식 업데이트
+        currentSortOption = option
     }
     
     // MARK: - NavigationBar Customization
@@ -72,7 +68,7 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return ResultSection.allCases.count
     }
-    
+    //MARK: - 各行に該当するセルを設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch ResultSection(rawValue: section)! {
         case .sortBy:
@@ -81,14 +77,14 @@ extension ResultListViewController: UITableViewDelegate, UITableViewDataSource {
             return viewModel.restaurants.count
         }
     }
-    
+    //MARK: - 各行に該当するセルを設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch ResultSection(rawValue: indexPath.section)! {
         case .sortBy:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResultSortbyTableViewCell", for: indexPath) as? ResultSortbyTableViewCell else {
                 fatalError("Failed to dequeue ResultSortbyTableViewCell.")
             }
-            cell.delegate = self // 델리게이트 설정
+            cell.delegate = self
             return cell
         case .restaurant:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableViewCell", for: indexPath) as? ResultTableViewCell else {
