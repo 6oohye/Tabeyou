@@ -13,13 +13,6 @@ class HomeViewModel {
     //外部から修正されないように制限
     private(set) var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
     
-    func printRestaurantIds() {
-        for viewModel in restaurantViewModels {
-            print(viewModel.id)
-        }
-    }
-    
-    
     func loadData(completion: @escaping () -> Void) {
         Task {
             do {

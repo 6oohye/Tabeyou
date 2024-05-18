@@ -93,7 +93,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         viewModel.loadData { [weak self] in
             guard let self = self else { return }
             self.applySnapShot(restaurantViewModels: self.viewModel.restaurantViewModels)
-            self.viewModel.printRestaurantIds()
         }
     }
     
