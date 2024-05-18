@@ -29,10 +29,8 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
         
         print("Selected values(성공): \(selectedValues)")
         
-        // selectedValues가 비어있지 않은 경우에만 데이터를 로드합니다.
-        if !selectedValues.isEmpty {
-            loadData(sortBy: currentSortOption)
-        } // 초기 정렬 방식으로 데이터를 가져옴
+        
+        loadData(sortBy: currentSortOption)
     }
     
     // MARK: - TableView Setup
