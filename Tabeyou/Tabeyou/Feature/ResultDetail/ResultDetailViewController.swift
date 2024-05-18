@@ -70,7 +70,7 @@ class ResultDetailViewController: UIViewController {
     }
     
     func showCopyAlert() {
-        let alert = UIAlertController(title: "コピーされました", message: "アドレスがクリップボードにコピーされました。", preferredStyle: .alert)
+        let alert = UIAlertController(title: "コピーされました", message: "アドレスがクリップボードにコピーされました", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
