@@ -30,7 +30,7 @@ extension HomeTextCollectionViewCell{
         
         let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
-
+        
         return section
     }
 }

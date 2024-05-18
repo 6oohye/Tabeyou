@@ -10,14 +10,15 @@ import Foundation
 class HomeViewModel {
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     
-    var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
+    //外部から修正されないように制限
+    private(set) var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
     
     func printRestaurantIds() {
         for viewModel in restaurantViewModels {
             print(viewModel.id)
         }
     }
-
+    
     
     func loadData(completion: @escaping () -> Void) {
         Task {

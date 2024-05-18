@@ -37,19 +37,18 @@ final class HomeRestaurantCollectionViewCell: UICollectionViewCell {
 
 extension HomeRestaurantCollectionViewCell{
     static func restaurantListLayout() -> NSCollectionLayoutSection{
-        let itemSize : NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1 / 2), heightDimension: .estimated(277))
-        let item : NSCollectionLayoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .estimated(277))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 0, leading: 5, bottom: 0, trailing: 5)
         
-        let groupSize : NSCollectionLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(277))
-        let group : NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(277))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        
-        let section : NSCollectionLayoutSection = NSCollectionLayoutSection(group: group)
+        let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
-        section.contentInsets = .init(top: 0, leading: 19 - 5, bottom: 0, trailing: 19 - 5)
+        section.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: 14)
         section.interGroupSpacing = 10
-
+        
         return section
     }
 }
