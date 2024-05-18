@@ -54,23 +54,6 @@ class SearchViewController: UIViewController {
         //SearchBar UI
         self.searchBar.layer.cornerRadius = 5
         self.searchBar.searchBarStyle = .minimal
-        
-        //button
-        let buttons: [UIButton] = [izakaya!, dining!, creativeCuisine!, japaneseFood!, westernFood!, italian!, chinese!, grilledMeat!, koreanFood!, cafe!, worldCuisine!, ramen!, bar!, okonomiyaki!, other!,wifiYes!,wifiNo!,wifiUnidentified!]
-
-        for button in buttons {
-            styleButton(button)
-        }
-        
-    }
-    
-    //MARK: - ボタン·カスタム
-    private func styleButton(_ button: UIButton) {
-        button.layer.borderWidth = 2.0
-        button.layer.borderColor =  UIColor(named: "mainColor")?.cgColor
-        button.layer.cornerRadius = 5.0
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(named: "wh")
     }
     
     
@@ -81,13 +64,15 @@ class SearchViewController: UIViewController {
         }
         
         if selectedValues.contains(selectedValue) {
-            // 選択された値が既にある場合は削除
+            // 이미 선택된 값이면 제거
             if let index = selectedValues.firstIndex(of: selectedValue) {
                 selectedValues.remove(at: index)
+                sender.backgroundColor = UIColor(named: "wh")
             }
         } else {
-            // 選択された値がない場合、追加
+            // 선택되지 않은 값이면 추가
             selectedValues.append(selectedValue)
+            sender.backgroundColor = UIColor(named: "lightRed2")
         }
         
         // 選択された値の出力 (デバッグ用)

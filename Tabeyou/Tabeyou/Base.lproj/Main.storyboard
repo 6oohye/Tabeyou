@@ -382,25 +382,32 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnD-ap-cAo">
                                                 <rect key="frame" x="32" y="186.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="居酒屋">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="Xax-Qz-fIu"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ダイニング">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="l2d-ia-2fz"/>
@@ -408,11 +415,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-8J-7KR">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="創作料理">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="VAm-5m-Gfv"/>
@@ -428,11 +439,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R1-RX-F00">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="和食">
+                                                            <backgroundConfiguration key="background" cornerRadius="11" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="eHm-UG-wXz"/>
@@ -440,11 +455,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-TI-rek">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="洋食">
+                                                            <backgroundConfiguration key="background" cornerRadius="11" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="mVx-18-LeE"/>
@@ -452,11 +471,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-aT-u3r">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="イタリアン">
+                                                            <backgroundConfiguration key="background" cornerRadius="11" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="s0t-tX-VTY"/>
@@ -473,11 +496,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-iI-utM">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="中華">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="Bll-n4-lVz"/>
@@ -485,11 +512,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-fe-DXr">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="焼肉">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="x8t-Np-5ZE"/>
@@ -497,11 +528,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG5-2G-5F3">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="韓国料理">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="bwt-GX-eOz"/>
@@ -518,11 +553,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-yB-PA6">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="カフェ">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="KZr-Wh-uy6"/>
@@ -530,11 +569,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-bK-GyG">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="各国料理">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="GBK-Ph-CjW"/>
@@ -542,11 +585,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-TY-1Ms">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ラーメン">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="6gT-L0-Zlr"/>
@@ -563,11 +610,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-xy-3mU">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="バー・カクテル">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="BO7-6J-xdM"/>
@@ -575,11 +626,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-5F-eBh">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="お好み焼き">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="F9x-ut-AWs"/>
@@ -587,11 +642,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-iq-NEX">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="その他">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="EUn-4N-fEv"/>
@@ -645,11 +704,15 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-vl-6Jc">
                                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="有り">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="EL9-t2-k7U"/>
@@ -657,11 +720,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-fM-ekn">
                                                         <rect key="frame" x="111" y="0.0" width="71" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="無し">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="QmL-fu-Lgr"/>
@@ -669,11 +736,15 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-rO-FeN">
                                                         <rect key="frame" x="222" y="0.0" width="71" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="未確認">
+                                                            <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="3">
+                                                                <color key="strokeColor" name="mainColor"/>
+                                                            </backgroundConfiguration>
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                             <color key="baseForegroundColor" name="mainColor"/>
-                                                            <color key="baseBackgroundColor" name="wh"/>
+                                                            <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="buttonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="Xgb-fj-Dfm"/>
