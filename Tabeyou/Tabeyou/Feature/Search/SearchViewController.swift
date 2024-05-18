@@ -76,24 +76,22 @@ class SearchViewController: UIViewController {
         print("Selected values:", selectedValues)
     }
     
+    
     // 검색 결과 버튼을 클릭할 때 실행되는 메소드
     @IBAction func searchResultButtonTapped(_ sender: UIButton) {
         // 선택된 값들을 가지고 ResultListViewController로 이동
-        goToDetailResults(with: selectedValues)
-    }
-    
-    // ResultListViewController로 이동하는 메소드
-    func goToDetailResults(with values: [String]) {
-        performSegue(withIdentifier: "goToDetailResults", sender: values)
-    }
-    
-    // 다음 화면으로 데이터를 전달하기 위한 메소드
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? ResultListViewController,
-           let values = sender as? [String] {
-            destinationVC.selectedValues = values
+        if !selectedValues.isEmpty {
+            // ResultListViewController의 인스턴스를 가져옵니다.
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) // 여기에 여러분이 사용하는 스토리보드의 이름을 넣어주세요.
+            let resultListVC = storyboard.instantiateViewController(withIdentifier: "ResultListViewController") as! ResultListViewController
+            
+            // 선택된 값들을 전달합니다.
+            resultListVC.selectedValues = selectedValues
+            
+            // 결과 목록 뷰 컨트롤러를 표시합니다.
+            self.navigationController?.pushViewController(resultListVC, animated: true)
+        } else {
+            print("No values selected.")
         }
     }
-    
-    
 }

@@ -26,10 +26,13 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
         
         navigationBarCustom()
         setupTableView()
-        loadData(sortBy: currentSortOption) // 초기 정렬 방식으로 데이터를 가져옴
         
-        // selectedValues를 사용하여 화면을 업데이트
-        print("Selected values: \(selectedValues)")
+        print("Selected values(성공): \(selectedValues)")
+        
+        // selectedValues가 비어있지 않은 경우에만 데이터를 로드합니다.
+        if !selectedValues.isEmpty {
+            loadData(sortBy: currentSortOption)
+        } // 초기 정렬 방식으로 데이터를 가져옴
     }
     
     // MARK: - TableView Setup
