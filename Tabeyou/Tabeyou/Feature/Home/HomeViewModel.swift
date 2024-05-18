@@ -2,7 +2,7 @@
 //  HomeViewModel.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/10/24.
+//  Created by ユクヘジン on 5/10/24.
 //
 
 import Foundation
@@ -10,14 +10,15 @@ import Foundation
 class HomeViewModel {
     private let networkService = NetworkService(key: "863a73a43b3ef2b6")
     
-    var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
+    //外部から修正されないように制限
+    private(set) var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
     
     func printRestaurantIds() {
         for viewModel in restaurantViewModels {
             print(viewModel.id)
         }
     }
-
+    
     
     func loadData(completion: @escaping () -> Void) {
         Task {

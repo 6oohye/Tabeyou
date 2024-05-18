@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/8/24.
+//  Created by ユクヘジン on 5/8/24.
 //
 
 import UIKit
@@ -19,12 +19,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    // 位置マネージャーを宣言
     var locationManager = CLLocationManager()
+    
+    // データ ソースとコンフォージショナル レイアウトを設定します。
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     private var compositinalLayout: UICollectionViewCompositionalLayout = setCompositionalLayout()
     
-    
+    //バナー自動スクロールタイマーと現在のインデックスを管理します。
     private var timer: Timer?
     private var currentIndex = 0
     
@@ -33,7 +35,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //位置マネージャー設定非同期で呼び出し
         DispatchQueue.global().async {
             self.setLocationManager()
         }
@@ -41,28 +44,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         collectionView.delegate = self
         loadData()
         setDataSource()
-        
         collectionView.collectionViewLayout = compositinalLayout
         startTimer()
     }
     
-    //MARK: - 位置情報
+    //MARK: - 位置マネージャー設定
     fileprivate func setLocationManager() {
-        // 델리게이트를 설정하고,
         locationManager.delegate = self
-        // 거리 정확도
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // 위치 사용 허용 알림
-        locationManager.requestWhenInUseAuthorization()
-        // 위치 사용을 허용하면 현재 위치 정보를 가져옴
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest // 距離精度
+        locationManager.requestWhenInUseAuthorization() // 位置使用権限のリクエスト
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation() // 位置サービスon
         }
         else {
-            print("ロケーションサービス off") //위치서비스 허용off
+            print("ロケーションサービス off") // 位置サービスoff
         }
     }
     
+    // MARK: - CLLocationManagerDelegate Methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
@@ -70,9 +69,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 manager.startUpdatingLocation()
             }
         case .notDetermined, .restricted, .denied:
-            print("位置権限状態が十分ではありません") //위치 권한 상태가 충분하지 않습니다
+            print("位置権限状態が十分ではありません")
         @unknown default:
-            fatalError("不明権限状態。") // 알 수 없는 권한 상태.
+            fatalError("不明権限状態。")
         }
     }
     
@@ -84,12 +83,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // 위치 가져오기 실패
+    // 位置情報の取得に失敗
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("位置情報の取得に失敗: \(error.localizedDescription)")
     }
     
-    //MARK: - loadData
+    //MARK: - データロード
     private func loadData() {
         viewModel.loadData { [weak self] in
             guard let self = self else { return }
@@ -185,14 +184,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         guard let viewModel = viewModel as? HomeTextCollectionViewCellViewModel,
               let cell: HomeTextCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeTextCollectionViewCell", for: indexPath) as? HomeTextCollectionViewCell else {return .init()}
         
-        // 셀의 테두리 설정
+        // Cellカスタム追加
         let borderWidth: CGFloat = 1
         let borderColor =  AppColors.UIKit.gray1.cgColor
         
         cell.contentView.layer.borderWidth = 0
         cell.contentView.layer.borderColor = nil
         
-        // 탑에 보더 추가
+        // トップにborderを追加
         let borderLayer = CALayer()
         borderLayer.backgroundColor = borderColor
         borderLayer.frame = CGRect(x: 0, y: 0, width: cell.contentView.frame.width, height: borderWidth)
@@ -210,8 +209,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         return cell
     }
     
-    
-    
     //MARK: - バナー自動スライドを実装
     private func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -225,11 +222,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
 }
 
-
-
-
+//MARK: - Segueを介した次のビューコントローラーに移動
 extension HomeViewController {
-    // Button 디테일뷰로 이동
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultListVC = segue.destination as? ResultListViewController {
             switch segue.identifier {
@@ -248,16 +242,16 @@ extension HomeViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let section = Section(rawValue: indexPath.section) else { return }
         
         switch section {
         case .restaurantList:
-            // 선택한 셀의 레스토랑 정보를 가져옵니다.
+            // 選択したCellのレストラン情報を取得します。
             let selectedRestaurant = viewModel.restaurantViewModels[indexPath.item]
-            
-            // ResultDetailViewController로 이동하고 선택한 레스토랑의 ID를 전달합니다.
+            // Result Detail View Controllerに移動し、選択したレストランのIDを伝えます。
             if let resultDetailVC = storyboard?.instantiateViewController(withIdentifier: "ResultDetailViewController") as? ResultDetailViewController {
                 resultDetailVC.restaurantId = selectedRestaurant.id
                 navigationController?.pushViewController(resultDetailVC, animated: true)
