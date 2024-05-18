@@ -12,25 +12,31 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //ジャンル
-    @IBOutlet weak var izakaya: CustomButton!
-    @IBOutlet weak var dining: CustomButton!
-    @IBOutlet weak var creativeCuisine: CustomButton!
-    @IBOutlet weak var japaneseFood: CustomButton!
-    @IBOutlet weak var westernFood: CustomButton!
-    @IBOutlet weak var italian: CustomButton!
-    @IBOutlet weak var chinese: CustomButton!
-    @IBOutlet weak var grilledMeat: CustomButton!
-    @IBOutlet weak var koreanFood: CustomButton!
-    @IBOutlet weak var cafe: CustomButton!
-    @IBOutlet weak var worldCuisine: CustomButton!
-    @IBOutlet weak var ramen: CustomButton!
-    @IBOutlet weak var bar: CustomButton!
-    @IBOutlet weak var okonomiyaki: CustomButton!
-    @IBOutlet weak var other: CustomButton!
+    //ジャンル Button
+    @IBOutlet weak var izakaya: UIButton!
+    @IBOutlet weak var dining: UIButton!
+    @IBOutlet weak var creativeCuisine: UIButton!
+    @IBOutlet weak var japaneseFood: UIButton!
+    @IBOutlet weak var westernFood: UIButton!
+    @IBOutlet weak var italian: UIButton!
+    @IBOutlet weak var chinese: UIButton!
+    @IBOutlet weak var grilledMeat: UIButton!
+    @IBOutlet weak var koreanFood: UIButton!
+    @IBOutlet weak var cafe: UIButton!
+    @IBOutlet weak var worldCuisine: UIButton!
+    @IBOutlet weak var ramen: UIButton!
+    @IBOutlet weak var bar: UIButton!
+    @IBOutlet weak var okonomiyaki: UIButton!
+    @IBOutlet weak var other: UIButton!
+    
+    //Wi-Fi Button
+    @IBOutlet weak var wifiYes: UIButton!
+    @IBOutlet weak var wifiNo: UIButton!
+    @IBOutlet weak var wifiUnidentified: UIButton!
     
     //ResultListViewControllerに移動するボタン
     @IBOutlet weak var searchResultButton: UIButton!
+  
     
     // 선택된 값을 저장할 변수
     var selectedValues: [String] = []
@@ -51,6 +57,21 @@ class SearchViewController: UIViewController {
         self.searchBar.layer.cornerRadius = 5
         self.searchBar.searchBarStyle = .minimal
         
+        //button
+        let buttons: [UIButton] = [izakaya!, dining!, creativeCuisine!, japaneseFood!, westernFood!, italian!, chinese!, grilledMeat!, koreanFood!, cafe!, worldCuisine!, ramen!, bar!, okonomiyaki!, other!,wifiYes!,wifiNo!,wifiUnidentified!]
+
+        for button in buttons {
+            styleButton(button)
+        }
+        
+    }
+    
+    private func styleButton(_ button: UIButton) {
+        button.layer.borderWidth = 2.0
+        button.layer.borderColor =  UIColor(named: "mainColor")?.cgColor
+        button.layer.cornerRadius = 5.0
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "wh")
     }
     
     
@@ -76,6 +97,27 @@ class SearchViewController: UIViewController {
         print("Selected values:", selectedValues)
     }
     
+    // Wi-Fi 버튼을 클릭할 때 실행되는 메소드
+    @IBAction func wifiButtonTapped(_ sender: UIButton) {
+        guard let selectedValue = sender.titleLabel?.text else {
+            return
+        }
+        // 선택된 버튼의 타이틀을 출력합니다.
+        print("Clicked Wi-Fi button title:", selectedValue)
+        
+        if selectedValues.contains(selectedValue) {
+            // 이미 선택된 값이라면 제거
+            if let index = selectedValues.firstIndex(of: selectedValue) {
+                selectedValues.remove(at: index)
+            }
+        } else {
+            // 선택되지 않은 값이라면 추가
+            selectedValues.append(selectedValue)
+        }
+        
+        // 선택된 값을 출력합니다.
+        print("Selected values:", selectedValues)
+    }
     
     // 검색 결과 버튼을 클릭할 때 실행되는 메소드
     @IBAction func searchResultButtonTapped(_ sender: UIButton) {

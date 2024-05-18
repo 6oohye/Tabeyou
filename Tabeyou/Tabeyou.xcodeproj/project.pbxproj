@@ -41,7 +41,6 @@
 		E8D5F3D52BF6625200E45C5E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E8D5F3D42BF6625200E45C5E /* Kingfisher */; };
 		E8D5F3DF2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5F3DD2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift */; };
 		E8D5F3E02BF7B78800E45C5E /* ResultSortbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8D5F3DE2BF7B78800E45C5E /* ResultSortbyTableViewCell.xib */; };
-		E8D5F3E32BF7DBF100E45C5E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D5F3E22BF7DBF100E45C5E /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +90,6 @@
 		E86D1B352BF4ECE30037E206 /* ResultDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewModel.swift; sourceTree = "<group>"; };
 		E8D5F3DD2BF7B78800E45C5E /* ResultSortbyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSortbyTableViewCell.swift; sourceTree = "<group>"; };
 		E8D5F3DE2BF7B78800E45C5E /* ResultSortbyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultSortbyTableViewCell.xib; sourceTree = "<group>"; };
-		E8D5F3E22BF7DBF100E45C5E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +124,6 @@
 		E82018352BEDEB20009ECDAE /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				E8D5F3E12BF7DB7200E45C5E /* Custom */,
 				E82018392BEDF4E3009ECDAE /* SearchViewController.swift */,
 				E820183F2BEDF686009ECDAE /* SearchViewModel.swift */,
 			);
@@ -284,14 +281,6 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		E8D5F3E12BF7DB7200E45C5E /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				E8D5F3E22BF7DBF100E45C5E /* CustomButton.swift */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,7 +405,6 @@
 				E82018702BF0EEA3009ECDAE /* HomeTextCollectionViewCell.swift in Sources */,
 				E82018552BF07024009ECDAE /* HTTPMethod.swift in Sources */,
 				E86D1B362BF4ECE30037E206 /* ResultDetailViewModel.swift in Sources */,
-				E8D5F3E32BF7DBF100E45C5E /* CustomButton.swift in Sources */,
 				E82018532BF06FF8009ECDAE /* URLRequest.swift in Sources */,
 				E82018472BEE6789009ECDAE /* HomeButtonCollectionViewCell.swift in Sources */,
 				E82018442BEE0F5F009ECDAE /* HomeBannerCollectionViewCell.swift in Sources */,

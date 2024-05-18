@@ -337,20 +337,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-pd-F1j">
-                                <rect key="frame" x="0.0" y="90" width="393" height="754"/>
+                                <rect key="frame" x="0.0" y="90" width="393" height="723"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggh-ck-XLi" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="754"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="723"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" image="SearchLogoTitle" translatesAutoresizingMaskIntoConstraints="NO" id="rhc-tF-wxH">
-                                                <rect key="frame" x="123" y="40" width="147" height="40"/>
+                                                <rect key="frame" x="123" y="20" width="147" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="147" id="3m7-Wd-lUc"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Sjc-dl-2J1"/>
+                                                    <constraint firstAttribute="height" constant="40" id="3Sh-UG-Y8l"/>
+                                                    <constraint firstAttribute="width" constant="147" id="97L-f6-06A"/>
                                                 </constraints>
                                             </imageView>
                                             <searchBar contentMode="redraw" verticalCompressionResistancePriority="751" placeholder="地域、食べ物、店舗名検索" translatesAutoresizingMaskIntoConstraints="NO" id="BJP-DW-FIh">
-                                                <rect key="frame" x="20" y="120" width="353" height="35"/>
+                                                <rect key="frame" x="20" y="70" width="353" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Qnh-ho-7WL"/>
                                                 </constraints>
@@ -360,7 +360,7 @@
                                                 </connections>
                                             </searchBar>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="詳細条件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GON-g7-9wI">
-                                                <rect key="frame" x="30" y="175" width="333" height="19.333333333333343"/>
+                                                <rect key="frame" x="30" y="115" width="333" height="19.333333333333343"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="w5i-Zi-cTo"/>
                                                 </constraints>
@@ -369,7 +369,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="ジャンル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIz-2e-brf">
-                                                <rect key="frame" x="30" y="209.33333333333331" width="333" height="17"/>
+                                                <rect key="frame" x="30" y="149.33333333333334" width="333" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="cX2-kg-xak"/>
                                                 </constraints>
@@ -378,9 +378,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnD-ap-cAo">
-                                                <rect key="frame" x="32" y="236.33333333333331" width="329" height="35"/>
+                                                <rect key="frame" x="32" y="176.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R46-sl-yEB">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="居酒屋">
@@ -392,7 +392,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="cQS-Xc-VdM"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8Q-53-ags">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ダイニング">
@@ -404,7 +404,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="dOV-qD-Awi"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-8J-7KR" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-8J-7KR">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="創作料理">
@@ -422,9 +422,9 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LUE-g6-9fp">
-                                                <rect key="frame" x="32" y="281.33333333333331" width="329" height="35"/>
+                                                <rect key="frame" x="32" y="221.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R1-RX-F00" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R1-RX-F00">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="和食">
@@ -436,7 +436,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="p98-2d-Jcb"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-TI-rek" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5f-TI-rek">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="洋食">
@@ -448,7 +448,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="RlF-c0-Tkg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-aT-u3r" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-aT-u3r">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="イタリアン">
@@ -467,9 +467,9 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3XW-dZ-vyx">
-                                                <rect key="frame" x="32" y="326.33333333333331" width="329" height="35"/>
+                                                <rect key="frame" x="32" y="266.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-iI-utM" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-iI-utM">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="中華">
@@ -481,7 +481,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="1CJ-k7-Kye"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-fe-DXr" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYA-fe-DXr">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="焼肉">
@@ -493,7 +493,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="n7F-GB-Ex2"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG5-2G-5F3" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG5-2G-5F3">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="韓国料理">
@@ -512,9 +512,9 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hdm-3h-GdT">
-                                                <rect key="frame" x="32" y="371.33333333333331" width="329" height="35"/>
+                                                <rect key="frame" x="32" y="311.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-yB-PA6" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-yB-PA6">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="カフェ">
@@ -526,7 +526,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="wCV-VQ-squ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-bK-GyG" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mX7-bK-GyG">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="各国料理">
@@ -538,7 +538,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="f51-Bc-iqj"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-TY-1Ms" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-TY-1Ms">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="ラーメン">
@@ -557,9 +557,9 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gls-UN-dx4">
-                                                <rect key="frame" x="32" y="416.33333333333331" width="329" height="35"/>
+                                                <rect key="frame" x="32" y="356.33333333333331" width="329" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-xy-3mU" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-xy-3mU">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="バー・カクテル">
@@ -571,7 +571,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="C90-nj-B9Y"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-5F-eBh" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-5F-eBh">
                                                         <rect key="frame" x="113" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="お好み焼き">
@@ -583,7 +583,7 @@
                                                             <action selector="genreButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="UXc-pC-TuA"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-iq-NEX" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-iq-NEX">
                                                         <rect key="frame" x="226" y="0.0" width="103" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="その他">
@@ -602,7 +602,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqW-Xk-s9o">
-                                                <rect key="frame" x="30" y="481.33333333333337" width="333" height="17"/>
+                                                <rect key="frame" x="30" y="421.33333333333331" width="333" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="5XV-Ob-s2s"/>
                                                 </constraints>
@@ -611,11 +611,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-0.5" maxValue="1.5" minimumValueImage="minus" catalog="system" maximumValueImage="plus" translatesAutoresizingMaskIntoConstraints="NO" id="xRf-6L-eOk">
-                                                <rect key="frame" x="28" y="537" width="337" height="31"/>
+                                                <rect key="frame" x="28" y="477" width="337" height="80"/>
                                                 <color key="tintColor" name="mainColor"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee2-FU-hec">
-                                                <rect key="frame" x="30" y="491.33333333333337" width="333" height="15.666666666666686"/>
+                                                <rect key="frame" x="30" y="431.33333333333337" width="333" height="15.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="b9K-tX-5Xx"/>
                                                 </constraints>
@@ -624,7 +624,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" text="Wi-Fi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oB-Df-lRT">
-                                                <rect key="frame" x="30" y="597" width="333" height="17"/>
+                                                <rect key="frame" x="30" y="586" width="333" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="yn0-s5-ULW"/>
                                                 </constraints>
@@ -633,9 +633,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="dFx-2F-Uwi">
-                                                <rect key="frame" x="50" y="629" width="293" height="30"/>
+                                                <rect key="frame" x="50" y="618" width="293" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-vl-6Jc" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-vl-6Jc">
                                                         <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="有り">
@@ -643,8 +643,11 @@
                                                             <color key="baseForegroundColor" name="mainColor"/>
                                                             <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="wifiButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="om0-S5-PhL"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-fM-ekn" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnz-fM-ekn">
                                                         <rect key="frame" x="111" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="無し">
@@ -652,8 +655,11 @@
                                                             <color key="baseForegroundColor" name="mainColor"/>
                                                             <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="wifiButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="xhM-ol-mSk"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-rO-FeN" customClass="CustomButton" customModule="Tabeyou" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujg-rO-FeN">
                                                         <rect key="frame" x="222" y="0.0" width="71" height="30"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="未確認">
@@ -661,6 +667,9 @@
                                                             <color key="baseForegroundColor" name="mainColor"/>
                                                             <color key="baseBackgroundColor" name="wh"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="wifiButtonTapped:" destination="TJJ-7e-OjS" eventType="touchUpInside" id="6zW-UX-Hhr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="tintColor" name="mainColor"/>
@@ -669,7 +678,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="searchResultButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t53-mO-62X">
-                                                <rect key="frame" x="101.66666666666669" y="689" width="190" height="35"/>
+                                                <rect key="frame" x="101.66666666666669" y="668" width="190" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Lcz-d2-TFJ"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="iGe-Yi-vHs"/>
@@ -694,7 +703,7 @@
                                             <constraint firstItem="2oB-Df-lRT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="30" id="69Z-qB-SXW"/>
                                             <constraint firstItem="OqW-Xk-s9o" firstAttribute="top" secondItem="gls-UN-dx4" secondAttribute="bottom" constant="30" id="6d7-P3-7ih"/>
                                             <constraint firstItem="2oB-Df-lRT" firstAttribute="top" secondItem="xRf-6L-eOk" secondAttribute="bottom" constant="30" id="88D-Vb-vPP"/>
-                                            <constraint firstAttribute="bottom" secondItem="t53-mO-62X" secondAttribute="bottom" constant="30" id="8KW-uO-IR4"/>
+                                            <constraint firstAttribute="bottom" secondItem="t53-mO-62X" secondAttribute="bottom" constant="20" id="8KW-uO-IR4"/>
                                             <constraint firstAttribute="trailing" secondItem="LUE-g6-9fp" secondAttribute="trailing" constant="32" id="8wP-ua-956"/>
                                             <constraint firstAttribute="trailing" secondItem="hdm-3h-GdT" secondAttribute="trailing" constant="32" id="9hX-gu-yJ6"/>
                                             <constraint firstAttribute="trailing" secondItem="ee2-FU-hec" secondAttribute="trailing" constant="30" id="BHs-zQ-hyG"/>
@@ -702,12 +711,12 @@
                                             <constraint firstItem="bnD-ap-cAo" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="32" id="Ce0-Mc-vzW"/>
                                             <constraint firstItem="xRf-6L-eOk" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="30" id="Cpm-64-biB"/>
                                             <constraint firstAttribute="trailing" secondItem="dFx-2F-Uwi" secondAttribute="trailing" constant="50" id="DMj-Qo-1H0"/>
-                                            <constraint firstItem="rhc-tF-wxH" firstAttribute="top" secondItem="ggh-ck-XLi" secondAttribute="top" constant="40" id="IhN-io-TX7"/>
+                                            <constraint firstItem="rhc-tF-wxH" firstAttribute="top" secondItem="ggh-ck-XLi" secondAttribute="top" constant="20" id="IhN-io-TX7"/>
                                             <constraint firstItem="hdm-3h-GdT" firstAttribute="top" secondItem="3XW-dZ-vyx" secondAttribute="bottom" constant="10" id="IzT-hK-8BL"/>
                                             <constraint firstItem="LUE-g6-9fp" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="32" id="JvD-1g-a2J"/>
                                             <constraint firstAttribute="trailing" secondItem="sIz-2e-brf" secondAttribute="trailing" constant="30" id="LXD-UW-AMK"/>
                                             <constraint firstItem="gls-UN-dx4" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="32" id="LfP-6o-zKH"/>
-                                            <constraint firstItem="t53-mO-62X" firstAttribute="top" secondItem="dFx-2F-Uwi" secondAttribute="bottom" constant="30" id="NLe-Qu-cxg"/>
+                                            <constraint firstItem="t53-mO-62X" firstAttribute="top" secondItem="dFx-2F-Uwi" secondAttribute="bottom" constant="20" id="NLe-Qu-cxg"/>
                                             <constraint firstAttribute="trailing" secondItem="gls-UN-dx4" secondAttribute="trailing" constant="32" id="P1M-4e-LRf"/>
                                             <constraint firstItem="gls-UN-dx4" firstAttribute="top" secondItem="hdm-3h-GdT" secondAttribute="bottom" constant="10" id="P2m-3k-1NY"/>
                                             <constraint firstAttribute="trailing" secondItem="bnD-ap-cAo" secondAttribute="trailing" constant="32" id="Pgg-CY-U7b"/>
@@ -718,10 +727,10 @@
                                             <constraint firstItem="dFx-2F-Uwi" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="50" id="XGq-2o-biJ"/>
                                             <constraint firstItem="3XW-dZ-vyx" firstAttribute="top" secondItem="LUE-g6-9fp" secondAttribute="bottom" constant="10" id="YJ0-YF-HAb"/>
                                             <constraint firstAttribute="trailing" secondItem="xRf-6L-eOk" secondAttribute="trailing" constant="30" id="ZfI-Vc-lVb"/>
-                                            <constraint firstItem="BJP-DW-FIh" firstAttribute="top" secondItem="rhc-tF-wxH" secondAttribute="bottom" constant="40" id="ank-uD-9hu"/>
+                                            <constraint firstItem="BJP-DW-FIh" firstAttribute="top" secondItem="rhc-tF-wxH" secondAttribute="bottom" constant="10" id="ank-uD-9hu"/>
                                             <constraint firstItem="hdm-3h-GdT" firstAttribute="leading" secondItem="ggh-ck-XLi" secondAttribute="leading" constant="32" id="c2H-SU-lBj"/>
                                             <constraint firstAttribute="trailing" secondItem="BJP-DW-FIh" secondAttribute="trailing" constant="20" id="cG9-Ki-U5v"/>
-                                            <constraint firstItem="GON-g7-9wI" firstAttribute="top" secondItem="BJP-DW-FIh" secondAttribute="bottom" constant="20" id="gru-2d-Fr1"/>
+                                            <constraint firstItem="GON-g7-9wI" firstAttribute="top" secondItem="BJP-DW-FIh" secondAttribute="bottom" constant="10" id="gru-2d-Fr1"/>
                                             <constraint firstItem="sIz-2e-brf" firstAttribute="top" secondItem="GON-g7-9wI" secondAttribute="bottom" constant="15" id="lIu-j4-E5I"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="723" id="lLj-gg-oYB"/>
                                             <constraint firstItem="xRf-6L-eOk" firstAttribute="top" secondItem="ee2-FU-hec" secondAttribute="bottom" constant="30" id="mly-sm-FzQ"/>
@@ -760,25 +769,28 @@
                     </view>
                     <navigationItem key="navigationItem" id="H8s-0J-Qeu"/>
                     <connections>
-                        <outlet property="bar" destination="7qn-xy-3mU" id="Wzz-Eq-Lnu"/>
-                        <outlet property="cafe" destination="7fk-yB-PA6" id="bCp-dV-Ib7"/>
-                        <outlet property="chinese" destination="Ivj-iI-utM" id="MP8-Vh-2cK"/>
+                        <outlet property="bar" destination="7qn-xy-3mU" id="Psf-Aq-shQ"/>
+                        <outlet property="cafe" destination="7fk-yB-PA6" id="8fo-um-mXq"/>
+                        <outlet property="chinese" destination="Ivj-iI-utM" id="5TT-GP-Ik2"/>
                         <outlet property="contentView" destination="ggh-ck-XLi" id="2sN-lv-K3T"/>
-                        <outlet property="creativeCuisine" destination="bhR-8J-7KR" id="Vbr-L1-OYl"/>
-                        <outlet property="dining" destination="v8Q-53-ags" id="Ptx-o2-l9W"/>
-                        <outlet property="grilledMeat" destination="vYA-fe-DXr" id="Oud-nO-tN7"/>
-                        <outlet property="italian" destination="3iO-aT-u3r" id="GAR-SF-RqK"/>
-                        <outlet property="izakaya" destination="R46-sl-yEB" id="1a5-ZC-cVU"/>
-                        <outlet property="japaneseFood" destination="5R1-RX-F00" id="RgD-3Z-Hyh"/>
-                        <outlet property="koreanFood" destination="uG5-2G-5F3" id="qOn-T9-EmT"/>
-                        <outlet property="okonomiyaki" destination="g6f-5F-eBh" id="Oxy-mx-roU"/>
-                        <outlet property="other" destination="KHR-iq-NEX" id="Wxj-B7-k4N"/>
-                        <outlet property="ramen" destination="PMs-TY-1Ms" id="EV2-Hs-iHr"/>
+                        <outlet property="creativeCuisine" destination="bhR-8J-7KR" id="00N-zq-JRm"/>
+                        <outlet property="dining" destination="v8Q-53-ags" id="cy7-AS-ts9"/>
+                        <outlet property="grilledMeat" destination="vYA-fe-DXr" id="fc9-oO-9Er"/>
+                        <outlet property="italian" destination="3iO-aT-u3r" id="em5-1q-hyS"/>
+                        <outlet property="izakaya" destination="R46-sl-yEB" id="sYt-By-57R"/>
+                        <outlet property="japaneseFood" destination="5R1-RX-F00" id="Bq0-Qg-73p"/>
+                        <outlet property="koreanFood" destination="uG5-2G-5F3" id="pgy-uV-f7u"/>
+                        <outlet property="okonomiyaki" destination="g6f-5F-eBh" id="Bg3-BD-wl6"/>
+                        <outlet property="other" destination="KHR-iq-NEX" id="Hv2-nn-aau"/>
+                        <outlet property="ramen" destination="PMs-TY-1Ms" id="nS2-QP-9qU"/>
                         <outlet property="scrollView" destination="fQZ-pd-F1j" id="HXg-RB-dc8"/>
                         <outlet property="searchBar" destination="BJP-DW-FIh" id="gba-bZ-MvR"/>
                         <outlet property="searchResultButton" destination="t53-mO-62X" id="Y81-ps-whr"/>
-                        <outlet property="westernFood" destination="R5f-TI-rek" id="tjw-LI-QBj"/>
-                        <outlet property="worldCuisine" destination="mX7-bK-GyG" id="Bby-C5-uHN"/>
+                        <outlet property="westernFood" destination="R5f-TI-rek" id="duM-Ke-ndC"/>
+                        <outlet property="wifiNo" destination="hnz-fM-ekn" id="5RQ-go-wDq"/>
+                        <outlet property="wifiUnidentified" destination="ujg-rO-FeN" id="2KS-kf-BDx"/>
+                        <outlet property="wifiYes" destination="xg5-vl-6Jc" id="fXs-vI-uMN"/>
+                        <outlet property="worldCuisine" destination="mX7-bK-GyG" id="v6P-w5-hvI"/>
                         <segue destination="eQG-iS-8sp" kind="show" identifier="goToDetailResults" id="k8L-03-koe"/>
                     </connections>
                 </viewController>
@@ -1172,26 +1184,17 @@
         <designable name="g6f-5F-eBh">
             <size key="intrinsicContentSize" width="81.333333333333329" height="29.666666666666668"/>
         </designable>
-        <designable name="hnz-fM-ekn">
-            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
-        </designable>
         <designable name="mX7-bK-GyG">
             <size key="intrinsicContentSize" width="70" height="29.666666666666668"/>
         </designable>
         <designable name="uG5-2G-5F3">
             <size key="intrinsicContentSize" width="70" height="29.666666666666668"/>
         </designable>
-        <designable name="ujg-rO-FeN">
-            <size key="intrinsicContentSize" width="58" height="29.666666666666668"/>
-        </designable>
         <designable name="v8Q-53-ags">
             <size key="intrinsicContentSize" width="80.333333333333329" height="29.666666666666668"/>
         </designable>
         <designable name="vYA-fe-DXr">
             <size key="intrinsicContentSize" width="48.333333333333336" height="29.666666666666668"/>
-        </designable>
-        <designable name="xg5-vl-6Jc">
-            <size key="intrinsicContentSize" width="46.666666666666664" height="29.666666666666668"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
