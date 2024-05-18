@@ -78,8 +78,8 @@ class NetworkService {
                 httpMethod: .get,
                 queryItems: [
                     URLQueryItem(name: "key", value: key),
-                    URLQueryItem(name: "lat", value: "35.663516524722596"),
-                    URLQueryItem(name: "lng", value: "139.7359178448177"),
+                    URLQueryItem(name: "lat", value: "34.705867155529965"),
+                    URLQueryItem(name: "lng", value: "135.49487806407137"),
                     URLQueryItem(name: "range", value: "\(range)"),
                     URLQueryItem(name: "page", value: "\(page)"),
                     URLQueryItem(name: "start", value: "\(start)"),
