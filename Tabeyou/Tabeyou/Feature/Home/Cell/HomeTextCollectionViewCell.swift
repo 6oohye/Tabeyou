@@ -2,7 +2,7 @@
 //  HomeTextCollectionViewCell.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/12/24.
+//  Created by ユクヘジン on 5/12/24.
 //
 
 import UIKit

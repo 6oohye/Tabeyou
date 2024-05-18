@@ -2,7 +2,7 @@
 //  ResultListViewController.swift
 //  Tabeyou
 //
-//  Created by 6혜진 on 5/13/24.
+//  Created by ユクヘジン on 5/13/24.
 //
 
 import UIKit
@@ -134,14 +134,14 @@ extension ResultListViewController: UIScrollViewDelegate {
 // MARK: - ResultSortbyTableViewCellDelegate
 extension ResultListViewController {
     func sortByPriceHighToLow() {
-        loadData(sortBy: .highToLowPrice) // 가격 높은 순으로 정렬하여 데이터 다시 로드
+        loadData(sortBy: .highToLowPrice) // 価格の高い順に並べ替えてデータを再ロード
     }
     
     func sortByPriceLowToHigh() {
-        loadData(sortBy: .lowToHighPrice) // 가격 낮은 순으로 정렬하여 데이터 다시 로드
+        loadData(sortBy: .lowToHighPrice) // 低価格の順に並べ替えてデータを再ロード
     }
     
     func sortByDefault() {
-        loadData(sortBy: .default) // 기본 정렬 방식으로 데이터 다시 로드
+        loadData(sortBy: .default) // 基本整列方式でデータを再ロード
     }
 }
