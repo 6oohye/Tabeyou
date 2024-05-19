@@ -5,6 +5,9 @@
 //  Created by ユクヘジン on 5/10/24.
 //
 
+
+//TODO: - 詳細条件検索カテゴリは、追加機能で現在実装中です。 ご了承ください.
+
 import UIKit
 
 class SearchViewController: UIViewController {

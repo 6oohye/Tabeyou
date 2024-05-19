@@ -5,6 +5,9 @@
 //  Created by ユクヘジン on 5/10/24.
 //
 
+
+//TODO: - ブックマーク保存カテゴリは、追加機能で現在実装中です。
+
 import UIKit
 
 class BookmarkViewController: UIViewController {
@@ -12,18 +15,8 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }
