@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -883,37 +884,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tMw-wO-Qwf">
-                                <rect key="frame" x="0.0" y="152" width="393" height="617"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BookmarkTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f8Q-cZ-nbL" customClass="BookmarkTableViewCell" customModule="Tabeyou" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f8Q-cZ-nbL" id="aO1-sr-4Sf">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-Xu-wYC">
+                                <rect key="frame" x="170.66666666666666" y="406" width="52" height="26.666666666666686"/>
+                                <color key="tintColor" name="gray3"/>
+                                <imageReference key="image" image="bookmark.fill" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お気に入りのレストランを追加してみてください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuP-EF-z9y">
+                                <rect key="frame" x="57" y="439.33333333333331" width="279" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="gray3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GxU-FW-RO1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GxU-FW-RO1" firstAttribute="trailing" secondItem="uWL-5H-ugD" secondAttribute="trailing" constant="286.32999999999998" id="0VD-at-VQ0"/>
-                            <constraint firstItem="tMw-wO-Qwf" firstAttribute="bottom" secondItem="GxU-FW-RO1" secondAttribute="bottom" id="MHA-4x-mej"/>
-                            <constraint firstItem="tMw-wO-Qwf" firstAttribute="centerX" secondItem="TY5-LN-jYd" secondAttribute="centerX" id="PGs-je-aAH"/>
-                            <constraint firstItem="tMw-wO-Qwf" firstAttribute="leading" secondItem="GxU-FW-RO1" secondAttribute="leading" id="RUp-Uj-hBU"/>
+                            <constraint firstItem="MuP-EF-z9y" firstAttribute="centerX" secondItem="6ND-Xu-wYC" secondAttribute="centerX" id="LUC-ZS-5es"/>
                             <constraint firstItem="uWL-5H-ugD" firstAttribute="top" secondItem="GxU-FW-RO1" secondAttribute="top" constant="50" id="TDH-wN-NJt"/>
+                            <constraint firstItem="6ND-Xu-wYC" firstAttribute="leading" secondItem="GxU-FW-RO1" secondAttribute="leading" constant="170.5" id="WIC-or-rOu"/>
+                            <constraint firstItem="MuP-EF-z9y" firstAttribute="top" secondItem="6ND-Xu-wYC" secondAttribute="bottom" constant="10" id="ZjB-Qq-gJP"/>
+                            <constraint firstItem="6ND-Xu-wYC" firstAttribute="top" secondItem="uWL-5H-ugD" secondAttribute="top" constant="300" id="nxr-fR-VgI"/>
+                            <constraint firstItem="GxU-FW-RO1" firstAttribute="trailing" secondItem="6ND-Xu-wYC" secondAttribute="trailing" constant="170.5" id="qmm-MX-BaD"/>
                             <constraint firstItem="uWL-5H-ugD" firstAttribute="leading" secondItem="GxU-FW-RO1" secondAttribute="leading" constant="20" id="tBv-KN-bNh"/>
-                            <constraint firstItem="tMw-wO-Qwf" firstAttribute="top" secondItem="uWL-5H-ugD" secondAttribute="bottom" constant="19" id="w2N-DY-MPx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="bookmarkIcon" id="5ER-yk-L8L"/>
-                    <connections>
-                        <outlet property="tableView" destination="tMw-wO-Qwf" id="140-Xr-NbQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUq-xW-1jH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1232,6 +1227,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SearchLogoTitle" width="147" height="40"/>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="bookmarkIcon" width="24" height="30"/>
         <image name="button1km" width="70" height="30"/>
         <image name="button300m" width="70" height="30"/>

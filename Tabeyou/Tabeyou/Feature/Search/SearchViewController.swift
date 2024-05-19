@@ -64,13 +64,13 @@ class SearchViewController: UIViewController {
         }
         
         if selectedValues.contains(selectedValue) {
-            // 이미 선택된 값이면 제거
+            // 選択済みの値なら削除します
             if let index = selectedValues.firstIndex(of: selectedValue) {
                 selectedValues.remove(at: index)
                 sender.backgroundColor = UIColor(named: "wh")
             }
         } else {
-            // 선택되지 않은 값이면 추가
+            // 選択されていない値であれば追加します
             selectedValues.append(selectedValue)
             sender.backgroundColor = UIColor(named: "lightRed2")
         }

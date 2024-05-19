@@ -32,7 +32,6 @@ class ResultDetailViewController: UIViewController {
     var isMainColor = false
     var restaurantId: String?
     var viewModel = ResultDetailViewModel()
-    var bookmarks: [BookmarkItem] = [] // bookmarks 배열 추가
     
     // MARK: - Override methods
     override func viewDidLoad() {
@@ -192,59 +191,16 @@ extension ResultDetailViewController {
             navigationController?.popToViewController(homeViewController, animated: true)
         }
     }
+    
+    //MARK: - bookmark Button アクション
+    @IBAction func bookmarkButtonTapped(_ sender: UIBarButtonItem) {
+        isMainColor.toggle()
+        
+        if isMainColor {
+            sender.tintColor = UIColor(named: "mainColor")
+        } else {
+            sender.tintColor = .icongray
+        }
+    }
 }
 
-// MARK: - Extension : NavigationBarアクション
-extension ResultDetailViewController {
-    // 북마크 버튼을 눌렀을 때 호출되는 메서드
-    @IBAction func bookmarkButtonTapped(_ sender: UIBarButtonItem) {
-        // 북마크 상태 변경
-        isMainColor.toggle()
-               
-               if isMainColor {
-                   // 북마크 추가 로직
-                   if let restaurantId = self.restaurantId {
-                       let bookmark = BookmarkItem(restaurantId: restaurantId)
-                       BookmarkManager.shared.addBookmark(bookmark)
-                       print("북마크가 추가되었습니다.")
-                       // 북마크를 추가한 후에 bookmarks 배열을 업데이트
-                       bookmarks.append(bookmark)
-                   }
-               } else {
-                   // 북마크 제거 로직
-                   if let restaurantId = self.restaurantId {
-                       let bookmark = BookmarkItem(restaurantId: restaurantId)
-                       BookmarkManager.shared.removeBookmark(bookmark)
-                       print("북마크가 제거되었습니다.")
-                       // 북마크를 제거한 후에 bookmarks 배열을 업데이트
-                       bookmarks.removeAll { $0.restaurantId == restaurantId }
-                   }
-               }
-               
-               // 북마크 버튼 색상 업데이트
-               updateBookmarkButtonColor(sender)
-               updateBookmarkList()
-           }
-           
-           // 북마크 버튼 색상 업데이트 메서드
-           func updateBookmarkButtonColor(_ sender: UIBarButtonItem) {
-               if isMainColor {
-                   sender.tintColor = UIColor(named: "mainColor")
-               } else {
-                   sender.tintColor = .icongray
-               }
-           }
-           
-           // 북마크 목록을 업데이트하는 메서드
-           func updateBookmarkList() {
-               print("updateBookmarkList 메서드가 호출되었습니다.")
-               
-               // 현재 화면에 표시된 BookmarkViewController 인스턴스에 접근하여 업데이트 메서드 호출
-               if let bookmarkViewController = navigationController?.viewControllers.first(where: { $0 is BookmarkViewController }) as? BookmarkViewController {
-                   // 업데이트된 북마크 목록을 전달하여 업데이트
-                   bookmarkViewController.bookmarks = BookmarkManager.shared.getBookmarks()
-                   bookmarkViewController.tableView.reloadData()
-               }
-               print("업데이트 이후 bookmarks 배열: \(bookmarks)")
-           }
-       }
