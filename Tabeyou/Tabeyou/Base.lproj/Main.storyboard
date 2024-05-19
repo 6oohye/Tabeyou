@@ -679,7 +679,7 @@
                                                     <constraint firstAttribute="width" constant="333" id="n9s-le-X59"/>
                                                 </constraints>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee2-FU-hec">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="0円 ~ 3000円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee2-FU-hec">
                                                 <rect key="frame" x="30" y="441.33333333333337" width="333" height="15.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15.67" id="F2A-hX-tqo"/>
