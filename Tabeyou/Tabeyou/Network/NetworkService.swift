@@ -74,6 +74,7 @@ class NetworkService {
                 httpMethod: .get,
                 queryItems: [
                     URLQueryItem(name: "key", value: key),
+                    //レストランのリストを確認するために、日本、大阪に緯度経度を適用しています。
                     URLQueryItem(name: "lat", value: "34.705867155529965"),
                     URLQueryItem(name: "lng", value: "135.49487806407137"),
                     URLQueryItem(name: "range", value: "\(range)"),
