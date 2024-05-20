@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import MapKit
 
 class ResultDetailViewController: UIViewController {
@@ -95,29 +96,8 @@ class ResultDetailViewController: UIViewController {
         guard let restaurant = viewModel.resultDetailViewModel.first else {
             return
         }
-        // URLから画像を非同期でロードします。
-        // URL로부터 이미지를 비동기적으로 로드합니다.
-        guard let imageUrl = URL(string: restaurant.imageUrl) else {
-            print("Invalid image URL")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: imageUrl) { [weak self] (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Failed to load image:", error?.localizedDescription ?? "Unknown error")
-                return
-            }
-            
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.detailViewImage.image = image
-                }
-            } else {
-                print("Failed to convert data to image")
-            }
-        }
-        task.resume()
-        
+        // 레이블에 데이터 표시
+        detailViewImage.kf.setImage(with: URL(string: restaurant.imageUrl))
         detailKanaName.text = restaurant.kana_name
         detailName.text = restaurant.title
         detailAccess.text = restaurant.accsee
@@ -125,7 +105,6 @@ class ResultDetailViewController: UIViewController {
         detailOpen.text = restaurant.open
         detailClose.text = restaurant.close
         detailAddress.text = restaurant.address
-        
         // 住所を座標に変換して地図に表示
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(restaurant.address) { [weak self] (placemarks, error) in
