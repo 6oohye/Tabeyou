@@ -74,6 +74,7 @@ class NetworkService {
                 httpMethod: .get,
                 queryItems: [
                     URLQueryItem(name: "key", value: key),
+                    //リストの確認のため、日本、大阪の緯度経度を入れておきました。
                     URLQueryItem(name: "lat", value: "34.705867155529965"),
                     URLQueryItem(name: "lng", value: "135.49487806407137"),
                     URLQueryItem(name: "range", value: "\(range)"),
