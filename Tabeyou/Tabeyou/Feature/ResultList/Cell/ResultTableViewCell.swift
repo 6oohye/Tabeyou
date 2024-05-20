@@ -32,13 +32,12 @@ class ResultTableViewCell: UITableViewCell {
     
     func setViewModel(_ viewModel : ResultTableViewCellViewModel){
         if let url = URL(string: viewModel.imageUrl) {
-            DispatchQueue.global().async { [weak self] in
-                guard let self = self else { return }
-                if let url = URL(string: viewModel.imageUrl),
-                   let data = try? Data(contentsOf: url),
-                   let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.restaurantImageView.image = image
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.restaurantImageView.image = image
+                        }
                     }
                 }
             }
