@@ -1,0 +1,101 @@
+# User-specific files
+.DS_Store
+.idea/
+*.swp
+*.xcuserstate
+*.xcworkspace
+
+# Build generated
+build/
+DerivedData/
+*.log
+
+# Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+!default.mode1v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Xcode
+xcuserdata/
+*.moved-aside
+*.hmap
+*.xccheckout
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# SPM
+.swiftpm/xcode
+.build/
+Package.resolved
+
+# Swift Package Manager
+# Add this line if you use a Swift Package Manager dependency that references one of your own modules
+Packages/
+# Add this line if you have a Swift Package Manager package dependency that you don't want to include in the repository
+.swiftpm/
+
+# Xcode automatically generated file
+*.xcscmblueprint
+
+# Realm
+*.realm
+*.realm.lock
+
+# Custom frameworks
+Carthage/Build/
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# IDE Specific
+.vscode/
+
+# App-specific files
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Certificates
+*.p12
+*.cer
+*.mobileprovision
+*.appex
+
+# Static code analysis
+.xcresult/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Xcode Patch
+*.xcuserdatad
+*.xcscmblueprint
+*.xcscmpatch
+
+# SwiftLint
+.swiftlint.yml
+.swiftformat
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# Code Injection
+iOSInjectionProject/
+
+# End of integration
