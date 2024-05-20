@@ -44,25 +44,34 @@ class NetworkService {
         let (data, urlResponse) = try await URLSession.shared.data(for: urlRequest)
         
         // HTTP URL Response
-        guard let httpResponse = urlResponse as? HTTPURLResponse else {
-            throw NetworkError.responseIsNotExpected
-        }
-        
-        switch httpResponse.statusCode {
-        case 200..<300:
-            // Decoding
-            do {
-                let output = try JSONDecoder().decode(Response.self, from: data)
-                return output
-            } catch {
-                throw NetworkError.unknownError
-            }
-        case 400..<500:
-            throw NetworkError.requestIsInvalid(statusCode: httpResponse.statusCode)
-        case 500..<600:
-            throw NetworkError.serverIsNotResponding(statusCode: httpResponse.statusCode)
-        default:
-            throw NetworkError.responseIsUnsuccessful(statusCode: httpResponse.statusCode)
+        return try await withCheckedThrowingContinuation { continuation in
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                
+                guard let data = data, let httpResponse = response as? HTTPURLResponse else {
+                    continuation.resume(throwing: NetworkError.responseIsNotExpected)
+                    return
+                }
+                
+                switch httpResponse.statusCode {
+                case 200..<300:
+                    do {
+                        let output = try JSONDecoder().decode(Response.self, from: data)
+                        continuation.resume(returning: output)
+                    } catch {
+                        continuation.resume(throwing: NetworkError.unknownError)
+                    }
+                case 400..<500:
+                    continuation.resume(throwing: NetworkError.requestIsInvalid(statusCode: httpResponse.statusCode))
+                case 500..<600:
+                    continuation.resume(throwing: NetworkError.serverIsNotResponding(statusCode: httpResponse.statusCode))
+                default:
+                    continuation.resume(throwing: NetworkError.responseIsUnsuccessful(statusCode: httpResponse.statusCode))
+                }
+            }.resume()
         }
     }
     
