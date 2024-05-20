@@ -80,7 +80,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             print("位置アップデート!")
             print("緯度 : \(location.coordinate.latitude)")
             print("経度 : \(location.coordinate.longitude)")
+            if isLocationInJapan(location) {
+                print("현재 위치는 일본입니다.")
+                // 여기서 레스토랑 API를 호출하거나 다른 작업을 수행할 수 있습니다.
+            } else {
+                print("현재 위치는 일본이 아닙니다. 레스토랑 정보를 가져올 수 없습니다.")
+                // 현재 위치가 일본이 아닌 경우에 대한 처리를 수행할 수 있습니다.
+            }
         }
+    }
+    
+    // 위치가 일본인지 확인하는 함수
+    func isLocationInJapan(_ location: CLLocation) -> Bool {
+        // 일본의 경도와 위도 범위
+        let japanLatitudeRange = 20.0...45.0
+        let japanLongitudeRange = 122.0...153.0
+        
+        // 현재 위치의 경도와 위도가 일본의 범위에 속하는지 확인
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        return japanLatitudeRange.contains(latitude) && japanLongitudeRange.contains(longitude)
     }
     
     // 位置情報の取得に失敗
