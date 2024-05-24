@@ -80,9 +80,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             print("位置アップデート!")
             print("緯度 : \(location.coordinate.latitude)")
             print("経度 : \(location.coordinate.longitude)")
+            // ViewModelに位置情報をアップデートします
+            viewModel.updateLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            // レストラン データのインポートです
+            loadData()
         }
     }
-
+    
     // 位置情報の取得に失敗
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("位置情報の取得に失敗: \(error.localizedDescription)")

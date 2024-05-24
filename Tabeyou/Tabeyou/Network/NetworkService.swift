@@ -67,21 +67,24 @@ class NetworkService {
     }
     
     //MARK: - グルメサーチAPIを活用してレストランリストを取得する
-    func getRestaurantData(range: Int, start: Int, page: Int) async throws -> Restaurant.Results {
+    func getRestaurantData(range: Int, start: Int, page: Int, lat: Double, lng: Double) async throws -> Restaurant.Results {
         do {
+            let queryItems = [
+                URLQueryItem(name: "key", value: key),
+                URLQueryItem(name: "range", value: "\(range)"),
+                URLQueryItem(name: "page", value: "\(page)"),
+                URLQueryItem(name: "start", value: "\(start)"),
+                //リストの確認のため、日本、大阪の緯度経度を入れておきました。
+                URLQueryItem(name: "lat", value: "34.705867155529965"),
+                URLQueryItem(name: "lng", value: "135.49487806407137"),
+                URLQueryItem(name: "format", value: "json")
+            ]
+            print("위도: \(lat), 경도: \(lng)")
+            
             let data: Restaurant = try await fetch(
                 path: "gourmet/v1/",
                 httpMethod: .get,
-                queryItems: [
-                    URLQueryItem(name: "key", value: key),
-                    //リストの確認のため、日本、大阪の緯度経度を入れておきました。
-                    URLQueryItem(name: "lat", value: "34.705867155529965"),
-                    URLQueryItem(name: "lng", value: "135.49487806407137"),
-                    URLQueryItem(name: "range", value: "\(range)"),
-                    URLQueryItem(name: "page", value: "\(page)"),
-                    URLQueryItem(name: "start", value: "\(start)"),
-                    URLQueryItem(name: "format", value: "json")
-                ]
+                queryItems: queryItems
             )
             return data.results
         } catch {

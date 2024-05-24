@@ -21,11 +21,19 @@ class ResultListViewController: UIViewController, ResultSortbyTableViewCellDeleg
     
     var selectedValues: [String] = []
     
+    var latitude: Double?
+    var longitude: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBarCustom()
         setupTableView()
+        
+        if let lat = latitude, let lng = longitude {
+            viewModel.updateLocation(latitude: lat, longitude: lng)
+        }
+        
         loadData(sortBy: currentSortOption)
     }
     

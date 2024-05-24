@@ -25,6 +25,8 @@ class ResultListViewModel {
     var currentPage: Int = 0 // 現在のページを追跡する変数
     var isLoading: Bool = false // データをロード中かどうかを追跡する変数
     var resultsAvailable: Int = 0 // 全結果数を保存する変数
+    var lat : Double = 0.0 // 緯度
+    var lng : Double = 0.0 // 経度
     
     // ソートオプションを表す列挙型
     enum SortOption {
@@ -32,6 +34,12 @@ class ResultListViewModel {
         case highToLowPrice
         case `default`
     }
+    
+    // 位置アップデートメソッド追加
+       func updateLocation(latitude: Double, longitude: Double) {
+           self.lat = latitude
+           self.lng = longitude
+       }
     
     // データを取得するメソッド
     func fetchData(sortBy option: SortOption, completion: @escaping () -> Void) {
@@ -41,7 +49,7 @@ class ResultListViewModel {
         // 非同期タスクでデータを取得
         Task {
             do {
-                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage)
+                let response: Restaurant.Results = try await networkService.getRestaurantData(range: range, start: start, page: currentPage, lat: lat, lng: lng)
                 
                 // 全体の結果数を確認する
                 resultsAvailable = response.results_available
