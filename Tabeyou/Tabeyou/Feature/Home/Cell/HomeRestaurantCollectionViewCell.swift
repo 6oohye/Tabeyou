@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct HomeRestaurantCollectionViewCellViewModel: Hashable{
     let id : String
@@ -26,26 +27,7 @@ final class HomeRestaurantCollectionViewCell: UICollectionViewCell {
     
     
     func setViewModel(_ viewModel : HomeRestaurantCollectionViewCellViewModel){
-        guard let url = URL(string: viewModel.imageUrl) else {
-            print("Invalid image URL")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Failed to load image:", error?.localizedDescription ?? "Unknown error")
-                return
-            }
-            
-            if let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.RestaurantItemImageView.image = image
-                }
-            } else {
-                print("Failed to convert data to image")
-            }
-        }
-        task.resume()
+        RestaurantItemImageView.kf.setImage(with: URL(string: viewModel.imageUrl))
         RestaurantTitleLabel.text = viewModel.title
         StationLabel.text = viewModel.station
         RestaurantTimeLabel.text = viewModel.intro

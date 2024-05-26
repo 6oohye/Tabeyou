@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct ResultTableViewCellViewModel: Hashable{
     let id : String
@@ -31,17 +32,7 @@ class ResultTableViewCell: UITableViewCell {
     
     
     func setViewModel(_ viewModel : ResultTableViewCellViewModel){
-        if let url = URL(string: viewModel.imageUrl) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self.restaurantImageView.image = image
-                        }
-                    }
-                }
-            }
-        }
+        restaurantImageView.kf.setImage(with: URL(string: viewModel.imageUrl))
         restaurantNameLabel.text = viewModel.title
         stationLabel.text = viewModel.station
         priceLabel.text = viewModel.price
