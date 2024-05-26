@@ -82,7 +82,6 @@ class NetworkService {
                 URLQueryItem(name: "lng", value: "135.49487806407137"),
                 URLQueryItem(name: "format", value: "json")
             ]
-            print("lat: \(lat), lng: \(lng)")
             
             let data: Restaurant = try await fetch(
                 path: "gourmet/v1/",
