@@ -8,7 +8,7 @@
 import Foundation
 
 class  ResultDetailViewModel{
-    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    private let networkService = NetworkService.shared
     
     struct ResultDetailViewModel: Hashable{
         let id : String

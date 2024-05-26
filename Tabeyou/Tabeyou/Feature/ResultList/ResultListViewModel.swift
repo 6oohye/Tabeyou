@@ -19,7 +19,7 @@ class ResultListViewModel {
     // 表示用のレストランデータを保持する配列
     var restaurants: [ResultTableViewCellViewModel] = []
     // ネットワークサービスのインスタンス
-    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    private let networkService = NetworkService.shared
     var range: Int = 0 // データ取得の範囲
     var start : Int = 1 //データ取得の開始位置
     var currentPage: Int = 0 // 現在のページを追跡する変数

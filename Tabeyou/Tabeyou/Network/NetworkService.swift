@@ -8,12 +8,15 @@
 import Foundation
 
 class NetworkService {
-    static let shared: NetworkService = NetworkService(key: "")
+    static let shared = NetworkService()
     private let hostURL = "https://webservice.recruit.co.jp/hotpepper"
-    let key: String
-    
-    init(key: String) {
-        self.key = key
+    private let apiKey: String
+        
+    private init() {
+        guard let key = ProcessInfo.processInfo.environment["API_KEY"] else {
+            fatalError("API Key is not set in environment variables")
+        }
+        self.apiKey = key
     }
     
     func fetch<Response: Decodable>(
@@ -27,7 +30,7 @@ class NetworkService {
         }
         
         // Query Items
-        var finalQueryItems = [URLQueryItem(name: "key", value: key)]
+        var finalQueryItems = [URLQueryItem(name: "key", value: apiKey)]
         if let queryItems = queryItems {
             finalQueryItems.append(contentsOf: queryItems)
         }
@@ -70,7 +73,7 @@ class NetworkService {
     func getRestaurantData(range: Int, start: Int, page: Int, lat: Double, lng: Double) async throws -> Restaurant.Results {
         do {
             let queryItems = [
-                URLQueryItem(name: "key", value: key),
+                URLQueryItem(name: "key", value: apiKey),
                 URLQueryItem(name: "range", value: "\(range)"),
                 URLQueryItem(name: "page", value: "\(page)"),
                 URLQueryItem(name: "start", value: "\(start)"),
@@ -79,7 +82,7 @@ class NetworkService {
                 URLQueryItem(name: "lng", value: "135.49487806407137"),
                 URLQueryItem(name: "format", value: "json")
             ]
-            print("위도: \(lat), 경도: \(lng)")
+            print("lat: \(lat), lng: \(lng)")
             
             let data: Restaurant = try await fetch(
                 path: "gourmet/v1/",
@@ -99,7 +102,7 @@ class NetworkService {
                 path: "gourmet/v1/",
                 httpMethod: .get,
                 queryItems: [
-                    URLQueryItem(name: "key", value: key),
+                    URLQueryItem(name: "key", value: apiKey),
                     URLQueryItem(name: "id", value: restaurantID),
                     URLQueryItem(name: "format", value: "json")
                 ]

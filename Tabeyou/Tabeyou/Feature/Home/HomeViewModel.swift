@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel {
-    private let networkService = NetworkService(key: "863a73a43b3ef2b6")
+    private let networkService = NetworkService.shared
     
     //外部から修正されないように制限
     private(set) var restaurantViewModels: [HomeRestaurantCollectionViewCellViewModel] = []
