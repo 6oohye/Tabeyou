@@ -11,7 +11,7 @@ struct HomeButtonCollectionViewCellViewModel : Hashable{
     let buttonImage : UIButton.ButtonType
 }
 
-class HomeButtonCollectionViewCell: UICollectionViewCell {
+final class HomeButtonCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var button300m: UIButton!
     @IBOutlet weak var button500m: UIButton!
     @IBOutlet weak var button1km: UIButton!

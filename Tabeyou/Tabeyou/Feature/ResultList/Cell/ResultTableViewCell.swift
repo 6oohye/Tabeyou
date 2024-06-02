@@ -17,7 +17,7 @@ struct ResultTableViewCellViewModel: Hashable{
     let access : String
 }
 
-class ResultTableViewCell: UITableViewCell {
+final class ResultTableViewCell: UITableViewCell {
     
     static let identifire: String = "ResultTableViewCell"
     static let height : CGFloat = 100

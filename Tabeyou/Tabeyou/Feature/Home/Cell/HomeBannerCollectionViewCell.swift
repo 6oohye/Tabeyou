@@ -11,7 +11,7 @@ struct HomeBannerCollectionViewCellViewModel :Hashable{
     let bannerImage : UIImage
 }
 
-class HomeBannerCollectionViewCell: UICollectionViewCell {
+final class HomeBannerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     

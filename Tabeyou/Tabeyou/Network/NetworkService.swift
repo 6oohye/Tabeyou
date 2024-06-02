@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+final class NetworkService {
     static let shared = NetworkService()
     private let hostURL = "https://webservice.recruit.co.jp/hotpepper"
     private let apiKey: String

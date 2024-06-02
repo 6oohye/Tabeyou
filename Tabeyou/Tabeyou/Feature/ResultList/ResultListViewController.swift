@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultListViewController: UIViewController, ResultSortbyTableViewCellDelegate {
+final class ResultListViewController: UIViewController, ResultSortbyTableViewCellDelegate {
     
     enum ResultSection: Int, CaseIterable{
         case sortBy

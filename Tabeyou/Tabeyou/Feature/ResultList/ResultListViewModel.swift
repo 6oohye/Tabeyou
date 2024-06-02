@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ResultListViewModel {
+final class ResultListViewModel {
     
     // セクションを表す列挙型
     enum ResultSection: Int, CaseIterable {

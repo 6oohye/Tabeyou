@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+final class HomeViewController: UIViewController, CLLocationManagerDelegate {
     enum Section: Int{
         case banner
         case button

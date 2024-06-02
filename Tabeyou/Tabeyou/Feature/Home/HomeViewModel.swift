@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+final class HomeViewModel {
     private let networkService = NetworkService.shared
     
     //外部から修正されないように制限

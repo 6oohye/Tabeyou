@@ -11,7 +11,7 @@ struct HomeTextCollectionViewCellViewModel: Hashable{
     var headerText : String
 }
 
-class HomeTextCollectionViewCell: UICollectionViewCell {
+final class HomeTextCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var headerTextLabel: UILabel!
     
     

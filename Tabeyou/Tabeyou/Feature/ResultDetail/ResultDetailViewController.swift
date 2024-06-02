@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import Kingfisher
 
-class ResultDetailViewController: UIViewController {
+final class ResultDetailViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!

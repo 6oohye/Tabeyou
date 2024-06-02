@@ -7,7 +7,7 @@
 
 import Foundation
 
-class  ResultDetailViewModel{
+final class  ResultDetailViewModel{
     private let networkService = NetworkService.shared
     
     struct ResultDetailViewModel: Hashable{

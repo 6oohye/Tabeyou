@@ -13,7 +13,7 @@ protocol ResultSortbyTableViewCellDelegate: AnyObject {
     func sortByDefault()
 }
 
-class ResultSortbyTableViewCell: UITableViewCell {
+final class ResultSortbyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var defaultSortButton: UIButton!
     @IBOutlet weak var lowToHighPriceSortButton: UIButton!
