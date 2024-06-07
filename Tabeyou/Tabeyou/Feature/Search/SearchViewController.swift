@@ -10,7 +10,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
     
     //ResultListViewControllerに移動するボタン
     @IBOutlet weak var searchResultButton: UIButton!
-  
+    
     
     // 選択された値を保存する変数
     var selectedValues: [String] = []
@@ -48,17 +48,35 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
+        
         //スクロールビュー設定
         scrollView.contentSize = contentView.frame.size
         scrollView.alwaysBounceVertical = true
         let bottomInset = max(view.bounds.height - contentView.frame.maxY, 0)
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
         
         //SearchBar UI
         self.searchBar.layer.cornerRadius = 5
         self.searchBar.searchBarStyle = .minimal
+        
+        // keyboard close
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        scrollView.addGestureRecognizer(tapGesture)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // UISearchBarDelegate method
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     
     // Genre、Wi-Fiボタンを処理するメソッド
     @IBAction func buttonTapped(_ sender: UIButton) {
